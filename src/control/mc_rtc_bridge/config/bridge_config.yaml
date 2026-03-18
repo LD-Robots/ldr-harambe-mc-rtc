@@ -1,0 +1,19 @@
+mc_rtc_bridge:
+  ros__parameters:
+    control_rate: 200.0           # Hz (mc_rtc loop rate)
+    joint_state_topic: /joint_states
+    command_topic: /whole_body_controller/commands
+    # Joints that mc_rtc does not control — hold last known position
+    passthrough_joints:
+      - left_thumb_proximal_yaw_joint
+      - left_thumb_proximal_pitch_joint
+      - left_index_proximal_joint
+      - left_middle_proximal_joint
+      - left_ring_proximal_joint
+      - left_pinky_proximal_joint
+      - right_thumb_proximal_yaw_joint
+      - right_thumb_proximal_pitch_joint
+      - right_index_proximal_joint
+      - right_middle_proximal_joint
+      - right_ring_proximal_joint
+      - right_pinky_proximal_joint

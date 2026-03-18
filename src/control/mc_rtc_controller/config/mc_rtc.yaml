@@ -1,0 +1,25 @@
+# Configuration for Harambe with CoM + Posture controller
+MainRobot: [json, "/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/control/mc_rtc_controller/config/harambe.json"]
+Enabled: [HarambeCoMPosture, BaselineWalkingController]
+IncludeHalfSitController: false
+ControllerModulePaths: ["/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/build/mc_rtc_controller/lib/mc_controller"]
+
+ObserverPipelines:
+- name: MainPipeline
+  observers:
+    - type: Encoder
+      update: true
+      log: true
+      position: encoderValues
+      velocity: encoderFiniteDifferences
+
+# Logging
+Log:
+  Policy: threaded
+  Directory: /tmp
+
+# GUI Server
+GUIServer:
+  IPC: /tmp/mc_rtc_gui
+  PUB: tcp://*:4252
+  REP: tcp://*:4353

@@ -1,0 +1,11 @@
+visualize:
+  collisions: true
+  visuals: true
+  contact-points: false
+  contact-forces: false
+
+camera:
+  distance: 3.0
+  azimuth: 180
+  elevation: -20
+  lookat: [0.0, 0.0, 0.75]

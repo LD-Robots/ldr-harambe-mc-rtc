@@ -1,0 +1,159 @@
+{
+  "name": "Harambe",
+  "path": "/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/control/mc_rtc_controller/urdf",
+  "urdf_path": "harambe_mc_rtc.urdf",
+
+  "stance": {
+    "left_shoulder_pitch_joint_X6": [0.0],
+    "left_shoulder_roll_joint_X6": [0.0],
+    "left_shoulder_yaw_joint_X4": [0.0],
+    "left_elbow_pitch_joint_X6": [0.0],
+    "left_wrist_yaw_joint_X4": [0.0],
+    "left_wrist_roll_joint_X4": [0.0],
+
+    "right_shoulder_pitch_joint_X6": [0.0],
+    "right_shoulder_roll_joint_X6": [0.0],
+    "right_shoulder_yaw_joint_X4": [0.0],
+    "right_elbow_pitch_joint_X6": [0.0],
+    "right_wrist_yaw_joint_X4": [0.0],
+    "right_wrist_roll_joint_X4": [0.0],
+
+    "waist_yaw_joint_X8": [0.0],
+
+    "left_hip_pitch_joint_X8": [-0.15],
+    "left_hip_roll_joint_X8": [0.0],
+    "left_hip_yaw_joint_X8": [0.0],
+    "left_knee_joint_X8": [0.3],
+    "left_ankle_pitch_joint_X4": [-0.15],
+    "left_ankle_roll_joint_X4": [0.0],
+
+    "right_hip_pitch_joint_X8": [-0.15],
+    "right_hip_roll_joint_X8": [0.0],
+    "right_hip_yaw_joint_X8": [0.0],
+    "right_knee_joint_X8": [0.3],
+    "right_ankle_pitch_joint_X4": [-0.15],
+    "right_ankle_roll_joint_X4": [0.0]
+  },
+
+  "default_attitude": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.25],
+
+  "init_pos": {
+    "left_shoulder_pitch_joint_X6": 0.0,
+    "left_shoulder_roll_joint_X6": 0.0,
+    "left_shoulder_yaw_joint_X4": 0.0,
+    "left_elbow_pitch_joint_X6": 0.0,
+    "left_wrist_yaw_joint_X4": 0.0,
+    "left_wrist_roll_joint_X4": 0.0,
+
+    "right_shoulder_pitch_joint_X6": 0.0,
+    "right_shoulder_roll_joint_X6": 0.0,
+    "right_shoulder_yaw_joint_X4": 0.0,
+    "right_elbow_pitch_joint_X6": 0.0,
+    "right_wrist_yaw_joint_X4": 0.0,
+    "right_wrist_roll_joint_X4": 0.0,
+
+    "waist_yaw_joint_X8": 0.0,
+
+    "left_hip_pitch_joint_X8": -0.15,
+    "left_hip_roll_joint_X8": 0.0,
+    "left_hip_yaw_joint_X8": 0.0,
+    "left_knee_joint_X8": 0.3,
+    "left_ankle_pitch_joint_X4": -0.15,
+    "left_ankle_roll_joint_X4": 0.0,
+
+    "right_hip_pitch_joint_X8": -0.15,
+    "right_hip_roll_joint_X8": 0.0,
+    "right_hip_yaw_joint_X8": 0.0,
+    "right_knee_joint_X8": 0.3,
+    "right_ankle_pitch_joint_X4": -0.15,
+    "right_ankle_roll_joint_X4": 0.0
+  },
+
+  "convexHull": {},
+
+  "collisionTransforms": [
+    {
+      "body1": "Harambe::urdf_foot_assembly",
+      "body2": "ground::ground",
+      "X_b1_c": { "translation": [0.043, 0.0, -0.033], "rotation": [1.0, 0.0, 0.0, 0.0] },
+      "X_b2_c": { "translation": [0, 0, 0], "rotation": [1.0, 0.0, 0.0, 0.0] }
+    },
+    {
+      "body1": "Harambe::urdf_foot_assembly_2",
+      "body2": "ground::ground",
+      "X_b1_c": { "translation": [0.043, 0.0, -0.033], "rotation": [1.0, 0.0, 0.0, 0.0] },
+      "X_b2_c": { "translation": [0, 0, 0], "rotation": [1.0, 0.0, 0.0, 0.0] }
+    }
+  ],
+
+  "ref_joint_order": [
+    "left_shoulder_pitch_joint_X6",
+    "left_shoulder_roll_joint_X6",
+    "left_shoulder_yaw_joint_X4",
+    "left_elbow_pitch_joint_X6",
+    "left_wrist_yaw_joint_X4",
+    "left_wrist_roll_joint_X4",
+
+    "right_shoulder_pitch_joint_X6",
+    "right_shoulder_roll_joint_X6",
+    "right_shoulder_yaw_joint_X4",
+    "right_elbow_pitch_joint_X6",
+    "right_wrist_yaw_joint_X4",
+    "right_wrist_roll_joint_X4",
+
+    "waist_yaw_joint_X8",
+
+    "left_hip_pitch_joint_X8",
+    "left_hip_roll_joint_X8",
+    "left_hip_yaw_joint_X8",
+    "left_knee_joint_X8",
+    "left_ankle_pitch_joint_X4",
+    "left_ankle_roll_joint_X4",
+
+    "right_hip_pitch_joint_X8",
+    "right_hip_roll_joint_X8",
+    "right_hip_yaw_joint_X8",
+    "right_knee_joint_X8",
+    "right_ankle_pitch_joint_X4",
+    "right_ankle_roll_joint_X4"
+  ],
+
+  "rsdf_dir": "/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/control/mc_rtc_controller/config",
+
+  "lipmStabilizer": {
+    "leftFootSurface": "LeftFoot",
+    "rightFootSurface": "RightFoot",
+    "torsoBodyName": "urdf_simplified_torso"
+  },
+
+  "bodySensors": [
+    {
+      "name": "FloatingBase",
+      "parentBody": "urdf_base",
+      "X_b_s": { "translation": [0.0, 0.0, 0.0], "rotation": [1.0, 0.0, 0.0, 0.0] }
+    },
+    {
+      "name": "PelvisIMU",
+      "parentBody": "urdf_simplified_torso",
+      "X_b_s": { "translation": [0.0705, 0.0, -0.17], "rotation": [0.0, -0.7071, 0.0, 0.7071] }
+    },
+    {
+      "name": "TorsoIMU",
+      "parentBody": "urdf_simplified_torso",
+      "X_b_s": { "translation": [0.0665, 0.0, 0.35], "rotation": [0.7071, 0.0, 0.7071, 0.0] }
+    }
+  ],
+
+  "forceSensors": [
+    {
+      "name": "LeftFoot",
+      "parentBody": "urdf_foot_assembly",
+      "X_p_f": { "translation": [0.043, 0.0, -0.033], "rotation": [1.0, 0.0, 0.0, 0.0] }
+    },
+    {
+      "name": "RightFoot",
+      "parentBody": "urdf_foot_assembly_2",
+      "X_p_f": { "translation": [0.043, 0.0, -0.033], "rotation": [1.0, 0.0, 0.0, 0.0] }
+    }
+  ]
+}

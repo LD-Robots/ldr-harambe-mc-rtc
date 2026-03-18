@@ -1,0 +1,56 @@
+# HarambeCoMPosture controller configuration
+com:
+  stiffness: 5.0
+  weight: 500.0
+  offset: [0.0, 0.0, 0.0]
+
+posture:
+  stiffness: 5.0
+  weight: 50.0
+  weights:
+    # Legs: keep hips/knees free, ankles moderate
+    left_hip_pitch_joint_X8: 0.005
+    left_hip_roll_joint_X8: 0.2
+    left_hip_yaw_joint_X8: 3.0
+    left_knee_joint_X8: 0.04
+    left_ankle_pitch_joint_X4: 0.2
+    left_ankle_roll_joint_X4: 0.2
+    right_hip_pitch_joint_X8: 0.005
+    right_hip_roll_joint_X8: 0.2
+    right_hip_yaw_joint_X8: 3.0
+    right_knee_joint_X8: 0.04
+    right_ankle_roll_joint_X4: 0.2
+    right_ankle_pitch_joint_X4: 0.2
+    waist_yaw_joint_X8: 0.1
+    # Arms: keep fixed so legs take the CoM adjustment
+    left_shoulder_pitch_joint_X6: 6.0
+    left_shoulder_roll_joint_X6: 6.0
+    left_shoulder_yaw_joint_X4: 6.0
+    left_elbow_pitch_joint_X6: 6.0
+    left_wrist_yaw_joint_X4: 4.0
+    left_wrist_roll_joint_X4: 4.0
+    right_shoulder_pitch_joint_X6: 6.0
+    right_shoulder_roll_joint_X6: 6.0
+    right_shoulder_yaw_joint_X4: 6.0
+    right_elbow_pitch_joint_X6: 6.0
+    right_wrist_yaw_joint_X4: 4.0
+    right_wrist_roll_joint_X4: 4.0
+
+torsoOrientation:
+  bodyName: urdf_simplified_torso
+  stiffness: 2.0
+  weight: 80.0
+
+stabilizer:
+  enabled: false
+  contactDof: [0, 0, 1, 1, 1, 0]
+  leftFootSurface: LeftFoot
+  rightFootSurface: RightFoot
+  torsoBodyName: urdf_simplified_torso
+  constrainCoP: false
+  safety_tresholds:
+    MIN_DS_PRESSURE: 0.0
+    MIN_NET_TOTAL_FORCE_ZMP: 0.0
+  contactStiffness: [100, 100, 100, 100, 100, 100]
+  contactDamping:  [30, 30, 30, 30, 30, 30]
+  contactWeight: 500.0

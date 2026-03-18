@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot>
+  <!-- Left foot contact surface (at collision box bottom = ground contact) -->
+  <planar_surface name="LeftFoot" link="urdf_foot_assembly">
+    <origin rpy="0 0 0" xyz="0.043 0 -0.038" />
+    <points>
+      <point xy="0.08 0.04" />
+      <point xy="0.08 -0.04" />
+      <point xy="-0.06 -0.04" />
+      <point xy="-0.06 0.04" />
+    </points>
+  </planar_surface>
+
+  <!-- Left foot centered surface (for BWC, at collision box bottom) -->
+  <planar_surface name="LeftFootCenter" link="urdf_foot_assembly">
+    <origin rpy="0 0 0" xyz="0.043 0 -0.038" />
+    <points>
+      <point xy="0.07 0.04" />
+      <point xy="0.07 -0.04" />
+      <point xy="-0.07 -0.04" />
+      <point xy="-0.07 0.04" />
+    </points>
+  </planar_surface>
+
+  <!-- Right foot contact surface (at collision box bottom = ground contact) -->
+  <planar_surface name="RightFoot" link="urdf_foot_assembly_2">
+    <origin rpy="0 0 0" xyz="0.043 0 -0.038" />
+    <points>
+      <point xy="0.08 0.04" />
+      <point xy="0.08 -0.04" />
+      <point xy="-0.06 -0.04" />
+      <point xy="-0.06 0.04" />
+    </points>
+  </planar_surface>
+
+  <!-- Right foot centered surface (for BWC, at collision box bottom) -->
+  <planar_surface name="RightFootCenter" link="urdf_foot_assembly_2">
+    <origin rpy="0 0 0" xyz="0.043 0 -0.038" />
+    <points>
+      <point xy="0.07 0.04" />
+      <point xy="0.07 -0.04" />
+      <point xy="-0.07 -0.04" />
+      <point xy="-0.07 0.04" />
+    </points>
+  </planar_surface>
+</robot>

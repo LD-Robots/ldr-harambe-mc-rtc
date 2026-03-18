@@ -1,0 +1,33 @@
+# PD gains for Harambe mc_mujoco simulation
+# Format: Kp Kd (one line per joint, same order as ref_joint_order)
+# Gains matched to G1 levels for walking stability
+# Left Arm (0-5)
+300.0 25.0   # left_shoulder_pitch_joint_X6
+300.0 25.0   # left_shoulder_roll_joint_X6
+300.0 25.0   # left_shoulder_yaw_joint_X4
+350.0 30.0   # left_elbow_pitch_joint_X6
+150.0 15.0   # left_wrist_yaw_joint_X4
+150.0 15.0   # left_wrist_roll_joint_X4
+# Right Arm (6-11)
+300.0 25.0   # right_shoulder_pitch_joint_X6
+300.0 25.0   # right_shoulder_roll_joint_X6
+300.0 25.0   # right_shoulder_yaw_joint_X4
+350.0 30.0   # right_elbow_pitch_joint_X6
+150.0 15.0   # right_wrist_yaw_joint_X4
+150.0 15.0   # right_wrist_roll_joint_X4
+# Waist (12)
+5000.0 32.0  # waist_yaw_joint_X8
+# Left Leg (13-18)
+5000.0 30.0  # left_hip_pitch_joint_X8
+5000.0 30.0  # left_hip_roll_joint_X8
+5000.0 30.0  # left_hip_yaw_joint_X8
+6000.0 50.0  # left_knee_joint_X8
+3000.0 20.0  # left_ankle_pitch_joint_X4
+3000.0 20.0  # left_ankle_roll_joint_X4
+# Right Leg (19-24)
+5000.0 30.0  # right_hip_pitch_joint_X8
+5000.0 30.0  # right_hip_roll_joint_X8
+5000.0 30.0  # right_hip_yaw_joint_X8
+6000.0 50.0  # right_knee_joint_X8
+3000.0 20.0  # right_ankle_pitch_joint_X4
+3000.0 20.0  # right_ankle_roll_joint_X4
