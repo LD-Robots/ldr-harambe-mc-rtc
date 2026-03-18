@@ -1,2 +1,2 @@
-xmlModelPath: "@URDF_DIR@/harambe_mujoco.xml"
+xmlModelPath: "@GENERATED_DIR@/harambe_mujoco.xml"
 pdGainsPath: "@CONFIG_DIR@/PDgains_sim.dat"
