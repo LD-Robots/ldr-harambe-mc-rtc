@@ -1,0 +1,27 @@
+# =======================================
+# ROS 2 Build Directories 
+# =======================================
+**/build/
+**/install/ 
+**/log/
+*/build-/
+*/install-/
+**/__pycache__/
+**/.pytest_cache/
+*.pyc
+
+# Colcon specific
+*/.colcon_
+*/colcon-
+
+# =======================================
+# Development Tools
+# =======================================
+# VSCode - IGNORE COMPLET
+**/.vscode/
+*/.code-workspace
+/.claude/
+*.pt
+
+# YOLO tracking crops
+object_crops/
