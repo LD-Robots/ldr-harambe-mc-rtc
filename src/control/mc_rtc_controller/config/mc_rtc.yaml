@@ -1,8 +1,8 @@
 # Configuration for Harambe with CoM + Posture controller
-MainRobot: [json, "/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/control/mc_rtc_controller/config/harambe.json"]
+MainRobot: [json, "@MC_RTC_DIR@/robots/harambe.json"]
 Enabled: [HarambeCoMPosture, BaselineWalkingController]
 IncludeHalfSitController: false
-ControllerModulePaths: ["/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/build/mc_rtc_controller/lib/mc_controller"]
+ControllerModulePaths: ["@BUILD_DIR@/lib/mc_controller"]
 
 ObserverPipelines:
 - name: MainPipeline

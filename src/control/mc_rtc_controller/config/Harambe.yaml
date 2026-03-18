@@ -1,2 +1,2 @@
-xmlModelPath: "/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/control/mc_rtc_controller/urdf/harambe_mujoco.xml"
-pdGainsPath: "/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/control/mc_rtc_controller/config/PDgains_sim.dat"
+xmlModelPath: "@URDF_DIR@/harambe_mujoco.xml"
+pdGainsPath: "@CONFIG_DIR@/PDgains_sim.dat"

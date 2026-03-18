@@ -2,31 +2,31 @@
 <mujoco model="harambe_full_robot">
   <compiler angle="radian" />
   <asset>
-    <mesh name="b_base" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/b_base.stl" />
-    <mesh name="f_base" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/f_base.stl" />
-    <mesh name="urdf_simplified_torso" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/urdf_simplified_torso.stl" />
-    <mesh name="head" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/head.stl" />
-    <mesh name="l_shoulder" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/l_shoulder.stl" />
-    <mesh name="urdf_l_upper_arm_simplified" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/urdf_l_upper_arm_simplified.stl" />
-    <mesh name="urdf_l_elbow_simplified" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/urdf_l_elbow_simplified.stl" />
-    <mesh name="urdf_l_upper_forearm_simplified" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/urdf_l_upper_forearm_simplified.stl" />
-    <mesh name="urdf_l_lower_forearm_simplified" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/urdf_l_lower_forearm_simplified.stl" />
-    <mesh name="l_wrist" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/l_wrist.stl" />
-    <mesh name="r_shoulder" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/r_shoulder.stl" />
-    <mesh name="r_upper_arm" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/r_upper_arm.stl" />
-    <mesh name="r_elbow" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/r_elbow.stl" />
-    <mesh name="r_upper_forearm" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/r_upper_forearm.stl" />
-    <mesh name="r_lower_forearm" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/r_lower_forearm.stl" />
-    <mesh name="r_wrist" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/r_wrist.stl" />
-    <mesh name="hip" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/hip.stl" />
-    <mesh name="l_upper_femur" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/l_upper_femur.stl" />
-    <mesh name="lower_femur" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/lower_femur.stl" />
-    <mesh name="urdf_l_tibia_assembly" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/urdf_l_tibia_assembly.stl" />
-    <mesh name="urdf_ankle_assembly" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/urdf_ankle_assembly.stl" />
-    <mesh name="urdf_foot_assembly" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/urdf_foot_assembly.stl" />
-    <mesh name="r_upper_femur" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/visual/r_upper_femur.stl" />
-    <mesh name="urdf_r_tibia_assembly" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/full_robot_description/meshes/collision/urdf_r_tibia_assembly.stl" />
-    <mesh name="low_res_bno055_imu" content_type="model/stl" file="/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/robot_description/imu_description/meshes/low_res_bno055_imu.stl" />
+    <mesh name="b_base" content_type="model/stl" file="package://full_robot_description/meshes/visual/b_base.stl" />
+    <mesh name="f_base" content_type="model/stl" file="package://full_robot_description/meshes/collision/f_base.stl" />
+    <mesh name="urdf_simplified_torso" content_type="model/stl" file="package://full_robot_description/meshes/visual/urdf_simplified_torso.stl" />
+    <mesh name="head" content_type="model/stl" file="package://full_robot_description/meshes/collision/head.stl" />
+    <mesh name="l_shoulder" content_type="model/stl" file="package://full_robot_description/meshes/collision/l_shoulder.stl" />
+    <mesh name="urdf_l_upper_arm_simplified" content_type="model/stl" file="package://full_robot_description/meshes/visual/urdf_l_upper_arm_simplified.stl" />
+    <mesh name="urdf_l_elbow_simplified" content_type="model/stl" file="package://full_robot_description/meshes/visual/urdf_l_elbow_simplified.stl" />
+    <mesh name="urdf_l_upper_forearm_simplified" content_type="model/stl" file="package://full_robot_description/meshes/collision/urdf_l_upper_forearm_simplified.stl" />
+    <mesh name="urdf_l_lower_forearm_simplified" content_type="model/stl" file="package://full_robot_description/meshes/collision/urdf_l_lower_forearm_simplified.stl" />
+    <mesh name="l_wrist" content_type="model/stl" file="package://full_robot_description/meshes/visual/l_wrist.stl" />
+    <mesh name="r_shoulder" content_type="model/stl" file="package://full_robot_description/meshes/collision/r_shoulder.stl" />
+    <mesh name="r_upper_arm" content_type="model/stl" file="package://full_robot_description/meshes/collision/r_upper_arm.stl" />
+    <mesh name="r_elbow" content_type="model/stl" file="package://full_robot_description/meshes/visual/r_elbow.stl" />
+    <mesh name="r_upper_forearm" content_type="model/stl" file="package://full_robot_description/meshes/collision/r_upper_forearm.stl" />
+    <mesh name="r_lower_forearm" content_type="model/stl" file="package://full_robot_description/meshes/visual/r_lower_forearm.stl" />
+    <mesh name="r_wrist" content_type="model/stl" file="package://full_robot_description/meshes/collision/r_wrist.stl" />
+    <mesh name="hip" content_type="model/stl" file="package://full_robot_description/meshes/collision/hip.stl" />
+    <mesh name="l_upper_femur" content_type="model/stl" file="package://full_robot_description/meshes/visual/l_upper_femur.stl" />
+    <mesh name="lower_femur" content_type="model/stl" file="package://full_robot_description/meshes/visual/lower_femur.stl" />
+    <mesh name="urdf_l_tibia_assembly" content_type="model/stl" file="package://full_robot_description/meshes/collision/urdf_l_tibia_assembly.stl" />
+    <mesh name="urdf_ankle_assembly" content_type="model/stl" file="package://full_robot_description/meshes/visual/urdf_ankle_assembly.stl" />
+    <mesh name="urdf_foot_assembly" content_type="model/stl" file="package://full_robot_description/meshes/visual/urdf_foot_assembly.stl" />
+    <mesh name="r_upper_femur" content_type="model/stl" file="package://full_robot_description/meshes/visual/r_upper_femur.stl" />
+    <mesh name="urdf_r_tibia_assembly" content_type="model/stl" file="package://full_robot_description/meshes/collision/urdf_r_tibia_assembly.stl" />
+    <mesh name="low_res_bno055_imu" content_type="model/stl" file="package://imu_description/meshes/low_res_bno055_imu.stl" />
   </asset>
   <worldbody>
     <body name="urdf_base" pos="0 0 1.24">

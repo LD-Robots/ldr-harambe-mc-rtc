@@ -1,6 +1,6 @@
 {
   "name": "Harambe",
-  "path": "/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/control/mc_rtc_controller/urdf",
+  "path": "@URDF_DIR@",
   "urdf_path": "harambe_mc_rtc.urdf",
 
   "stance": {
@@ -118,7 +118,7 @@
     "right_ankle_roll_joint_X4"
   ],
 
-  "rsdf_dir": "/home/alex/Documents/GitHub/ldr-harambe-arms-sim2real/src/control/mc_rtc_controller/config",
+  "rsdf_dir": "@CONFIG_DIR@",
 
   "lipmStabilizer": {
     "leftFootSurface": "LeftFoot",
