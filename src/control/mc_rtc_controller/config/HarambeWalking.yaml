@@ -409,7 +409,7 @@ states:
         weight: 500
         frame: RightFootCenter
         moveWorld:
-          translation: [0, 0, 0.0]
+          translation: [0, 0, -0.06]
         overwriteRPY:
           roll: 0
           pitch: 0
@@ -481,10 +481,10 @@ states:
               - speed: 0.005
         targetSurface:
           surface: RightFootCenter
-          translation: [0.05, 0.0, 0.01]
+          translation: [0.05, 0.0, 0.012]
           rotation: [0, 0, 0]
           controlPoints:
-            - [1.0, [0.05, 0.0, 0.01]]
+            - [1.0, [0.05, 0.0, 0.012]]
             
   Harambe::LeftFootTrajectory:
     base: Harambe::RightFootTrajectory
@@ -493,10 +493,10 @@ states:
         surface: LeftFootCenter
         targetSurface:
           surface: LeftFootCenter
-          translation: [0.05, 0.0, 0.01]
+          translation: [0.05, 0.0, 0.012]
           rotation: [0, 0, 0]
           controlPoints:
-            - [1.0, [0.05, 0.0, 0.01]]
+            - [1.0, [0.05, 0.0, 0.012]]
 
   # --- Stabilized swing (parallel: support + trajectory) ---
   Harambe::Stabilized::RightFootTrajectory:
@@ -506,11 +506,6 @@ states:
       - r2: ground
         r1Surface: RightFootCenter
         r2Surface: AllGround
-    AddContactsAfter:
-      - r2: ground
-        r1Surface: RightFootCenter
-        r2Surface: AllGround
-        dof: [0, 0, 1, 1, 1, 0]
 
   Harambe::Stabilized::LeftFootTrajectory:
     base: Parallel
@@ -519,11 +514,6 @@ states:
       - r2: ground
         r1Surface: LeftFootCenter
         r2Surface: AllGround
-    AddContactsAfter:
-      - r2: ground
-        r1Surface: LeftFootCenter
-        r2Surface: AllGround
-        dof: [0, 0, 1, 1, 1, 0]
 
   # --- Compound walking states ---
   Harambe::LiftFeetFSM:
@@ -538,13 +528,7 @@ states:
   Harambe::StepForward:
     base: Meta
     transitions:
-      - [Harambe::Stabilized::LiftLeftFoot, OK, Harambe::Stabilized::LeftFootTrajectory, Auto]
-      - [Harambe::Stabilized::LeftFootTrajectory, OK, Harambe::Stabilized::PutLeftFoot, Auto]
-      - [Harambe::Stabilized::PutLeftFoot, OK, Harambe::GoCenter]
-      - [Harambe::GoCenter, OK, Harambe::Stabilized::LiftRightFoot, Auto]
-      - [Harambe::Stabilized::LiftRightFoot, OK, Harambe::Stabilized::RightFootTrajectory, Auto]
-      - [Harambe::Stabilized::RightFootTrajectory, OK, Harambe::Stabilized::PutRightFoot, Auto]
-      - [Harambe::Stabilized::LiftLeftFoot, OK, Harambe::GoCenter2]
+      - [Harambe::LeftStepForward, OK, Harambe::RightStepForward, Auto]
 
   Harambe::LeftStepForward:
     base: Meta
@@ -552,6 +536,7 @@ states:
       - [Harambe::Stabilized::LiftLeftFoot, OK, Harambe::Stabilized::LeftFootTrajectory, Auto]
       - [Harambe::Stabilized::LeftFootTrajectory, OK, Harambe::Stabilized::PutLeftFoot, Auto]
       - [Harambe::Stabilized::PutLeftFoot, OK, Harambe::GoCenter, Auto]
+      - [Harambe::Stabilized::GoCenter, OK, Harambe::Standing, Auto]
 
   Harambe::RightStepForward:
     base: Meta
@@ -559,6 +544,7 @@ states:
       - [Harambe::Stabilized::LiftRightFoot, OK, Harambe::Stabilized::RightFootTrajectory, Auto]
       - [Harambe::Stabilized::RightFootTrajectory, OK, Harambe::Stabilized::PutRightFoot, Auto]
       - [Harambe::Stabilized::PutRightFoot, OK, Harambe::GoCenter, Auto]
+      - [Harambe::Stabilized::GoCenter, OK, Harambe::Standing, Auto]
 ##############################################################################
 # Transitions
 ##############################################################################
