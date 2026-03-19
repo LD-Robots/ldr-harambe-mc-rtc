@@ -1,0 +1,434 @@
+# HarambeWalking - LIPM Stabilizer + FSM walking controller
+# No force sensors required. Uses IMU + kinematics only.
+# Based on mc_rtc LIPMStabilizer sample adapted for Harambe.
+---
+Managed: false
+StepByStep: false
+IdleKeepState: true
+VerboseStateFactory: false
+
+# Built-in FSM states
+StatesLibraries:
+  - /usr/local/lib/mc_controller/fsm/states
+StatesFiles:
+  - /usr/local/lib/mc_controller/fsm/states/data
+
+# General constraints
+constraints:
+  - type: contact
+  - type: kinematics
+    damper: [0.1, 0.01, 0.5]
+  - type: compoundJoint
+collisions: []
+contacts: []
+
+# Observer: IMU + kinematics (works on real robot too)
+ObserverPipelines:
+  - name: MainPipeline
+    gui: true
+    observers:
+      - type: Encoder
+      - type: KinematicInertial
+        update: true
+        config:
+          bodySensor: PelvisIMU
+
+# Robot posture defaults
+Harambe:
+  posture:
+    stiffness: 2.0
+    weight: 10.0
+
+robots:
+  ground:
+    module: env/ground
+
+##############################################################################
+# States
+##############################################################################
+states:
+  # --- Initial pause to let the robot settle ---
+  Harambe::Pause:
+    base: Pause
+    duration: 2
+
+  # --- Standing with stabilizer (double support) ---
+  Harambe::Standing:
+    base: StabilizerStandingState
+    stiffness: 5
+    StabilizerConfig:
+      type: lipm_stabilizer
+      enabled: true
+      contacts: [Left, Right]
+      leftFootSurface: LeftFootCenter
+      rightFootSurface: RightFootCenter
+      torsoBodyName: urdf_simplified_torso
+      friction: 0.7
+
+      # No force sensors - disable safety thresholds
+      safetyThresholds:
+        MIN_DS_PRESSURE: 0.0
+        MIN_NET_TOTAL_FORCE_ZMP: 0.0
+
+      tasks:
+        com:
+          stiffness: [1000, 1000, 100]
+          weight: 1000
+          height: 0.8
+          active_joints:
+            - Root
+            - waist_yaw_joint_X8
+            - left_hip_pitch_joint_X8
+            - left_hip_roll_joint_X8
+            - left_hip_yaw_joint_X8
+            - left_knee_joint_X8
+            - left_ankle_pitch_joint_X4
+            - left_ankle_roll_joint_X4
+            - right_hip_pitch_joint_X8
+            - right_hip_roll_joint_X8
+            - right_hip_yaw_joint_X8
+            - right_knee_joint_X8
+            - right_ankle_pitch_joint_X4
+            - right_ankle_roll_joint_X4
+        contact:
+          damping: 300
+          stiffness: 1
+          weight: 10000
+        pelvis:
+          stiffness: 10
+          weight: 100
+        torso:
+          stiffness: 10
+          weight: 100
+          pitch: 0
+
+      fdqp_weights:
+        net_wrench: 10000
+        ankle_torque: 100
+        pressure: 1
+        regularization: 0.01
+
+      # No force sensor admittance - feedforward only
+      admittance:
+        cop: [0.0, 0.0]
+        dfz: 0.0
+        dfz_damping: 0
+        maxVel:
+          linear: [0.3, 0.3, 0.3]
+          angular: [0.5, 0.5, 0.5]
+
+      dcm_tracking:
+        gains:
+          prop: 4.0
+          integral: 10
+          deriv: 0.5
+        derivator_time_constant: 1
+        integrator_time_constant: 10
+
+      Left:
+        overwriteRPY:
+          roll: 0
+          pitch: 0
+        height: 0
+      Right:
+        overwriteRPY:
+          roll: 0
+          pitch: 0
+        height: 0
+
+    AddContacts:
+      - r2: ground
+        r1Surface: LeftFootCenter
+        r2Surface: AllGround
+        dof: [0, 0, 1, 1, 1, 0]
+      - r2: ground
+        r1Surface: RightFootCenter
+        r2Surface: AllGround
+        dof: [0, 0, 1, 1, 1, 0]
+
+  # --- CoM shift states ---
+  Harambe::GoCenter:
+    base: Harambe::Standing
+    above: CenterSurfaces
+    completion:
+      OR:
+        - dcmEval: [0.02, 0.02, 0.1]
+        - timeout: 5.0
+
+  # Alias for second GoCenter in LiftFeetFSM (Meta can't reuse same state)
+  Harambe::GoCenter2:
+    base: Harambe::GoCenter
+
+  Harambe::GoLeft:
+    base: Harambe::GoCenter
+    above: LeftSurface
+    StabilizerConfig:
+      dcm_tracking:
+        gains:
+          prop: 2.0
+          integral: 5
+          deriv: 0.3
+      tasks:
+        com:
+          stiffness: [200, 200, 100]
+          damping: [150, 150, 50]
+          active_joints:
+            - Root
+            - waist_yaw_joint_X8
+            - left_hip_pitch_joint_X8
+            - left_hip_roll_joint_X8
+            - left_hip_yaw_joint_X8
+            - left_ankle_pitch_joint_X4
+            - left_ankle_roll_joint_X4
+            - right_hip_pitch_joint_X8
+            - right_hip_roll_joint_X8
+            - right_hip_yaw_joint_X8
+            - right_ankle_pitch_joint_X4
+            - right_ankle_roll_joint_X4
+
+  Harambe::GoRight:
+    base: Harambe::GoCenter
+    above: RightSurface
+    StabilizerConfig:
+      dcm_tracking:
+        gains:
+          prop: 2.0
+          integral: 5
+          deriv: 0.3
+      tasks:
+        com:
+          stiffness: [200, 200, 10]
+          damping: [150, 150, 50]
+          active_joints:
+            - Root
+            - waist_yaw_joint_X8
+            - left_hip_pitch_joint_X8
+            - left_hip_roll_joint_X8
+            - left_hip_yaw_joint_X8
+            - left_ankle_pitch_joint_X4
+            - left_ankle_roll_joint_X4
+            - right_hip_pitch_joint_X8
+            - right_hip_roll_joint_X8
+            - right_hip_yaw_joint_X8
+            - right_ankle_pitch_joint_X4
+            - right_ankle_roll_joint_X4
+
+  # --- Single support states (no completion - held by parent) ---
+  Harambe::LeftSupport:
+    base: Harambe::GoLeft
+    completion: {}
+    StabilizerConfig:
+      contacts: [Left]
+    # Only add left foot contact (override Standing's AddContacts which adds both)
+    AddContacts:
+      - r2: ground
+        r1Surface: LeftFootCenter
+        r2Surface: AllGround
+        dof: [0, 0, 1, 1, 1, 0]
+
+  Harambe::RightSupport:
+    base: Harambe::GoRight
+    completion: {}
+    StabilizerConfig:
+      contacts: [Right]
+    # Only add right foot contact (override Standing's AddContacts which adds both)
+    AddContacts:
+      - r2: ground
+        r1Surface: RightFootCenter
+        r2Surface: AllGround
+        dof: [0, 0, 1, 1, 1, 0]
+
+  # --- Foot lift (gentle) ---
+  Harambe::LiftRightFoot:
+    base: MetaTasks
+    tasks:
+      LiftFootTask:
+        type: transform
+        stiffness: 3
+        damping: 20
+        weight: 200
+        frame: RightFootCenter
+        moveWorld:
+          translation: [0, 0, 0.03]
+        completion:
+          OR:
+            - eval: 0.01
+            - AND:
+              - timeout: 3
+              - speed: 0.003
+
+  Harambe::LiftLeftFoot:
+    base: Harambe::LiftRightFoot
+    tasks:
+      LiftFootTask:
+        frame: LeftFootCenter
+
+  # --- Foot put down: higher stiffness to actually reach ground ---
+  Harambe::PutRightFoot:
+    base: MetaTasks
+    tasks:
+      PutFootTask:
+        type: transform
+        stiffness: 10
+        damping: 20
+        weight: 500
+        frame: RightFootCenter
+        moveWorld:
+          translation: [0, 0, 0.0]
+        overwriteRPY:
+          roll: 0
+          pitch: 0
+        completion:
+          OR:
+            - AND:
+              - timeout: 1.5
+              - speed: 0.003
+            - timeout: 3
+
+  Harambe::PutLeftFoot:
+    base: Harambe::PutRightFoot
+    tasks:
+      PutFootTask:
+        frame: LeftFootCenter
+
+  # --- Stabilized foot lift (parallel: support + lift) ---
+  Harambe::Stabilized::LiftRightFoot:
+    base: Parallel
+    states: [Harambe::LeftSupport, Harambe::LiftRightFoot]
+    RemoveContacts:
+      - r2: ground
+        r1Surface: RightFootCenter
+        r2Surface: AllGround
+
+  Harambe::Stabilized::LiftLeftFoot:
+    base: Parallel
+    states: [Harambe::RightSupport, Harambe::LiftLeftFoot]
+    RemoveContacts:
+      - r2: ground
+        r1Surface: LeftFootCenter
+        r2Surface: AllGround
+
+  # --- Stabilized foot put down ---
+  Harambe::Stabilized::PutRightFoot:
+    base: Parallel
+    states: [Harambe::LeftSupport, Harambe::PutRightFoot]
+    AddContactsAfter:
+      - r2: ground
+        r1Surface: RightFootCenter
+        r2Surface: AllGround
+        dof: [0, 0, 1, 1, 1, 0]
+
+  Harambe::Stabilized::PutLeftFoot:
+    base: Parallel
+    states: [Harambe::RightSupport, Harambe::PutLeftFoot]
+    AddContactsAfter:
+      - r2: ground
+        r1Surface: LeftFootCenter
+        r2Surface: AllGround
+        dof: [0, 0, 1, 1, 1, 0]
+
+  # --- Foot swing trajectories (cubic spline, target 5mm above ground) ---
+  Harambe::RightFootTrajectory:
+    base: MetaTasks
+    tasks:
+      SwingFootTrajectory:
+        type: exact_cubic_trajectory
+        surface: RightFootCenter
+        stiffness: 10000.0
+        duration: 4.0
+        weight: 100
+        displaySamples: 20
+        completion:
+          OR:
+            - timeElapsed: true
+            - AND:
+              - timeout: 2.0
+              - speed: 0.005
+        targetSurface:
+          surface: RightFootCenter
+          # 10cm forward, 5mm above ground (no impact)
+          translation: [0.08, 0.0, 0.005]
+          rotation: [0, 0, 0]
+          controlPoints:
+            - [1.0, [0.01, 0.0, 0.02]]
+
+  Harambe::LeftFootTrajectory:
+    base: Harambe::RightFootTrajectory
+    tasks:
+      SwingFootTrajectory:
+        surface: LeftFootCenter
+        targetSurface:
+          surface: LeftFootCenter
+          translation: [0.15, 0.0, 0.01]
+          rotation: [0, 0, 0]
+          controlPoints:
+            - [1.0, [0.15, 0.0, 0.02]]
+
+  # --- Stabilized swing (parallel: support + trajectory) ---
+  Harambe::Stabilized::RightFootTrajectory:
+    base: Parallel
+    states: [Harambe::LeftSupport, Harambe::RightFootTrajectory]
+    RemoveContacts:
+      - r2: ground
+        r1Surface: RightFootCenter
+        r2Surface: AllGround
+    AddContactsAfter:
+      - r2: ground
+        r1Surface: RightFootCenter
+        r2Surface: AllGround
+        dof: [0, 0, 1, 1, 1, 0]
+
+  Harambe::Stabilized::LeftFootTrajectory:
+    base: Parallel
+    states: [Harambe::RightSupport, Harambe::LeftFootTrajectory]
+    RemoveContacts:
+      - r2: ground
+        r1Surface: LeftFootCenter
+        r2Surface: AllGround
+    AddContactsAfter:
+      - r2: ground
+        r1Surface: LeftFootCenter
+        r2Surface: AllGround
+        dof: [0, 0, 1, 1, 1, 0]
+
+  # --- Compound walking states ---
+  Harambe::LiftFeetFSM:
+    base: Meta
+    transitions:
+      - [Harambe::GoLeft, OK, Harambe::Stabilized::LiftRightFoot]
+      - [Harambe::Stabilized::LiftRightFoot, OK, Harambe::GoCenter]
+      - [Harambe::GoCenter, OK, Harambe::GoRight]
+      - [Harambe::GoRight, OK, Harambe::Stabilized::LiftLeftFoot]
+      - [Harambe::Stabilized::LiftLeftFoot, OK, Harambe::GoCenter2]
+
+  Harambe::StepForward:
+    base: Meta
+    transitions:
+      - [Harambe::GoRight, OK, Harambe::Stabilized::LeftFootTrajectory, Auto]
+      - [Harambe::Stabilized::LeftFootTrajectory, OK, Harambe::GoLeft, Auto]
+      - [Harambe::GoLeft, OK, Harambe::Stabilized::RightFootTrajectory, Auto]
+      - [Harambe::Stabilized::RightFootTrajectory, OK, Harambe::GoCenter, Auto]
+
+  Harambe::LeftStepForward:
+    base: Meta
+    transitions:
+      - [Harambe::Stabilized::LiftLeftFoot, OK, Harambe::Stabilized::LeftFootTrajectory, Auto]
+      - [Harambe::Stabilized::LeftFootTrajectory, OK, Harambe::Stabilized::PutLeftFoot, Auto]
+##############################################################################
+# Transitions
+##############################################################################
+transitions:
+  - [Harambe::Pause, OK, Harambe::Standing, Auto]
+  # Lift feet in place (test balance)
+  - [Harambe::Standing, Lift Feet, Harambe::LiftFeetFSM, Auto]
+  - [Harambe::LiftFeetFSM, OK, Harambe::Standing, Auto]
+  # Step forward
+  - [Harambe::Standing, Step Forward, Harambe::StepForward, Auto]
+  - [Harambe::StepForward, OK, Harambe::Standing, Auto]
+  # Left step test
+  - [Harambe::Standing, Left Step, Harambe::LeftStepForward, Auto]
+  - [Harambe::LeftStepForward, OK, Harambe::Standing, Auto]
+  # Go back to standing
+  - [Harambe::GoCenter, OK, Harambe::Standing]
+
+init: Harambe::Pause

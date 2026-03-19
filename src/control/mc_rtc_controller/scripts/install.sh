@@ -129,6 +129,7 @@ echo "Installed /usr/local/share/mc_mujoco/Harambe.yaml"
 link_file "../config/mc_mujoco.yaml" "$TARGET_HOME/.config/mc_rtc/mc_mujoco/mc_mujoco.yaml"
 link_file "../config/HarambeCoMPosture.yaml" "$TARGET_HOME/.config/mc_rtc/controllers/HarambeCoMPosture.yaml"
 link_file "../config/BaselineWalkingController.yaml" "$TARGET_HOME/.config/mc_rtc/controllers/BaselineWalkingController.yaml"
+link_file "../config/HarambeWalking.yaml" "$TARGET_HOME/.config/mc_rtc/controllers/HarambeWalking.yaml"
 link_file "../config/harambe.rsdf" "$TARGET_HOME/.config/mc_rtc/robots/rsdf/Harambe/harambe.rsdf"
 
 echo ""

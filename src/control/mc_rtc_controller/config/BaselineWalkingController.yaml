@@ -13,14 +13,10 @@ ObserverPipelines:
   gui: true
   observers:
     - type: Encoder
-    - type: BodySensor
+    - type: KinematicInertial
       update: true
-      bodySensor: FloatingBase
-      # For real robot, replace BodySensor with:
-      # - type: KinematicInertial
-      #   update: true
-      #   config:
-      #     bodySensor: PelvisIMU
+      config:
+        bodySensor: PelvisIMU
 
 OverwriteConfigKeys: [NoSensors]
 
@@ -50,11 +46,11 @@ OverwriteConfigList:
             angular: [0, 0, 0]
         Swing:
           damper:
-            linear: [200, 200, 200]
-            angular: [40, 40, 40]
+            linear: [100, 100, 500]
+            angular: [20, 20, 20]
           spring:
-            linear: [500, 500, 500]
-            angular: [100, 100, 100]
+            linear: [200, 200, 100]
+            angular: [50, 50, 50]
           wrench:
             linear: [0, 0, 0]
             angular: [0, 0, 0]
@@ -67,8 +63,8 @@ OverwriteConfigList:
 robots:
   Harambe:
     FootManager:
-      footstepDuration: 4.0
-      doubleSupportRatio: 0.8
+      footstepDuration: 5.0
+      doubleSupportRatio: 0.85
       deltaTransLimit: [0.15, 0.0, 3.0]
       zmpOffset: [0.0, -0.0, 0.0]
       midToFootTranss:
@@ -78,20 +74,20 @@ robots:
           translation: [0, -0.150, 0]
       defaultSwingTrajType: IndHorizontalVertical
       stopSwingTrajForTouchDownFoot: false
-      touchDownRemainingDuration: 0.2
-      touchDownPosError: 0.02
-      touchDownForceZ: 100
+      touchDownRemainingDuration: 0.3
+      touchDownPosError: 0.03
+      touchDownForceZ: 50
       SwingTraj:
         IndHorizontalVertical:
-          withdrawDurationRatio: 0.4
-          approachDurationRatio: 0.4
+          withdrawDurationRatio: 0.25
+          approachDurationRatio: 0.55
           verticalTopDurationRatio: 0.2
-          withdrawOffset: [0, 0, 0.003]
-          approachOffset: [0, 0, 0.003]
-          swingOffset: [0, 0, 0.003]
-          verticalTopOffset: [0, 0, 0.03]
+          withdrawOffset: [0, 0, 0.01]
+          approachOffset: [0, 0, 0.02]
+          swingOffset: [0, 0, 0.005]
+          verticalTopOffset: [0, 0, 0.04]
           tiltAngleWithdraw: 20
-          tiltAngleApproach: -10
+          tiltAngleApproach: -2
           tiltAngleWithdrawDurationRatio: 0.25
           tiltAngleApproachDurationRatio: 0.25
           tiltCenterWithdrawDurationRatio: 0.25
@@ -114,8 +110,8 @@ robots:
         right_knee_joint_X8: 0.01
 
     CentroidalManager:
-      comZGainP: 2000.0
-      comZGainD: 500.0
+      comZGainP: 1000.0
+      comZGainD: 300.0
       actualComOffset: [0.0, 0.0, 0.0]
       refComZ: 0.8
       useActualStateForMpc: false
@@ -150,10 +146,10 @@ robots:
       - type: firstOrderImpedance
         foot: Left
         frame: LeftFootCenter
-        cutoffPeriod: 0.01
+        cutoffPeriod: 0.05
         weight: 1000.0
       - type: firstOrderImpedance
         foot: Right
         frame: RightFootCenter
-        cutoffPeriod: 0.01
+        cutoffPeriod: 0.05
         weight: 1000.0

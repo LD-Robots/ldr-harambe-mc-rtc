@@ -12,3 +12,10 @@ add_controller(
   "mc_com_posture_controller.cpp"
   "mc_com_posture_controller.h"
 )
+
+add_controller(
+  "HarambeWalking"
+  "harambe_walking_controller.cpp"
+  "harambe_walking_controller.h"
+)
+target_link_libraries(HarambeWalking PUBLIC mc_rtc::mc_control_fsm)
