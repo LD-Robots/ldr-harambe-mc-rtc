@@ -214,25 +214,164 @@ states:
             - right_ankle_roll_joint_X4
 
   # --- Single support states (no completion - held by parent) ---
+  # These do NOT inherit from Standing to avoid AddContacts with dof locking X/Y
   Harambe::LeftSupport:
-    base: Harambe::GoLeft
+    base: StabilizerStandingState
+    stiffness: 5
     completion: {}
+    above: LeftSurface
     StabilizerConfig:
+      type: lipm_stabilizer
+      enabled: true
       contacts: [Left]
-    RemoveContacts:
-      - r2: ground
-        r1Surface: RightFootCenter
-        r2Surface: AllGround
-
-  Harambe::RightSupport:
-    base: Harambe::GoRight
-    completion: {}
-    StabilizerConfig:
-      contacts: [Right]
-    RemoveContacts:
+      leftFootSurface: LeftFootCenter
+      rightFootSurface: RightFootCenter
+      torsoBodyName: urdf_simplified_torso
+      friction: 0.7
+      safetyThresholds:
+        MIN_DS_PRESSURE: 0.0
+        MIN_NET_TOTAL_FORCE_ZMP: 0.0
+      tasks:
+        com:
+          stiffness: [200, 200, 100]
+          damping: [150, 150, 50]
+          weight: 1000
+          height: 0.8
+          active_joints:
+            - Root
+            - waist_yaw_joint_X8
+            - left_hip_pitch_joint_X8
+            - left_hip_roll_joint_X8
+            - left_hip_yaw_joint_X8
+            - left_knee_joint_X8
+            - left_ankle_pitch_joint_X4
+            - left_ankle_roll_joint_X4
+            - right_hip_roll_joint_X8
+            - right_hip_yaw_joint_X8
+            - right_knee_joint_X8
+            - right_ankle_pitch_joint_X4
+            - right_ankle_roll_joint_X4
+        contact:
+          damping: 300
+          stiffness: 1
+          weight: 10000
+        pelvis:
+          stiffness: 10
+          weight: 100
+        torso:
+          stiffness: 10
+          weight: 100
+          pitch: 0
+      fdqp_weights:
+        net_wrench: 10000
+        ankle_torque: 100
+        pressure: 1
+        regularization: 0.01
+      admittance:
+        cop: [0.0, 0.0]
+        dfz: 0.0
+        dfz_damping: 0
+      dcm_tracking:
+        gains:
+          prop: 2.0
+          integral: 5
+          deriv: 0.3
+        derivator_time_constant: 1
+        integrator_time_constant: 10
+      Left:
+        overwriteRPY:
+          roll: 0
+          pitch: 0
+        height: 0
+      Right:
+        overwriteRPY:
+          roll: 0
+          pitch: 0
+        height: 0
+    AddContacts:
       - r2: ground
         r1Surface: LeftFootCenter
         r2Surface: AllGround
+        dof: [0, 0, 1, 1, 1, 0]
+
+  Harambe::RightSupport:
+    base: StabilizerStandingState
+    stiffness: 5
+    completion: {}
+    above: RightSurface
+    StabilizerConfig:
+      type: lipm_stabilizer
+      enabled: true
+      contacts: [Right]
+      leftFootSurface: LeftFootCenter
+      rightFootSurface: RightFootCenter
+      torsoBodyName: urdf_simplified_torso
+      friction: 0.7
+      safetyThresholds:
+        MIN_DS_PRESSURE: 0.0
+        MIN_NET_TOTAL_FORCE_ZMP: 0.0
+      tasks:
+        com:
+          stiffness: [200, 200, 100]
+          damping: [150, 150, 50]
+          weight: 1000
+          height: 0.8
+          active_joints:
+            - Root
+            - waist_yaw_joint_X8
+            - left_hip_roll_joint_X8
+            - left_hip_yaw_joint_X8
+            - left_knee_joint_X8
+            - left_ankle_pitch_joint_X4
+            - left_ankle_roll_joint_X4
+            - right_hip_pitch_joint_X8
+            - right_hip_roll_joint_X8
+            - right_hip_yaw_joint_X8
+            - right_knee_joint_X8
+            - right_ankle_pitch_joint_X4
+            - right_ankle_roll_joint_X4
+        contact:
+          damping: 300
+          stiffness: 1
+          weight: 10000
+        pelvis:
+          stiffness: 10
+          weight: 100
+        torso:
+          stiffness: 10
+          weight: 100
+          pitch: 0
+      fdqp_weights:
+        net_wrench: 10000
+        ankle_torque: 100
+        pressure: 1
+        regularization: 0.01
+      admittance:
+        cop: [0.0, 0.0]
+        dfz: 0.0
+        dfz_damping: 0
+      dcm_tracking:
+        gains:
+          prop: 2.0
+          integral: 5
+          deriv: 0.3
+        derivator_time_constant: 1
+        integrator_time_constant: 10
+      Left:
+        overwriteRPY:
+          roll: 0
+          pitch: 0
+        height: 0
+      Right:
+        overwriteRPY:
+          roll: 0
+          pitch: 0
+        height: 0
+    AddContacts:
+      - r2: ground
+        r1Surface: RightFootCenter
+        r2Surface: AllGround
+        dof: [0, 0, 1, 1, 1, 0]
 
   # --- Foot lift (gentle) ---
   Harambe::LiftRightFoot:
@@ -342,12 +481,11 @@ states:
               - speed: 0.005
         targetSurface:
           surface: RightFootCenter
-          # 10cm forward, 5mm above ground (no impact)
-          translation: [0.08, 0.0, 0.005]
+          translation: [0.05, 0.0, 0.01]
           rotation: [0, 0, 0]
           controlPoints:
-            - [1.0, [0.01, 0.0, 0.02]]
-
+            - [1.0, [0.05, 0.0, 0.01]]
+            
   Harambe::LeftFootTrajectory:
     base: Harambe::RightFootTrajectory
     tasks:
@@ -355,10 +493,10 @@ states:
         surface: LeftFootCenter
         targetSurface:
           surface: LeftFootCenter
-          translation: [0.15, 0.0, 0.01]
+          translation: [0.05, 0.0, 0.01]
           rotation: [0, 0, 0]
           controlPoints:
-            - [1.0, [0.15, 0.0, 0.02]]
+            - [1.0, [0.05, 0.0, 0.01]]
 
   # --- Stabilized swing (parallel: support + trajectory) ---
   Harambe::Stabilized::RightFootTrajectory:
@@ -410,6 +548,7 @@ states:
     transitions:
       - [Harambe::Stabilized::LiftLeftFoot, OK, Harambe::Stabilized::LeftFootTrajectory, Auto]
       - [Harambe::Stabilized::LeftFootTrajectory, OK, Harambe::Stabilized::PutLeftFoot, Auto]
+      - [Harambe::Stabilized::PutLeftFoot, OK, Harambe::GoCenter]
 ##############################################################################
 # Transitions
 ##############################################################################
