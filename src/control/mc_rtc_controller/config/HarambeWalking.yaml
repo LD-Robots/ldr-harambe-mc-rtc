@@ -538,17 +538,27 @@ states:
   Harambe::StepForward:
     base: Meta
     transitions:
-      - [Harambe::GoRight, OK, Harambe::Stabilized::LeftFootTrajectory, Auto]
-      - [Harambe::Stabilized::LeftFootTrajectory, OK, Harambe::GoLeft, Auto]
-      - [Harambe::GoLeft, OK, Harambe::Stabilized::RightFootTrajectory, Auto]
-      - [Harambe::Stabilized::RightFootTrajectory, OK, Harambe::GoCenter, Auto]
+      - [Harambe::Stabilized::LiftLeftFoot, OK, Harambe::Stabilized::LeftFootTrajectory, Auto]
+      - [Harambe::Stabilized::LeftFootTrajectory, OK, Harambe::Stabilized::PutLeftFoot, Auto]
+      - [Harambe::Stabilized::PutLeftFoot, OK, Harambe::GoCenter]
+      - [Harambe::GoCenter, OK, Harambe::Stabilized::LiftRightFoot, Auto]
+      - [Harambe::Stabilized::LiftRightFoot, OK, Harambe::Stabilized::RightFootTrajectory, Auto]
+      - [Harambe::Stabilized::RightFootTrajectory, OK, Harambe::Stabilized::PutRightFoot, Auto]
+      - [Harambe::Stabilized::LiftLeftFoot, OK, Harambe::GoCenter2]
 
   Harambe::LeftStepForward:
     base: Meta
     transitions:
       - [Harambe::Stabilized::LiftLeftFoot, OK, Harambe::Stabilized::LeftFootTrajectory, Auto]
       - [Harambe::Stabilized::LeftFootTrajectory, OK, Harambe::Stabilized::PutLeftFoot, Auto]
-      - [Harambe::Stabilized::PutLeftFoot, OK, Harambe::GoCenter]
+      - [Harambe::Stabilized::PutLeftFoot, OK, Harambe::GoCenter, Auto]
+
+  Harambe::RightStepForward:
+    base: Meta
+    transitions:
+      - [Harambe::Stabilized::LiftRightFoot, OK, Harambe::Stabilized::RightFootTrajectory, Auto]
+      - [Harambe::Stabilized::RightFootTrajectory, OK, Harambe::Stabilized::PutRightFoot, Auto]
+      - [Harambe::Stabilized::PutRightFoot, OK, Harambe::GoCenter, Auto]
 ##############################################################################
 # Transitions
 ##############################################################################
@@ -563,6 +573,9 @@ transitions:
   # Left step test
   - [Harambe::Standing, Left Step, Harambe::LeftStepForward, Auto]
   - [Harambe::LeftStepForward, OK, Harambe::Standing, Auto]
+  # Right step test
+  - [Harambe::Standing, Right Step, Harambe::RightStepForward, Auto]
+  - [Harambe::RightStepForward, OK, Harambe::Standing, Auto]
   # Go back to standing
   - [Harambe::GoCenter, OK, Harambe::Standing]
 
