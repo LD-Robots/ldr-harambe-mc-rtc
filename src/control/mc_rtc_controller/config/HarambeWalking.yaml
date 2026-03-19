@@ -219,24 +219,20 @@ states:
     completion: {}
     StabilizerConfig:
       contacts: [Left]
-    # Only add left foot contact (override Standing's AddContacts which adds both)
-    AddContacts:
+    RemoveContacts:
       - r2: ground
-        r1Surface: LeftFootCenter
+        r1Surface: RightFootCenter
         r2Surface: AllGround
-        dof: [0, 0, 1, 1, 1, 0]
 
   Harambe::RightSupport:
     base: Harambe::GoRight
     completion: {}
     StabilizerConfig:
       contacts: [Right]
-    # Only add right foot contact (override Standing's AddContacts which adds both)
-    AddContacts:
+    RemoveContacts:
       - r2: ground
-        r1Surface: RightFootCenter
+        r1Surface: LeftFootCenter
         r2Surface: AllGround
-        dof: [0, 0, 1, 1, 1, 0]
 
   # --- Foot lift (gentle) ---
   Harambe::LiftRightFoot:
