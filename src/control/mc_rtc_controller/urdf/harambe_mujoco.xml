@@ -145,7 +145,7 @@
         <site name="PelvisIMU_site" pos="0.0705 0 -0.17" size="0.005" />
         <site name="TorsoIMU_site" pos="0.0665 0 0.35" size="0.005" />
       </body>
-      <body name="urdf_hip_assembly" pos="0.0333787 0.076301 -0.467748">
+      <body name="urdf_hip_assembly" pos="0.0333787 0.072699 -0.467748">
         <inertial pos="-0.00420762 0.0689982 -6.23945e-06" quat="0.706157 0.707882 0.0110776 0.0110854" mass="1.73" diaginertia="0.00302373 0.00263533 0.00228673" />
         <joint name="left_hip_pitch_joint_X8" pos="0 0 0" axis="0 1 0" range="-2.53 1.57" armature="0.0577" damping="0.321" />
         <geom pos="0.00253653 0.0520203 -3.27638e-05" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.0627451 0.266667 0.490196 1" mesh="hip" />
@@ -181,7 +181,7 @@
         <inertial pos="-0.00420762 -0.0739982 6.23945e-06" quat="0.706157 0.707882 -0.0110776 -0.0110854" mass="1.73" diaginertia="0.00302373 0.00263533 0.00228673" />
         <joint name="right_hip_pitch_joint_X8" pos="0 0 0" axis="0 1 0" range="-2.53 1.57" armature="0.0577" damping="0.321" />
         <geom pos="0.00253653 -0.0570203 3.27638e-05" quat="9.38184e-07 -0.707105 -0.707108 9.38187e-07" type="mesh" rgba="0.0627451 0.266667 0.490196 1" mesh="hip" />
-        <body name="urdf_r_upper_femur_assemby" pos="0.055 -0.078 0">
+        <body name="urdf_r_upper_femur_assemby" pos="0.055 -0.073 0">
           <inertial pos="-0.0457092 -0.000405162 -0.147963" quat="0.546379 0.172424 0.104782 0.812872" mass="1.912" diaginertia="0.00558398 0.00552262 0.00296637" />
           <joint name="right_hip_roll_joint_X8" pos="0 0 0" axis="1 0 0" range="-3.14 0.35" armature="0.0577" damping="0.321" />
           <geom pos="-0.0257733 -0.00151464 -0.111761" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.941176 0.87451 0.678431 1" mesh="r_upper_femur" />
@@ -193,7 +193,7 @@
               <inertial pos="0.00463902 0.0449175 -0.190727" quat="0.996881 0.0712617 -0.0115278 -0.0318828" mass="2.4" diaginertia="0.0786493 0.0774942 0.0140292" />
               <joint name="right_knee_joint_X8" pos="0 0 0" axis="0 1 0" range="-0.17 1.57" armature="0.0577" damping="0.321" />
               <geom pos="0.000678616 0.0431372 -0.186264" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="urdf_r_tibia_assembly" />
-              <body name="urdf_ankle_assembly_2" pos="-4.02748e-07 0.059 -0.395">
+              <body name="urdf_ankle_assembly_2" pos="-4.02748e-07 0.051 -0.395">
                 <inertial pos="-1.27886e-08 -0.004 -0.0125426" quat="0.707107 0 0 0.707107" mass="0.0818219" diaginertia="2.15245e-05 1.69449e-05 1.25404e-05" />
                 <joint name="right_ankle_pitch_joint_X4" pos="0 0 0" axis="0 1 0" range="-0.79 0.79" armature="0.0389" damping="0.114" />
                 <geom pos="-1.27886e-08 -0.004 -0.0125426" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="urdf_ankle_assembly" />
