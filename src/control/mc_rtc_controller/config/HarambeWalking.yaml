@@ -414,7 +414,7 @@ states:
         weight: 500
         frame: RightFootCenter
         moveWorld:
-          translation: [0, 0, -0.06]
+          translation: [0, 0, -0.015]
         overwriteRPY:
           roll: 0
           pitch: 0
@@ -430,6 +430,8 @@ states:
     tasks:
       PutFootTask:
         frame: LeftFootCenter
+        moveWorld:
+          translation: [0, 0, -0.015]
 
   # --- Stabilized foot lift (parallel: support + lift) ---
   Harambe::Stabilized::LiftRightFoot:
@@ -486,11 +488,12 @@ states:
               - speed: 0.005
         targetSurface:
           surface: RightFootCenter
-          translation: [0.05, 0.0, 0.012]
+          translation: [0.12, 0.0, 0.008]
           rotation: [0, 0, 0]
           controlPoints:
-            - [1.0, [0.05, 0.0, 0.012]]
-            
+            - time: 2.0
+              position: [0.05, 0.0, 0.02]
+
   Harambe::LeftFootTrajectory:
     base: Harambe::RightFootTrajectory
     tasks:
@@ -498,10 +501,11 @@ states:
         surface: LeftFootCenter
         targetSurface:
           surface: LeftFootCenter
-          translation: [0.05, 0.0, 0.012]
+          translation: [0.12, 0.0, 0.008]
           rotation: [0, 0, 0]
           controlPoints:
-            - [1.0, [0.05, 0.0, 0.012]]
+            - time: 2.0
+              position: [0.05, 0.0, 0.02]
 
   # --- Stabilized swing (parallel: support + trajectory) ---
   Harambe::Stabilized::RightFootTrajectory:
