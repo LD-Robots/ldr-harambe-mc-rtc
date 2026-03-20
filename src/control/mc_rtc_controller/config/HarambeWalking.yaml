@@ -147,13 +147,18 @@ states:
         dof: [0, 0, 1, 1, 1, 0]
 
   # --- CoM shift states ---
-  Harambe::GoCenter:
+  Harambe::GoCenter::Stabilizer:
     base: Harambe::Standing
     above: CenterSurfaces
-    completion:
-      OR:
-        - dcmEval: [0.02, 0.02, 0.1]
-        - timeout: 5.0
+    completion: {}
+
+  Harambe::GoCenter::Timer:
+    base: Pause
+    duration: 3.0
+
+  Harambe::GoCenter:
+    base: Parallel
+    states: [Harambe::GoCenter::Stabilizer, Harambe::GoCenter::Timer]
 
   # Alias for second GoCenter in LiftFeetFSM (Meta can't reuse same state)
   Harambe::GoCenter2:
@@ -536,7 +541,6 @@ states:
       - [Harambe::Stabilized::LiftLeftFoot, OK, Harambe::Stabilized::LeftFootTrajectory, Auto]
       - [Harambe::Stabilized::LeftFootTrajectory, OK, Harambe::Stabilized::PutLeftFoot, Auto]
       - [Harambe::Stabilized::PutLeftFoot, OK, Harambe::GoCenter, Auto]
-      - [Harambe::Stabilized::GoCenter, OK, Harambe::Standing, Auto]
 
   Harambe::RightStepForward:
     base: Meta
@@ -544,7 +548,6 @@ states:
       - [Harambe::Stabilized::LiftRightFoot, OK, Harambe::Stabilized::RightFootTrajectory, Auto]
       - [Harambe::Stabilized::RightFootTrajectory, OK, Harambe::Stabilized::PutRightFoot, Auto]
       - [Harambe::Stabilized::PutRightFoot, OK, Harambe::GoCenter, Auto]
-      - [Harambe::Stabilized::GoCenter, OK, Harambe::Standing, Auto]
 ##############################################################################
 # Transitions
 ##############################################################################
