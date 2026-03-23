@@ -112,19 +112,19 @@ states:
       # No force sensor admittance - feedforward only
       admittance:
         cop: [0.0, 0.0]
-        dfz: 0.0
-        dfz_damping: 0
+        df: [0.0, 0.0, 0.0]
+        df_damping: [0.0, 0.0, 0.0]
         maxVel:
           linear: [0.3, 0.3, 0.3]
           angular: [0.5, 0.5, 0.5]
 
       dcm_tracking:
         gains:
-          prop: 4.0
-          integral: 10
+          prop: 3.0
+          integral: 2
           deriv: 0.5
-        derivator_time_constant: 1
-        integrator_time_constant: 10
+        derivator_cutoff_period: 1
+        integrator_time_constant: 15
 
       Left:
         overwriteRPY:
@@ -143,11 +143,11 @@ states:
       - r2: ground
         r1Surface: LeftFootCenter
         r2Surface: AllGround
-        dof: [0, 0, 1, 1, 1, 0]
+        dof: [1, 1, 1, 1, 1, 1]
       - r2: ground
         r1Surface: RightFootCenter
         r2Surface: AllGround
-        dof: [0, 0, 1, 1, 1, 0]
+        dof: [1, 1, 1, 1, 1, 1]
 
   # Single support (no completion - held by parent)
   # Do NOT inherit from Standing to avoid AddContacts with dof locking X/Y
@@ -205,15 +205,15 @@ states:
         regularization: 0.01
       admittance:
         cop: [0.0, 0.0]
-        dfz: 0.0
-        dfz_damping: 0
+        df: [0.0, 0.0, 0.0]
+        df_damping: [0.0, 0.0, 0.0]
       dcm_tracking:
         gains:
           prop: 2.0
-          integral: 5
+          integral: 1
           deriv: 0.3
-        derivator_time_constant: 1
-        integrator_time_constant: 10
+        derivator_cutoff_period: 1
+        integrator_time_constant: 15
       Left:
         overwriteRPY:
           roll: 0
@@ -230,7 +230,7 @@ states:
       - r2: ground
         r1Surface: LeftFootCenter
         r2Surface: AllGround
-        dof: [0, 0, 1, 1, 1, 0]
+        dof: [1, 1, 1, 1, 1, 1]
 
   Harambe::RightSupport:
     base: StabilizerStandingState
@@ -286,15 +286,15 @@ states:
         regularization: 0.01
       admittance:
         cop: [0.0, 0.0]
-        dfz: 0.0
-        dfz_damping: 0
+        df: [0.0, 0.0, 0.0]
+        df_damping: [0.0, 0.0, 0.0]
       dcm_tracking:
         gains:
           prop: 2.0
-          integral: 5
+          integral: 1
           deriv: 0.3
-        derivator_time_constant: 1
-        integrator_time_constant: 10
+        derivator_cutoff_period: 1
+        integrator_time_constant: 15
       Left:
         overwriteRPY:
           roll: 0
@@ -311,15 +311,15 @@ states:
       - r2: ground
         r1Surface: RightFootCenter
         r2Surface: AllGround
-        dof: [0, 0, 1, 1, 1, 0]
+        dof: [1, 1, 1, 1, 1, 1]
 
   Harambe::LiftRightFoot:
     base: MetaTasks
     tasks:
       LiftFootTask:
         type: transform
-        stiffness: 3
-        damping: 20
+        stiffness: 50
+        damping: 30
         weight: 200
         frame: RightFootCenter
         moveWorld:
@@ -336,12 +336,12 @@ states:
     tasks:
       PutFootTask:
         type: transform
-        stiffness: 10
-        damping: 20
+        stiffness: 50
+        damping: 30
         weight: 500
         frame: RightFootCenter
         moveWorld:
-          translation: [0, 0, -0.015]
+          translation: [0, 0, -0.005]
         overwriteRPY:
           roll: 0
           pitch: 0
@@ -349,7 +349,7 @@ states:
           OR:
             - AND:
               - timeout: 1.5
-              - speed: 0.003
+              - speed: 0.002
             - timeout: 3
 
   Harambe::RightFootTrajectory:
@@ -358,7 +358,8 @@ states:
       SwingFootTrajectory:
         type: exact_cubic_trajectory
         surface: RightFootCenter
-        stiffness: 10000.0
+        stiffness: 2000.0
+        damping: 120.0
         duration: 4.0
         weight: 100
         displaySamples: 20
@@ -370,11 +371,11 @@ states:
               - speed: 0.005
         targetSurface:
           surface: RightFootCenter
-          translation: [0.12, 0.0, 0.008]
+          translation: [0.12, 0.0, 0.005]
           rotation: [0, 0, 0]
           controlPoints:
             - time: 2.0
-              position: [0.05, 0.0, 0.02]
+              position: [0.05, 0.0, 0.04]
 
   # ========== Level 2: derived from Level 1 ==========
 
@@ -385,7 +386,7 @@ states:
 
   Harambe::GoCenter::Timer:
     base: Pause
-    duration: 3.0
+    duration: 5.0
 
   Harambe::LiftLeftFoot:
     base: Harambe::LiftRightFoot
@@ -399,7 +400,7 @@ states:
       PutFootTask:
         frame: LeftFootCenter
         moveWorld:
-          translation: [0, 0, -0.015]
+          translation: [0, 0, -0.005]
 
   Harambe::LeftFootTrajectory:
     base: Harambe::RightFootTrajectory
@@ -408,11 +409,11 @@ states:
         surface: LeftFootCenter
         targetSurface:
           surface: LeftFootCenter
-          translation: [0.12, 0.0, 0.008]
+          translation: [0.12, 0.0, 0.005]
           rotation: [0, 0, 0]
           controlPoints:
             - time: 2.0
-              position: [0.05, 0.0, 0.02]
+              position: [0.05, 0.0, 0.04]
 
   # ========== Level 3: Parallel (combining Level 1 + 2) ==========
 
@@ -443,7 +444,7 @@ states:
       - r2: ground
         r1Surface: RightFootCenter
         r2Surface: AllGround
-        dof: [0, 0, 1, 1, 1, 0]
+        dof: [1, 1, 1, 1, 1, 1]
 
   Harambe::Stabilized::PutLeftFoot:
     base: Parallel
@@ -452,7 +453,7 @@ states:
       - r2: ground
         r1Surface: LeftFootCenter
         r2Surface: AllGround
-        dof: [0, 0, 1, 1, 1, 0]
+        dof: [1, 1, 1, 1, 1, 1]
 
   Harambe::Stabilized::RightFootTrajectory:
     base: Parallel
