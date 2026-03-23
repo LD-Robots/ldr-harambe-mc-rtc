@@ -386,7 +386,7 @@ states:
 
   Harambe::GoCenter::Timer:
     base: Pause
-    duration: 5.0
+    duration: 2.0
 
   Harambe::LiftLeftFoot:
     base: Harambe::LiftRightFoot
