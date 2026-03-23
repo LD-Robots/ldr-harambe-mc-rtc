@@ -143,11 +143,11 @@ states:
       - r2: ground
         r1Surface: LeftFootCenter
         r2Surface: AllGround
-        dof: [1, 1, 1, 1, 1, 1]
+        dof: [1, 1, 0, 1, 1, 1]
       - r2: ground
         r1Surface: RightFootCenter
         r2Surface: AllGround
-        dof: [1, 1, 1, 1, 1, 1]
+        dof: [1, 1, 0, 1, 1, 1]
 
   # Single support (no completion - held by parent)
   # Do NOT inherit from Standing to avoid AddContacts with dof locking X/Y
@@ -230,7 +230,7 @@ states:
       - r2: ground
         r1Surface: LeftFootCenter
         r2Surface: AllGround
-        dof: [1, 1, 1, 1, 1, 1]
+        dof: [1, 1, 0, 1, 1, 1]
 
   Harambe::RightSupport:
     base: StabilizerStandingState
@@ -311,7 +311,7 @@ states:
       - r2: ground
         r1Surface: RightFootCenter
         r2Surface: AllGround
-        dof: [1, 1, 1, 1, 1, 1]
+        dof: [1, 1, 0, 1, 1, 1]
 
   Harambe::LiftRightFoot:
     base: MetaTasks
@@ -357,7 +357,7 @@ states:
     tasks:
       SwingFootTrajectory:
         type: exact_cubic_trajectory
-        surface: RightFootCenter
+        frame: RightFootCenter
         stiffness: 2000.0
         damping: 120.0
         duration: 4.0
@@ -369,13 +369,13 @@ states:
             - AND:
               - timeout: 2.0
               - speed: 0.005
-        targetSurface:
-          surface: RightFootCenter
-          translation: [0.12, 0.0, 0.005]
+        targetFrame:
+          frame: RightFootCenter
+          translation: [0.12, 0.0, 0.0]
           rotation: [0, 0, 0]
           controlPoints:
             - time: 2.0
-              position: [0.05, 0.0, 0.04]
+              position: [0.05, 0.0, 0.005]
 
   # ========== Level 2: derived from Level 1 ==========
 
@@ -406,14 +406,14 @@ states:
     base: Harambe::RightFootTrajectory
     tasks:
       SwingFootTrajectory:
-        surface: LeftFootCenter
-        targetSurface:
-          surface: LeftFootCenter
-          translation: [0.12, 0.0, 0.005]
+        frame: LeftFootCenter
+        targetFrame:
+          frame: LeftFootCenter
+          translation: [0.12, 0.0, 0.0]
           rotation: [0, 0, 0]
           controlPoints:
             - time: 2.0
-              position: [0.05, 0.0, 0.04]
+              position: [0.05, 0.0, 0.005]
 
   # ========== Level 3: Parallel (combining Level 1 + 2) ==========
 
@@ -444,7 +444,7 @@ states:
       - r2: ground
         r1Surface: RightFootCenter
         r2Surface: AllGround
-        dof: [1, 1, 1, 1, 1, 1]
+        dof: [1, 1, 0, 1, 1, 1]
 
   Harambe::Stabilized::PutLeftFoot:
     base: Parallel
@@ -453,7 +453,7 @@ states:
       - r2: ground
         r1Surface: LeftFootCenter
         r2Surface: AllGround
-        dof: [1, 1, 1, 1, 1, 1]
+        dof: [1, 1, 0, 1, 1, 1]
 
   Harambe::Stabilized::RightFootTrajectory:
     base: Parallel
