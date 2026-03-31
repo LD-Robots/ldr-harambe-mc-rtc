@@ -19,3 +19,26 @@ add_controller(
   "harambe_walking_controller.h"
 )
 target_link_libraries(HarambeWalking PUBLIC mc_rtc::mc_control_fsm)
+
+# --- ONNX Walking Controller ---
+# ONNX Runtime from ldr-harambe-arms-sim2real/third_party/onnxruntime
+set(ONNXRT_DIR "$ENV{HOME}/Documents/GitHub/ldr-harambe-arms-sim2real/third_party/onnxruntime")
+if(EXISTS "${ONNXRT_DIR}/include/onnxruntime_cxx_api.h")
+  message(STATUS "Using ONNX Runtime: ${ONNXRT_DIR}")
+
+  add_controller(
+    "HarambeOnnxWalking"
+    "onnx_walking_controller.cpp"
+    "onnx_walking_controller.h"
+  )
+  target_include_directories(HarambeOnnxWalking PRIVATE "${ONNXRT_DIR}/include")
+  target_link_directories(HarambeOnnxWalking PRIVATE "${ONNXRT_DIR}/lib")
+  target_link_libraries(HarambeOnnxWalking PRIVATE onnxruntime)
+  # Set RPATH so libonnxruntime.so is found at runtime
+  set_target_properties(HarambeOnnxWalking PROPERTIES
+    BUILD_RPATH "${ONNXRT_DIR}/lib"
+    INSTALL_RPATH "${ONNXRT_DIR}/lib"
+  )
+else()
+  message(WARNING "ONNX Runtime not found at ${ONNXRT_DIR}, skipping HarambeOnnxWalking")
+endif()

@@ -1,6 +1,6 @@
 # Configuration for Harambe with CoM + Posture controller
 MainRobot: [json, "@MC_RTC_DIR@/robots/harambe.json"]
-Enabled: [HarambeWalking, BaselineWalkingController, HarambeCoMPosture]
+Enabled: [HarambeOnnxWalking, HarambeWalking, BaselineWalkingController, HarambeCoMPosture]
 IncludeHalfSitController: false
 ControllerModulePaths: ["@BUILD_DIR@/lib/mc_controller"]
 
