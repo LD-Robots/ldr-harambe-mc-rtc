@@ -35,7 +35,7 @@
     "right_ankle_roll_joint_X4": [0.0]
   },
 
-  "default_attitude": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.25],
+  "default_attitude": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.21],
 
   "init_pos": {
     "left_shoulder_pitch_joint_X6": 0.0,

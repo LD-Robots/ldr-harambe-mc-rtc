@@ -105,9 +105,11 @@ rm -rf "$TARGET_HOME/.config/mc_rtc/robots/rsdf/G1"
 sudo rm -f "/usr/local/share/mc_mujoco/G1.yaml" 2>/dev/null || true
 
 echo "Installing Harambe configs..."
-# Generate MuJoCo XML with resolved package:// URIs
-echo "Resolving MuJoCo mesh paths..."
-resolve_package_uris "$URDF_DIR/harambe_mujoco.xml" "$GENERATED_DIR/harambe_mujoco.xml"
+# MuJoCo XML — symlink (mesh paths are already absolute, no resolve needed)
+mkdir -p "$GENERATED_DIR"
+rm -f "$GENERATED_DIR/harambe_mujoco.xml"
+ln -sf "$URDF_DIR/harambe_mujoco.xml" "$GENERATED_DIR/harambe_mujoco.xml"
+echo "Linked $GENERATED_DIR/harambe_mujoco.xml -> $URDF_DIR/harambe_mujoco.xml"
 
 # Files with placeholders — copy with sed substitution
 install_file "../config/mc_rtc.yaml" "$TARGET_HOME/.config/mc_rtc/mc_rtc.yaml"
