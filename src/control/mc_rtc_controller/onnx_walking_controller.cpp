@@ -105,6 +105,8 @@ void HarambeOnnxWalkingController::reset(const ControllerResetData & reset_data)
   stepCounter_ = 0;
   policyStep_ = 0;
   policyActive_ = false;
+  baseOrientation_ = Eigen::Quaterniond::Identity();
+  dt_ = timeStep;
 
   // --- Add GUI elements ---
   gui()->addElement({"OnnxWalking"},
@@ -172,6 +174,12 @@ bool HarambeOnnxWalkingController::run()
   {
     mc_rtc::log::info("[OnnxWalking] step={}, policy_active={}, policy_step={}",
                       stepCounter_, policyActive_, policyStep_);
+    // Log orientation estimate
+    {
+      auto rpy = baseOrientation_.toRotationMatrix().eulerAngles(0, 1, 2);
+      mc_rtc::log::info("[OnnxWalking]   ori_rpy=[{:.2f},{:.2f},{:.2f}] deg",
+                        rpy.x() * 180.0 / M_PI, rpy.y() * 180.0 / M_PI, rpy.z() * 180.0 / M_PI);
+    }
     mc_rtc::log::info("[OnnxWalking]   grav=[{:.3f},{:.3f},{:.3f}] cmd=[{:.2f},{:.2f},{:.2f}]",
                       obs_[6], obs_[7], obs_[8],
                       obs_[9], obs_[10], obs_[11]);
@@ -195,46 +203,71 @@ void HarambeOnnxWalkingController::buildObservation()
   const auto & ev = real.encoderValues();
   const auto & evd = real.encoderVelocities();
 
-  // --- IMU-based observations (no observer needed) ---
-  // mc_mujoco feeds gyro -> angularVelocity, accelerometer -> linearAcceleration
-  // These are already in body frame from the MuJoCo sensor.
+  // --- Orientation estimation: complementary filter (gyro + accel) ---
+  // mc_mujoco only provides gyro and accelerometer, NOT orientation.
+  // We integrate gyro and correct drift with accelerometer.
+  const std::string baseSensor = imuSensor_;
+  Eigen::Vector3d angVelBody = Eigen::Vector3d::Zero();
+  Eigen::Vector3d accelBody = Eigen::Vector3d::Zero();
 
-  // base_lin_vel (3) — not directly available from IMU, keep zero
-  // (Isaac Lab provides it from sim, but real robot would need an estimator)
+  if(real.hasBodySensor(baseSensor))
+  {
+    angVelBody = real.bodySensor(baseSensor).angularVelocity();
+    accelBody = real.bodySensor(baseSensor).linearAcceleration();
+  }
+
+  // Gyro integration: q = q * delta_q(omega * dt)
+  {
+    Eigen::Vector3d dtheta = angVelBody * dt_;
+    double angle = dtheta.norm();
+    if(angle > 1e-10)
+    {
+      Eigen::Quaterniond dq(Eigen::AngleAxisd(angle, dtheta / angle));
+      baseOrientation_ = (baseOrientation_ * dq).normalized();
+    }
+  }
+
+  // Accelerometer correction (complementary filter, alpha=0.02)
+  // Only correct when acceleration magnitude is close to gravity (not in free fall or impact)
+  {
+    double accelNorm = accelBody.norm();
+    if(accelNorm > 5.0 && accelNorm < 15.0)  // roughly 0.5g to 1.5g
+    {
+      // Measured gravity direction in body frame (accelerometer points "up")
+      Eigen::Vector3d measGravBody = -accelBody / accelNorm;
+
+      // Expected gravity direction from current orientation estimate
+      Eigen::Vector3d gravWorld(0.0, 0.0, -1.0);
+      Eigen::Matrix3d R = baseOrientation_.toRotationMatrix();
+      Eigen::Vector3d estGravBody = R.transpose() * gravWorld;
+
+      // Correction: rotate towards measured gravity
+      Eigen::Vector3d error = measGravBody.cross(estGravBody);
+      double alpha = 0.02;  // complementary filter gain
+      Eigen::Quaterniond correction(1.0, alpha * error.x() * 0.5,
+                                         alpha * error.y() * 0.5,
+                                         alpha * error.z() * 0.5);
+      baseOrientation_ = (correction * baseOrientation_).normalized();
+    }
+  }
+
+  Eigen::Matrix3d bodyRot = baseOrientation_.toRotationMatrix();
+
+  // base_lin_vel (3) — zero (not available from IMU alone)
   obs_[0] = obs_[1] = obs_[2] = 0.0f;
 
-  // base_ang_vel (3) — directly from gyro (already in body frame)
-  if(real.hasBodySensor(imuSensor_))
-  {
-    Eigen::Vector3d angVel = real.bodySensor(imuSensor_).angularVelocity();
-    obs_[3] = static_cast<float>(angVel.x());
-    obs_[4] = static_cast<float>(angVel.y());
-    obs_[5] = static_cast<float>(angVel.z());
-  }
+  // base_ang_vel (3) — from gyro (already in body frame)
+  obs_[3] = static_cast<float>(angVelBody.x());
+  obs_[4] = static_cast<float>(angVelBody.y());
+  obs_[5] = static_cast<float>(angVelBody.z());
 
-  // projected_gravity (3) — from accelerometer
-  // Accelerometer reads: a_body = R^T * (a_world + g) ≈ R^T * [0,0,9.81] when stationary
-  // Normalize to unit vector and negate to get gravity direction in body frame
-  if(real.hasBodySensor(imuSensor_))
+  // projected_gravity (3) — R^T * [0,0,-1]
   {
-    Eigen::Vector3d accel = real.bodySensor(imuSensor_).linearAcceleration();
-    double norm = accel.norm();
-    if(norm > 1.0)  // sanity check
-    {
-      // accel points "up" (opposite to gravity), normalize and negate
-      Eigen::Vector3d gravBody = -accel / norm;
-      obs_[6] = static_cast<float>(gravBody.x());
-      obs_[7] = static_cast<float>(gravBody.y());
-      obs_[8] = static_cast<float>(gravBody.z());
-    }
-    else
-    {
-      obs_[6] = 0.0f; obs_[7] = 0.0f; obs_[8] = -1.0f;
-    }
-  }
-  else
-  {
-    obs_[6] = 0.0f; obs_[7] = 0.0f; obs_[8] = -1.0f;
+    Eigen::Vector3d gravWorld(0.0, 0.0, -1.0);
+    Eigen::Vector3d gravBody = bodyRot.transpose() * gravWorld;
+    obs_[6] = static_cast<float>(gravBody.x());
+    obs_[7] = static_cast<float>(gravBody.y());
+    obs_[8] = static_cast<float>(gravBody.z());
   }
 
   // commands (3)

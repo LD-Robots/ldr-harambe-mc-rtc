@@ -54,7 +54,11 @@ private:
   Eigen::Vector3d commands_ = Eigen::Vector3d::Zero();
 
   // --- IMU sensor name ---
-  std::string imuSensor_ = "PelvisIMU";
+  std::string imuSensor_ = "FloatingBase";
+
+  // --- Orientation estimation (complementary filter) ---
+  Eigen::Quaterniond baseOrientation_ = Eigen::Quaterniond::Identity();
+  double dt_ = 0.005;
 
   // --- Methods ---
   void buildObservation();
