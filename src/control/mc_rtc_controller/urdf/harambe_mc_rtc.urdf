@@ -1,16 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<robot name="harambe_full_robot">
-  
-  
-  
+<robot name="robot_harambe_v04">
   <link name="urdf_base">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0334604 -0.000699269 -0.431702" />
-      <mass value="5.132" />
-      <inertia ixx="0.0288848" ixy="2.35276e-07" ixz="-2.88595e-05" iyy="0.0213139" iyz="-6.5838e-06" izz="0.0155352" />
+      <origin xyz="0.071983 -0.000707749 -0.396794" rpy="0 0 0" />
+      <mass value="5.734" />
+      <inertia ixx="0.029089" ixy="1.00627e-06" ixz="1.93587e-05" iyy="0.0240807" iyz="-1.32561e-05" izz="0.0160144" />
     </inertial>
     <visual>
-      <origin rpy="-1.5708 0.785398 0" xyz="0.0333787 0.0103011 -0.467748" />
+      <origin xyz="0.070373 -0.00470535 -0.431099" rpy="0 -1.57079 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x8_p20_120_unified.stl" />
       </geometry>
@@ -19,22 +16,61 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="-0.00271429 -0.000697952 -0.432504" />
+      <origin xyz="0.070373 -0.000705351 -1.1821" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/b_base.stl" />
       </geometry>
       <material name="b_base_material">
-        <color rgba="0.368627 0.25098 0.643137 1" />
+        <color rgba="0.980392 0.713725 0.00392157 1" />
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="-0.00271429 -0.000697952 -0.432504" />
+      <origin xyz="0.070373 -0.000705351 -1.1821" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/b_base.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="1.5708 -0.785398 0" xyz="0.0333787 -0.0116989 -0.467748" />
+      <origin xyz="0.070373 -0.000705351 0.319901" rpy="-3.14159 0 -1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/visual/plate_base_right.stl" />
+      </geometry>
+      <material name="plate_base_right_material">
+        <color rgba="0.654902 0.823529 0.576471 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.070373 -0.000705351 0.319901" rpy="-3.14159 0 -1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/collision/plate_base_right.stl" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.070373 -0.000705351 0.599901" rpy="-3.14159 0 -1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/visual/spacer_pelvis_torso.stl" />
+      </geometry>
+      <material name="spacer_pelvis_torso_material">
+        <color rgba="0.498039 0.498039 0.498039 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0.070373 -0.000705351 -1.1821" rpy="0 0 -1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/visual/f_base.stl" />
+      </geometry>
+      <material name="f_base_material">
+        <color rgba="0.231373 0.380392 0.705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.070373 -0.000705351 -1.1821" rpy="0 0 -1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/collision/f_base.stl" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.070373 -0.000705351 -0.365099" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x8_p20_120_unified.stl" />
       </geometry>
@@ -43,7 +79,37 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="0.0333787 -0.000698852 -0.396748" />
+      <origin xyz="0.070373 -0.000705351 -1.1821" rpy="0 0 -1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/visual/plate_base_left.stl" />
+      </geometry>
+      <material name="plate_base_left_material">
+        <color rgba="0.764706 0.545098 0.803922 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.070373 -0.000705351 -1.1821" rpy="0 0 -1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/collision/plate_base_left.stl" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.070373 -0.000705351 -1.1821" rpy="0 0 -1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/visual/plate_base_top.stl" />
+      </geometry>
+      <material name="plate_base_top_material">
+        <color rgba="0.654902 0.584314 0.823529 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.070373 -0.000705351 -1.1821" rpy="0 0 -1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/collision/plate_base_top.stl" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.070373 0.00329465 -0.431099" rpy="0 1.57079 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x8_p20_120_unified.stl" />
       </geometry>
@@ -52,29 +118,29 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="0.070373 -0.000705351 -0.431099" />
+      <origin xyz="0.070373 -0.000705351 -0.431099" rpy="0 0 -1.5708" />
       <geometry>
-        <mesh filename="package://full_robot_description/meshes/visual/f_base.stl" />
+        <mesh filename="package://full_robot_description/meshes/visual/jockstrap.stl" />
       </geometry>
-      <material name="f_base_material">
-        <color rgba="0.909804 0.572549 0.164706 1" />
+      <material name="jockstrap_material">
+        <color rgba="0.615686 0.811765 0.929412 1" />
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="0.070373 -0.000705351 -0.431099" />
+      <origin xyz="0.070373 -0.000705351 -0.431099" rpy="0 0 -1.5708" />
       <geometry>
-        <mesh filename="package://full_robot_description/meshes/collision/f_base.stl" />
+        <mesh filename="package://full_robot_description/meshes/collision/jockstrap.stl" />
       </geometry>
     </collision>
   </link>
   <link name="urdf_simplified_torso">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.00199118 -4.1776e-05 0.327574" />
+      <origin xyz="0.00199132 -4.19393e-05 0.328473" rpy="0 0 0" />
       <mass value="5.9" />
-      <inertia ixx="0.320832" ixy="5.08517e-07" ixz="-0.00443482" iyy="0.294153" iyz="9.68158e-05" izz="0.076931" />
+      <inertia ixx="0.318197" ixy="5.25211e-07" ixz="-0.00444278" iyy="0.294961" iyz="9.73773e-05" izz="0.0735035" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="0 0 0.26095" />
+      <origin xyz="0 0 0.26095" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_simplified_torso.stl" />
       </geometry>
@@ -83,13 +149,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="0 0 0.26095" />
+      <origin xyz="0 0 0.26095" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_simplified_torso.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="4.03711e-05 -0.000382221 0.67095" />
+      <origin xyz="4.11536e-05 -0.000384166 0.6725" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/head.stl" />
       </geometry>
@@ -98,13 +164,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="4.03711e-05 -0.000382221 0.67095" />
+      <origin xyz="4.11536e-05 -0.000384166 0.6725" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/head.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="4.03711e-05 -0.000382221 0.672878" />
+      <origin xyz="4.11536e-05 -0.000384166 0.674428" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/back_access.stl" />
       </geometry>
@@ -113,25 +179,14 @@
       </material>
     </visual>
   </link>
-  <joint name="waist_yaw_joint_X8" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0333787 -0.000698852 -0.300748" />
-    <parent link="urdf_base" />
-    <child link="urdf_simplified_torso" />
-    <axis xyz="0 0 1" />
-    <limit effort="72" lower="-1.57" upper="1.57" velocity="13.3" />
-    <dynamics damping="0.321" friction="3.21" />
-  </joint>
-  
-  
-  
   <link name="urdf_l_shoulder_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00409836 0.0631966 -0.000544496" />
+      <origin xyz="-0.00409836 0.0631966 -0.000544507" rpy="0 0 0" />
       <mass value="1.246" />
-      <inertia ixx="0.00205876" ixy="-3.48871e-05" ixz="4.11941e-05" iyy="0.00152408" iyz="-7.63836e-06" izz="0.00171602" />
+      <inertia ixx="0.00205876" ixy="-3.48871e-05" ixz="4.1195e-05" iyy="0.00152408" iyz="-7.63845e-06" izz="0.00171602" />
     </inertial>
     <visual>
-      <origin rpy="0.122174 0 -1.5708" xyz="-0.00129022 0.0502746 -0.000165436" />
+      <origin xyz="-0.00129022 0.0502746 -0.000165439" rpy="0.122176 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/l_shoulder.stl" />
       </geometry>
@@ -140,13 +195,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0.122174 0 -1.5708" xyz="-0.00129022 0.0502746 -0.000165436" />
+      <origin xyz="-0.00129022 0.0502746 -0.000165439" rpy="0.122176 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/l_shoulder.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="-1.44862 0 -1.5708" xyz="-0.038213 0.07 -0.00469197" />
+      <origin xyz="-0.038213 0.07 -0.00469207" rpy="-1.44862 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x6_p20_60_unified.stl" />
       </geometry>
@@ -157,12 +212,12 @@
   </link>
   <link name="urdf_l_upper_arm_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.0354438 0.0213179 -0.103332" />
+      <origin xyz="-0.0354438 0.0213187 -0.103332" rpy="0 0 0" />
       <mass value="0.802" />
-      <inertia ixx="0.00190836" ixy="8.88394e-05" ixz="-0.000467525" iyy="0.00203106" iyz="0.000183108" izz="0.00107639" />
+      <inertia ixx="0.00190836" ixy="8.88428e-05" ixz="-0.000467525" iyy="0.00203106" iyz="0.000183116" izz="0.00107639" />
     </inertial>
     <visual>
-      <origin rpy="0.149185 0.147548 -0.774352" xyz="-0.0268697 0.0182146 -0.0914677" />
+      <origin xyz="-0.0268697 0.0182152 -0.0914675" rpy="0.14919 0.147554 -0.774351" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_l_upper_arm_simplified.stl" />
       </geometry>
@@ -171,13 +226,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0.149185 0.147548 -0.774352" xyz="-0.0268697 0.0182146 -0.0914677" />
+      <origin xyz="-0.0268697 0.0182152 -0.0914675" rpy="0.14919 0.147554 -0.774351" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_l_upper_arm_simplified.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="2.99241 0.147548 -2.36724" xyz="-0.046 0.0189197 -0.0890115" />
+      <origin xyz="-0.046 0.0189203 -0.0890113" rpy="2.9924 0.147554 -2.36724" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x4_p36_36_unified.stl" />
       </geometry>
@@ -188,12 +243,12 @@
   </link>
   <link name="urdf_l_elbow_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00454375 -0.00631726 -0.0710681" />
+      <origin xyz="-0.004748 -0.00662541 -0.0710681" rpy="0 0 0" />
       <mass value="1.109" />
-      <inertia ixx="0.00144951" ixy="5.63858e-05" ixz="-2.92807e-05" iyy="0.00147477" iyz="-7.46143e-05" izz="0.00113761" />
+      <inertia ixx="0.00145153" ixy="5.51714e-05" ixz="-3.01713e-05" iyy="0.00147549" iyz="-7.59581e-05" izz="0.00114035" />
     </inertial>
     <visual>
-      <origin rpy="-1.57079 1.57079 -0.585342" xyz="-0.0243093 -0.036675 -0.075" />
+      <origin xyz="-0.0245855 -0.0370918 -0.075" rpy="-1.57079 1.57079 -0.585341" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x6_p20_60_unified.stl" />
       </geometry>
@@ -202,7 +257,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="1.57079 1.57079 -0.585342" xyz="-0.00676793 -0.0102107 -0.075" />
+      <origin xyz="-0.00676793 -0.0102107 -0.075" rpy="1.57079 1.57079 -0.585341" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_l_elbow_simplified.stl" />
       </geometry>
@@ -211,7 +266,7 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="1.57079 1.57079 -0.585342" xyz="-0.00676793 -0.0102107 -0.075" />
+      <origin xyz="-0.00676793 -0.0102107 -0.075" rpy="1.57079 1.57079 -0.585341" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_l_elbow_simplified.stl" />
       </geometry>
@@ -219,12 +274,12 @@
   </link>
   <link name="urdf_l_upper_forearm_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0267134 -0.0286559 -0.0999185" />
+      <origin xyz="0.0267132 -0.0286559 -0.0999185" rpy="0 0 0" />
       <mass value="0.707" />
-      <inertia ixx="0.00162524" ixy="9.29314e-05" ixz="0.000226907" iyy="0.00146156" iyz="-0.000353662" izz="0.000776912" />
+      <inertia ixx="0.00162524" ixy="9.29307e-05" ixz="0.000226906" iyy="0.00146156" iyz="-0.000353662" izz="0.000776911" />
     </inertial>
     <visual>
-      <origin rpy="0.242706 0 -1.5708" xyz="0.0285993 -0.035 -0.115512" />
+      <origin xyz="0.0285991 -0.035 -0.115512" rpy="0.242704 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_l_upper_forearm_simplified.stl" />
       </geometry>
@@ -233,13 +288,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0.242706 0 -1.5708" xyz="0.0285993 -0.035 -0.115512" />
+      <origin xyz="0.0285991 -0.035 -0.115512" rpy="0.242704 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_l_upper_forearm_simplified.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="-2.89888 0 -1.5708" xyz="0.0216297 -0.035 -0.0873622" />
+      <origin xyz="0.0216296 -0.035 -0.0873622" rpy="-2.89889 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x4_p36_36_unified.stl" />
       </geometry>
@@ -250,12 +305,12 @@
   </link>
   <link name="urdf_l_lower_forearm_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00311766 0.00307025 -0.0515634" />
+      <origin xyz="-0.00311766 0.00307025 -0.0515634" rpy="0 0 0" />
       <mass value="0.618" />
-      <inertia ixx="0.000628386" ixy="-1.68352e-06" ixz="-2.8195e-05" iyy="0.000617293" iyz="-3.24976e-07" izz="0.000448744" />
+      <inertia ixx="0.000628386" ixy="-1.68351e-06" ixz="-2.8195e-05" iyy="0.000617293" iyz="-3.24981e-07" izz="0.000448744" />
     </inertial>
     <visual>
-      <origin rpy="-1.5708 0 0.95089" xyz="-0.00732538 0.00522865 -0.0615" />
+      <origin xyz="-0.00732538 0.00522865 -0.0615" rpy="-1.5708 0 0.95089" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_l_lower_forearm_simplified.stl" />
       </geometry>
@@ -264,13 +319,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="-1.5708 0 0.95089" xyz="-0.00732538 0.00522865 -0.0615" />
+      <origin xyz="-0.00732538 0.00522865 -0.0615" rpy="-1.5708 0 0.95089" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_l_lower_forearm_simplified.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="1.5708 0 0.95089" xyz="-0.0305224 0.021786 -0.0615" />
+      <origin xyz="-0.0305224 0.021786 -0.0615" rpy="1.5708 0 0.950885" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x4_p36_36_unified.stl" />
       </geometry>
@@ -281,12 +336,12 @@
   </link>
   <link name="urdf_l_wrist_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.0219307 0.0106848 -0.0421315" />
+      <origin xyz="-0.0219307 0.0106852 -0.0421315" rpy="0 0 0" />
       <mass value="0.098" />
-      <inertia ixx="0.000100785" ixy="8.2018e-06" ixz="-3.23731e-05" iyy="0.000121426" iyz="6.79903e-06" izz="9.63529e-05" />
+      <inertia ixx="0.000100785" ixy="8.20205e-06" ixz="-3.2373e-05" iyy="0.000121426" iyz="6.79922e-06" izz="9.6353e-05" />
     </inertial>
     <visual>
-      <origin rpy="0 0.248271 -1.5708" xyz="-0.0219314 0.0106848 -0.0421315" />
+      <origin xyz="-0.0219314 0.0106852 -0.0421315" rpy="0 0.248279 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/l_wrist.stl" />
       </geometry>
@@ -295,71 +350,62 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0.248271 -1.5708" xyz="-0.0219314 0.0106848 -0.0421315" />
+      <origin xyz="-0.0219314 0.0106852 -0.0421315" rpy="0 0.248279 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/l_wrist.stl" />
       </geometry>
     </collision>
   </link>
-  <joint name="left_shoulder_pitch_joint_X6" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0.1755 0.423977" />
-    <parent link="urdf_simplified_torso" />
-    <child link="urdf_l_shoulder_assembly" />
-    <axis xyz="0 1 0" />
-    <limit effort="23" lower="-3.02" upper="1.69" velocity="16.02" />
-    <dynamics damping="0.16" friction="1.6" />
-  </joint>
-  <joint name="left_shoulder_roll_joint_X6" type="revolute">
-    <origin rpy="0 -0.122173 0" xyz="0.0456571 0.07 0.00560599" />
-    <parent link="urdf_l_shoulder_assembly" />
-    <child link="urdf_l_upper_arm_assembly" />
-    <axis xyz="1 0 0" />
-    <limit effort="23" lower="-0.21" upper="2.93" velocity="16.02" />
-    <dynamics damping="0.16" friction="1.6" />
-  </joint>
-  <joint name="left_shoulder_yaw_joint_X4" type="revolute">
-    <origin rpy="0.209376 0.00530409 -0.0249664" xyz="-0.046 0.0343048 -0.161394" />
-    <parent link="urdf_l_upper_arm_assembly" />
-    <child link="urdf_l_elbow_assembly" />
-    <axis xyz="0 0 1" />
-    <limit effort="12.075" lower="-1.75" upper="2.97" velocity="8.69" />
-    <dynamics damping="0.114" friction="1.14" />
-  </joint>
-  <joint name="left_elbow_pitch_joint_X6" type="revolute">
-    <origin rpy="0 -0.0190902 -0.585348" xyz="0.019337 0.0291733 -0.075" />
-    <parent link="urdf_l_elbow_assembly" />
-    <child link="urdf_l_upper_forearm_assembly" />
-    <axis xyz="0 1 0" />
-    <limit effort="23" lower="-1.31" upper="1.83" velocity="16.02" />
-    <dynamics damping="0.16" friction="1.6" />
-  </joint>
-  <joint name="left_wrist_yaw_joint_X4" type="revolute">
-    <origin rpy="-0.142861 -0.19688 0.634041" xyz="0.0391738 -0.035 -0.158223" />
-    <parent link="urdf_l_upper_forearm_assembly" />
-    <child link="urdf_l_lower_forearm_assembly" />
-    <axis xyz="0 0 1" />
-    <limit effort="12.075" lower="-2.36" upper="2.36" velocity="8.69" />
-    <dynamics damping="0.114" friction="1.14" />
-  </joint>
   <joint name="left_wrist_roll_joint_X4" type="revolute">
-    <origin rpy="-0.248271 0 -0.619909" xyz="0.0219762 -0.0156859 -0.0615" />
+    <origin xyz="0.0219762 -0.0156859 -0.0615" rpy="-0.248279 0 -0.619909" />
     <parent link="urdf_l_lower_forearm_assembly" />
     <child link="urdf_l_wrist_assembly" />
     <axis xyz="1 0 0" />
-    <limit effort="12.075" lower="-1.57" upper="1.57" velocity="8.69" />
-    <dynamics damping="0.114" friction="1.14" />
+    <limit effort="10" velocity="10" lower="-1.5708" upper="1.5708" />
   </joint>
-  
-  
-  
+  <joint name="left_wrist_yaw_joint_X4" type="revolute">
+    <origin xyz="0.0391735 -0.035 -0.158223" rpy="-0.14286 -0.196878 0.634041" />
+    <parent link="urdf_l_upper_forearm_assembly" />
+    <child link="urdf_l_lower_forearm_assembly" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-2.35619" upper="2.35619" />
+  </joint>
+  <joint name="left_elbow_pitch_joint_X6" type="revolute">
+    <origin xyz="0.0193369 0.0291733 -0.075" rpy="0 -0.0190922 -0.585347" />
+    <parent link="urdf_l_elbow_assembly" />
+    <child link="urdf_l_upper_forearm_assembly" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="10" lower="-1.309" upper="1.8326" />
+  </joint>
+  <joint name="left_shoulder_yaw_joint_X4" type="revolute">
+    <origin xyz="-0.046 0.034306 -0.161394" rpy="0.209383 0.00530439 -0.024967" />
+    <parent link="urdf_l_upper_arm_assembly" />
+    <child link="urdf_l_elbow_assembly" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-1.74533" upper="2.96706" />
+  </joint>
+  <joint name="left_shoulder_roll_joint_X6" type="revolute">
+    <origin xyz="0.0456571 0.07 0.00560611" rpy="0 -0.122176 0" />
+    <parent link="urdf_l_shoulder_assembly" />
+    <child link="urdf_l_upper_arm_assembly" />
+    <axis xyz="1 0 0" />
+    <limit effort="10" velocity="10" lower="-0.20944" upper="2.93215" />
+  </joint>
+  <joint name="left_shoulder_pitch_joint_X6" type="revolute">
+    <origin xyz="0 0.1695 0.423977" rpy="0 0 0" />
+    <parent link="urdf_simplified_torso" />
+    <child link="urdf_l_shoulder_assembly" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="10" lower="-3.01942" upper="1.69297" />
+  </joint>
   <link name="urdf_r_shoulder_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.0047018 -0.0660727 -0.000602814" />
+      <origin xyz="-0.0047018 -0.0660727 -0.000602826" rpy="0 0 0" />
       <mass value="1.02" />
-      <inertia ixx="0.0013257" ixy="1.37507e-05" ixz="2.16639e-05" iyy="0.00104972" iyz="3.46307e-06" izz="0.0011458" />
+      <inertia ixx="0.0013257" ixy="1.37507e-05" ixz="2.16644e-05" iyy="0.00104972" iyz="3.46311e-06" izz="0.0011458" />
     </inertial>
     <visual>
-      <origin rpy="-1.44862 0 -1.5708" xyz="-0.038213 -0.07 -0.00469197" />
+      <origin xyz="-0.038213 -0.07 -0.00469207" rpy="-1.44862 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x6_p20_60_unified.stl" />
       </geometry>
@@ -368,7 +414,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0.122174 0 -1.5708" xyz="-0.00128021 -0.0501448 -0.000164153" />
+      <origin xyz="-0.00128021 -0.0501448 -0.000164156" rpy="0.122176 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/r_shoulder.stl" />
       </geometry>
@@ -377,7 +423,7 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0.122174 0 -1.5708" xyz="-0.00128021 -0.0501448 -0.000164153" />
+      <origin xyz="-0.00128021 -0.0501448 -0.000164156" rpy="0.122176 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/r_shoulder.stl" />
       </geometry>
@@ -385,12 +431,12 @@
   </link>
   <link name="urdf_r_upper_arm_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.0347331 -0.0216406 -0.101809" />
+      <origin xyz="-0.0347331 -0.0216398 -0.101809" rpy="0 0 0" />
       <mass value="0.802" />
-      <inertia ixx="0.00188605" ixy="-9.73961e-05" ixz="-0.00045821" iyy="0.00200295" iyz="-0.000209828" izz="0.00106039" />
+      <inertia ixx="0.00188605" ixy="-9.73927e-05" ixz="-0.00045821" iyy="0.00200295" iyz="-0.000209822" izz="0.00106039" />
     </inertial>
     <visual>
-      <origin rpy="3.14159 -0.209444 -1.5708" xyz="-0.046 -0.0189203 -0.0890113" />
+      <origin xyz="-0.046 -0.0189197 -0.0890115" rpy="3.14159 -0.209436 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x4_p36_36_unified.stl" />
       </geometry>
@@ -399,7 +445,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 -0.209444 -1.5708" xyz="-0.025543 -0.0188228 -0.088553" />
+      <origin xyz="-0.025543 -0.0188222 -0.0885532" rpy="0 -0.209436 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/r_upper_arm.stl" />
       </geometry>
@@ -408,7 +454,7 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 -0.209444 -1.5708" xyz="-0.025543 -0.0188228 -0.088553" />
+      <origin xyz="-0.025543 -0.0188222 -0.0885532" rpy="0 -0.209436 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/r_upper_arm.stl" />
       </geometry>
@@ -416,12 +462,12 @@
   </link>
   <link name="urdf_r_elbow_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00464629 0.00706688 -0.0612736" />
+      <origin xyz="-0.00464628 0.00706688 -0.0612736" rpy="0 0 0" />
       <mass value="1.109" />
-      <inertia ixx="0.00142737" ixy="-5.60372e-05" ixz="-3.53572e-05" iyy="0.00147543" iyz="4.92594e-05" izz="0.00111817" />
+      <inertia ixx="0.00142737" ixy="-5.60371e-05" ixz="-3.53572e-05" iyy="0.00147543" iyz="4.92594e-05" izz="0.00111817" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -0.985454" xyz="0.000192865 -0.000269971 -0.0512953" />
+      <origin xyz="0.000192865 -0.000269971 -0.0512953" rpy="0 0 -0.985455" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/r_elbow.stl" />
       </geometry>
@@ -430,13 +476,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -0.985454" xyz="0.000192865 -0.000269971 -0.0512953" />
+      <origin xyz="0.000192865 -0.000269971 -0.0512953" rpy="0 0 -0.985455" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/r_elbow.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="0.610863 -1.57079 1.54527" xyz="-0.0245856 0.0370918 -0.065" />
+      <origin xyz="-0.0245856 0.0370918 -0.065" rpy="0.610863 -1.57079 1.54527" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x6_p20_60_unified.stl" />
       </geometry>
@@ -447,12 +493,12 @@
   </link>
   <link name="urdf_r_upper_forearm_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.026678 0.0327896 -0.0982604" />
+      <origin xyz="0.0266786 0.0327896 -0.0982602" rpy="0 0 0" />
       <mass value="0.707" />
-      <inertia ixx="0.00160609" ixy="-9.59574e-05" ixz="0.000238817" iyy="0.0014499" iyz="0.00033935" izz="0.000766588" />
+      <inertia ixx="0.00160609" ixy="-9.59596e-05" ixz="0.000238823" iyy="0.0014499" iyz="0.00033935" izz="0.000766591" />
     </inertial>
     <visual>
-      <origin rpy="-2.89888 0 -1.5708" xyz="0.0216302 0.04 -0.0873621" />
+      <origin xyz="0.0216307 0.04 -0.0873619" rpy="-2.89888 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x4_p36_36_unified.stl" />
       </geometry>
@@ -461,7 +507,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0.242716 0 -1.5708" xyz="0.0247718 0.0254856 -0.0806201" />
+      <origin xyz="0.0247724 0.0254856 -0.0806199" rpy="0.242722 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/r_upper_forearm.stl" />
       </geometry>
@@ -470,7 +516,7 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0.242716 0 -1.5708" xyz="0.0247718 0.0254856 -0.0806201" />
+      <origin xyz="0.0247724 0.0254856 -0.0806199" rpy="0.242722 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/r_upper_forearm.stl" />
       </geometry>
@@ -478,12 +524,12 @@
   </link>
   <link name="urdf_r_lower_forearm_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00325453 -0.0023229 -0.046852" />
+      <origin xyz="-0.00325453 -0.0023229 -0.046852" rpy="0 0 0" />
       <mass value="0.618" />
       <inertia ixx="0.000617744" ixy="-6.12409e-07" ixz="-3.11927e-05" iyy="0.000618165" iyz="-2.22632e-05" izz="0.000437775" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -0.9509" xyz="0.00167509 0.00119555 -0.0333447" />
+      <origin xyz="0.00167509 0.00119554 -0.0333447" rpy="0 0 -0.9509" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/r_lower_forearm.stl" />
       </geometry>
@@ -492,13 +538,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -0.9509" xyz="0.00167509 0.00119555 -0.0333447" />
+      <origin xyz="0.00167509 0.00119554 -0.0333447" rpy="0 0 -0.9509" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/r_lower_forearm.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="1.57079 0 2.19069" xyz="-0.0309297 -0.0220761 -0.0565" />
+      <origin xyz="-0.0309297 -0.0220761 -0.0565" rpy="1.57079 0 2.19069" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x4_p36_36_unified.stl" />
       </geometry>
@@ -509,12 +555,12 @@
   </link>
   <link name="urdf_r_wrist_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.0219123 -0.0106791 -0.0421059" />
+      <origin xyz="-0.0219123 -0.0106789 -0.0421059" rpy="0 0 0" />
       <mass value="0.15" />
-      <inertia ixx="0.000154293" ixy="-1.25539e-05" ixz="-4.95469e-05" iyy="0.000185908" iyz="-1.03835e-05" izz="0.00014762" />
+      <inertia ixx="0.000154293" ixy="-1.25537e-05" ixz="-4.9547e-05" iyy="0.000185908" iyz="-1.03834e-05" izz="0.00014762" />
     </inertial>
     <visual>
-      <origin rpy="0 -0.248281 -1.5708" xyz="-0.0219316 -0.0106854 -0.0421314" />
+      <origin xyz="-0.0219316 -0.0106852 -0.0421314" rpy="0 -0.248276 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/r_wrist.stl" />
       </geometry>
@@ -523,86 +569,84 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 -0.248281 -1.5708" xyz="-0.0219316 -0.0106854 -0.0421314" />
+      <origin xyz="-0.0219316 -0.0106852 -0.0421314" rpy="0 -0.248276 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/r_wrist.stl" />
       </geometry>
     </collision>
   </link>
-  <joint name="right_shoulder_pitch_joint_X6" type="revolute">
-    <origin rpy="0 0 0" xyz="0 -0.1755 0.423977" />
-    <parent link="urdf_simplified_torso" />
-    <child link="urdf_r_shoulder_assembly" />
-    <axis xyz="0 1 0" />
-    <limit effort="23" lower="-3.02" upper="1.69" velocity="16.02" />
-    <dynamics damping="0.16" friction="1.6" />
-  </joint>
-  <joint name="right_shoulder_roll_joint_X6" type="revolute">
-    <origin rpy="0 -0.122173 0" xyz="0.0456571 -0.07 0.00560599" />
-    <parent link="urdf_r_shoulder_assembly" />
-    <child link="urdf_r_upper_arm_assembly" />
-    <axis xyz="1 0 0" />
-    <limit effort="23" lower="-2.93" upper="0.21" velocity="16.02" />
-    <dynamics damping="0.16" friction="1.6" />
-  </joint>
-  <joint name="right_shoulder_yaw_joint_X4" type="revolute">
-    <origin rpy="-0.209378 0.00530246 0.0249661" xyz="-0.046 -0.0353456 -0.166285" />
-    <parent link="urdf_r_upper_arm_assembly" />
-    <child link="urdf_r_elbow_assembly" />
-    <axis xyz="0 0 1" />
-    <limit effort="12.075" lower="-2.97" upper="1.75" velocity="8.69" />
-    <dynamics damping="0.114" friction="1.14" />
-  </joint>
-  <joint name="right_elbow_pitch_joint_X6" type="revolute">
-    <origin rpy="0 -0.019088 0.585341" xyz="0.0220994 -0.0333409 -0.065" />
-    <parent link="urdf_r_elbow_assembly" />
-    <child link="urdf_r_upper_forearm_assembly" />
-    <axis xyz="0 1 0" />
-    <limit effort="23" lower="-1.31" upper="1.83" velocity="16.02" />
-    <dynamics damping="0.16" friction="1.6" />
-  </joint>
-  <joint name="right_wrist_yaw_joint_X4" type="revolute">
-    <origin rpy="0.142857 -0.196885 -0.634033" xyz="0.0403763 0.04 -0.163076" />
-    <parent link="urdf_r_upper_forearm_assembly" />
-    <child link="urdf_r_lower_forearm_assembly" />
-    <axis xyz="0 0 1" />
-    <limit effort="12.075" lower="-2.36" upper="2.36" velocity="8.69" />
-    <dynamics damping="0.114" friction="1.14" />
-  </joint>
   <joint name="right_wrist_roll_joint_X4" type="revolute">
-    <origin rpy="0.248281 0 0.619897" xyz="0.0219763 0.0156857 -0.0565" />
+    <origin xyz="0.0219763 0.0156857 -0.0565" rpy="0.248276 0 0.619896" />
     <parent link="urdf_r_lower_forearm_assembly" />
     <child link="urdf_r_wrist_assembly" />
     <axis xyz="1 0 0" />
-    <limit effort="12.075" lower="-1.57" upper="1.57" velocity="8.69" />
-    <dynamics damping="0.114" friction="1.14" />
+    <limit effort="10" velocity="10" lower="-1.65806" upper="1.65806" />
   </joint>
-  
-  
-  
+  <joint name="right_wrist_yaw_joint_X4" type="revolute">
+    <origin xyz="0.0403774 0.04 -0.163076" rpy="0.142861 -0.196891 -0.634034" />
+    <parent link="urdf_r_upper_forearm_assembly" />
+    <child link="urdf_r_lower_forearm_assembly" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-2.35619" upper="2.35619" />
+  </joint>
+  <joint name="right_elbow_pitch_joint_X6" type="revolute">
+    <origin xyz="0.0220994 -0.033341 -0.065" rpy="0 -0.0190815 0.58534" />
+    <parent link="urdf_r_elbow_assembly" />
+    <child link="urdf_r_upper_forearm_assembly" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="10" lower="-1.309" upper="1.8326" />
+  </joint>
+  <joint name="right_shoulder_yaw_joint_X4" type="revolute">
+    <origin xyz="-0.046 -0.0353444 -0.166285" rpy="-0.20937 0.00530239 0.0249667" />
+    <parent link="urdf_r_upper_arm_assembly" />
+    <child link="urdf_r_elbow_assembly" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-2.96706" upper="1.74533" />
+  </joint>
+  <joint name="right_shoulder_roll_joint_X6" type="revolute">
+    <origin xyz="0.0456571 -0.07 0.00560611" rpy="0 -0.122176 0" />
+    <parent link="urdf_r_shoulder_assembly" />
+    <child link="urdf_r_upper_arm_assembly" />
+    <axis xyz="1 0 0" />
+    <limit effort="10" velocity="10" lower="-2.93215" upper="0.20944" />
+  </joint>
+  <joint name="right_shoulder_pitch_joint_X6" type="revolute">
+    <origin xyz="0 -0.1695 0.423977" rpy="0 0 0" />
+    <parent link="urdf_simplified_torso" />
+    <child link="urdf_r_shoulder_assembly" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="10" lower="-3.01942" upper="1.69297" />
+  </joint>
+  <joint name="waist_yaw_joint_X8" type="revolute">
+    <origin xyz="0.070373 -0.000705351 -0.281099" rpy="0 0 0" />
+    <parent link="urdf_base" />
+    <child link="urdf_simplified_torso" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-2.60054" upper="2.60054" />
+  </joint>
   <link name="urdf_hip_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00420762 0.0689982 -6.23945e-06" />
-      <mass value="1.73" />
-      <inertia ixx="0.00302301" ixy="2.30858e-05" ixz="4.5747e-08" iyy="0.00228746" iyz="-8.49179e-07" izz="0.00263533" />
+      <origin xyz="-0.00387043 0.0602754 -3.33254e-05" rpy="0 0 0" />
+      <mass value="1.829" />
+      <inertia ixx="0.00318486" ixy="-1.248e-05" ixz="2.39579e-07" iyy="0.00257781" iyz="-3.95097e-06" izz="0.00266816" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="0.00253653 0.0520203 -3.27638e-05" />
+      <origin xyz="0.03 0.062 0" rpy="1.57079 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/hip.stl" />
       </geometry>
       <material name="hip_material">
-        <color rgba="0.0627451 0.266667 0.490196 1" />
+        <color rgba="0.498039 0.498039 0.498039 1" />
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="0.00253653 0.0520203 -3.27638e-05" />
+      <origin xyz="0.03 0.062 0" rpy="1.57079 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/hip.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="1.5708 0 1.5708" xyz="-0.043 0.073 0" />
+      <origin xyz="-0.043 0.062 0" rpy="-1.57079 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x8_p20_120_unified.stl" />
       </geometry>
@@ -613,12 +657,27 @@
   </link>
   <link name="urdf_l_upper_femur_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.0457109 0.000405477 -0.147969" />
-      <mass value="1.912" />
-      <inertia ixx="0.00512969" ixy="1.18492e-06" ixz="-0.000930002" iyy="0.00557257" iyz="-5.18841e-05" izz="0.00336728" />
+      <origin xyz="-0.0460989 0.000881037 -0.148514" rpy="0 0 0" />
+      <mass value="1.93" />
+      <inertia ixx="0.00524838" ixy="2.68214e-05" ixz="-0.000973448" iyy="0.00568591" iyz="1.37224e-06" izz="0.00347712" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="-0.0257799 0.00151581 -0.111785" />
+      <origin xyz="0.571524 0.417098 -0.118" rpy="-0.981744 -1.57079 1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/visual/stopper_leg_28_75.stl" />
+      </geometry>
+      <material name="stopper_leg_28_75_material">
+        <color rgba="0.972549 0.529412 0.00392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.571524 0.417098 -0.118" rpy="-0.981744 -1.57079 1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/collision/stopper_leg_28_75.stl" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.0257799 0.00151622 -0.111785" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/l_upper_femur.stl" />
       </geometry>
@@ -627,13 +686,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="-0.0257799 0.00151581 -0.111785" />
+      <origin xyz="-0.0257799 0.00151622 -0.111785" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/l_upper_femur.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="3.14159 0 -1.5708" xyz="-0.053 -4.55477e-07 -0.124" />
+      <origin xyz="-0.053 0 -0.124" rpy="3.14159 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x8_p20_120_unified.stl" />
       </geometry>
@@ -644,12 +703,27 @@
   </link>
   <link name="urdf_lower_femur_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-1.0389e-08 -0.00357383 -0.103307" />
-      <mass value="1.817" />
-      <inertia ixx="0.00383469" ixy="-2.5e-11" ixz="-2.1291e-08" iyy="0.00421827" iyz="-0.00019709" izz="0.00258541" />
+      <origin xyz="2.11243e-05 -0.00408754 -0.100571" rpy="0 0 0" />
+      <mass value="1.832" />
+      <inertia ixx="0.00401519" ixy="1.60501e-06" ixz="-3.40991e-06" iyy="0.00435606" iyz="-0.000112967" izz="0.00266245" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="5.752e-09 0.00389134 -0.070766" />
+      <origin xyz="0.751 0.000165033 -0.1" rpy="-1.5708 1.57079 1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/visual/stopper_leg_22_5.stl" />
+      </geometry>
+      <material name="stopper_leg_22_5_material">
+        <color rgba="0.768627 0.886275 0.952941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.751 0.000165033 -0.1" rpy="-1.5708 1.57079 1.5708" />
+      <geometry>
+        <mesh filename="package://full_robot_description/meshes/collision/stopper_leg_22_5.stl" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-4.57402e-09 0.00389134 -0.068766" rpy="0 0 -1.57079" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/lower_femur.stl" />
       </geometry>
@@ -658,13 +732,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="5.752e-09 0.00389134 -0.070766" />
+      <origin xyz="-4.57402e-09 0.00389134 -0.068766" rpy="0 0 -1.57079" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/lower_femur.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="3.14159 -1.57079 1.5708" xyz="0 -0.043 -0.113" />
+      <origin xyz="1.14104e-07 -0.043 -0.111" rpy="3.14159 -1.57079 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x8_p20_120_unified.stl" />
       </geometry>
@@ -675,12 +749,12 @@
   </link>
   <link name="urdf_l_tibia_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.00463897 -0.0449177 -0.190721" />
-      <mass value="2.4" />
-      <inertia ixx="0.0785879" ixy="0.000322141" ixz="0.00174711" iyy="0.0762229" iyz="-0.00887502" izz="0.0153456" />
+      <origin xyz="0.01449 -0.0488281 -0.199552" rpy="0 0 0" />
+      <mass value="2.216" />
+      <inertia ixx="0.0205548" ixy="0.000222702" ixz="0.00143905" iyy="0.0209762" iyz="-0.00195792" izz="0.00480101" />
     </inertial>
     <visual>
-      <origin rpy="-1.5708 0 -1.5708" xyz="-0.0180006 -0.055 -0.16" />
+      <origin xyz="-0.018 -0.055 -0.16" rpy="-1.5708 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x4_p36_36_unified.stl" />
       </geometry>
@@ -689,7 +763,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="1.5708 0 1.5708" xyz="-0.0180009 -0.055 -0.235" />
+      <origin xyz="-0.018 -0.055 -0.235" rpy="1.57079 0 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x4_p36_36_unified.stl" />
       </geometry>
@@ -698,7 +772,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 0.0523563 -1.5708" xyz="0.0844989 -0.0732971 -0.288554" />
+      <origin xyz="0.0845 -0.08222 -0.286965" rpy="0 -0.0174563 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/m6_threaded_bar_300mm.stl" />
       </geometry>
@@ -707,7 +781,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="-3.14159 -0.0698163 -1.5708" xyz="0.0537491 -0.055 -0.235" />
+      <origin xyz="0.05375 -0.055 -0.235" rpy="3.14159 0.0349063 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_spacer_x4.stl" />
       </geometry>
@@ -716,7 +790,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="0.000678037 -0.0431371 -0.186264" />
+      <origin xyz="0.000678721 -0.0431371 -0.186264" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_l_tibia_assembly.stl" />
       </geometry>
@@ -725,13 +799,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="0.000678037 -0.0431371 -0.186264" />
+      <origin xyz="0.000678721 -0.0431371 -0.186264" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_l_tibia_assembly.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="0 -0.0698163 -1.5708" xyz="0.0844988 -0.0363334 -0.326445" />
+      <origin xyz="0.0845 -0.026877 -0.323993" rpy="0 0.0349063 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/m6_threaded_bar_225mm.stl" />
       </geometry>
@@ -740,7 +814,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 -0.0523563 1.5708" xyz="0.0537494 -0.055 -0.16" />
+      <origin xyz="0.05375 -0.055 -0.16" rpy="0 0.0174563 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_spacer_x4.stl" />
       </geometry>
@@ -751,12 +825,12 @@
   </link>
   <link name="urdf_ankle_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="-4.60715e-08 -0.004 -0.0125426" />
+      <origin xyz="0 -0.004 -0.0125426" rpy="0 0 0" />
       <mass value="0.0818219" />
-      <inertia ixx="1.69449e-05" ixy="1.31413e-26" ixz="-1.61786e-11" iyy="2.15245e-05" iyz="1.88667e-27" izz="1.25404e-05" />
+      <inertia ixx="1.69449e-05" ixy="-1.30849e-26" ixz="-4.29315e-17" iyy="2.15245e-05" iyz="-5.80972e-28" izz="1.25404e-05" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="-4.60715e-08 -0.004 -0.0125426" />
+      <origin xyz="0 -0.004 -0.0125426" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_ankle_assembly.stl" />
       </geometry>
@@ -765,7 +839,7 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="-4.60715e-08 -0.004 -0.0125426" />
+      <origin xyz="0 -0.004 -0.0125426" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_ankle_assembly.stl" />
       </geometry>
@@ -773,12 +847,12 @@
   </link>
   <link name="urdf_foot_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0427639 9.73e-10 -0.0209668" />
-      <mass value="0.504" />
-      <inertia ixx="0.000361698" ixy="-1.2e-11" ixz="-5.90887e-06" iyy="0.00202397" iyz="-1.6e-11" izz="0.00229243" />
+      <origin xyz="0.0436027 8.11114e-08 -0.0200314" rpy="0 0 0" />
+      <mass value="0.309" />
+      <inertia ixx="0.000232433" ixy="-1.58776e-11" ixz="-9.83566e-06" iyy="0.00121361" iyz="-6.57666e-10" izz="0.00137693" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="0.0427639 0 -0.0209668" />
+      <origin xyz="0.0436027 7.24764e-08 -0.0200314" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_foot_assembly.stl" />
       </geometry>
@@ -787,86 +861,77 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="0.0427639 0 -0.0209668" />
+      <origin xyz="0.0436027 7.24764e-08 -0.0200314" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_foot_assembly.stl" />
       </geometry>
     </collision>
   </link>
-  <joint name="left_hip_pitch_joint_X8" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0333787 0.072699 -0.467748" />
-    <parent link="urdf_base" />
-    <child link="urdf_hip_assembly" />
-    <axis xyz="0 1 0" />
-    <limit effort="72" lower="-2.53" upper="1.57" velocity="13.3" />
-    <dynamics damping="0.321" friction="3.21" />
-  </joint>
-  <joint name="left_hip_roll_joint_X8" type="revolute">
-    <origin rpy="0 0 0" xyz="0.055 0.073 0" />
-    <parent link="urdf_hip_assembly" />
-    <child link="urdf_l_upper_femur_assembly" />
-    <axis xyz="1 0 0" />
-    <limit effort="72" lower="-0.35" upper="3.14" velocity="13.3" />
-    <dynamics damping="0.321" friction="3.21" />
-  </joint>
-  <joint name="left_hip_yaw_joint_X8" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.053 -7.97086e-07 -0.217" />
-    <parent link="urdf_l_upper_femur_assembly" />
-    <child link="urdf_lower_femur_assembly" />
-    <axis xyz="0 0 1" />
-    <limit effort="72" lower="-1.57" upper="1.57" velocity="13.3" />
-    <dynamics damping="0.321" friction="3.21" />
-  </joint>
-  <joint name="left_knee_joint_X8" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0.055 -0.113" />
-    <parent link="urdf_lower_femur_assembly" />
-    <child link="urdf_l_tibia_assembly" />
-    <axis xyz="0 1 0" />
-    <limit effort="72" lower="-0.17" upper="1.57" velocity="13.3" />
-    <dynamics damping="0.321" friction="3.21" />
-  </joint>
   <joint name="left_ankle_pitch_joint_X4" type="revolute">
-    <origin rpy="0 0 0" xyz="-1.45092e-06 -0.051 -0.395" />
+    <origin xyz="0 -0.051 -0.395" rpy="0 0 0" />
     <parent link="urdf_l_tibia_assembly" />
     <child link="urdf_ankle_assembly" />
     <axis xyz="0 1 0" />
-    <limit effort="96.6" lower="-0.79" upper="0.79" velocity="8.69" />
-    <dynamics damping="0.114" friction="1.14" />
+    <limit effort="10" velocity="10" lower="-0.785398" upper="0.785398" />
   </joint>
   <joint name="left_ankle_roll_joint_X4" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.0120001 -0.004 -0.028" />
+    <origin xyz="-0.012 -0.004 -0.028" rpy="0 0 0" />
     <parent link="urdf_ankle_assembly" />
     <child link="urdf_foot_assembly" />
     <axis xyz="1 0 0" />
-    <limit effort="28.98" lower="-0.79" upper="0.79" velocity="8.69" />
-    <dynamics damping="0.114" friction="1.14" />
+    <limit effort="10" velocity="10" lower="-0.785398" upper="0.785398" />
   </joint>
-  
-  
-  
+  <joint name="left_knee_joint_X8" type="revolute">
+    <origin xyz="-1.45947e-07 0.055 -0.111" rpy="0 0 0" />
+    <parent link="urdf_lower_femur_assembly" />
+    <child link="urdf_l_tibia_assembly" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="10" lower="-1.52716" upper="1.52716" />
+  </joint>
+  <joint name="left_hip_yaw_joint_X8" type="revolute">
+    <origin xyz="-0.053 0 -0.217" rpy="0 0 0" />
+    <parent link="urdf_l_upper_femur_assembly" />
+    <child link="urdf_lower_femur_assembly" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-2.15199" upper="2.09003" />
+  </joint>
+  <joint name="left_hip_roll_joint_X8" type="revolute">
+    <origin xyz="0.053 0.062 0" rpy="0 0 0" />
+    <parent link="urdf_hip_assembly" />
+    <child link="urdf_l_upper_femur_assembly" />
+    <axis xyz="1 0 0" />
+    <limit effort="10" velocity="10" lower="-0.383972" upper="3.22886" />
+  </joint>
+  <joint name="left_hip_pitch_joint_X8" type="revolute">
+    <origin xyz="0.070373 0.0872946 -0.431099" rpy="0 0 0" />
+    <parent link="urdf_base" />
+    <child link="urdf_hip_assembly" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="10" lower="-2.61799" upper="2.61799" />
+  </joint>
   <link name="urdf_hip_assembly_2">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00420762 -0.0739982 6.23945e-06" />
-      <mass value="1.73" />
-      <inertia ixx="0.00302301" ixy="-2.30858e-05" ixz="-4.5747e-08" iyy="0.00228746" iyz="-8.49179e-07" izz="0.00263533" />
+      <origin xyz="-0.00387043 -0.0602754 3.33254e-05" rpy="0 0 0" />
+      <mass value="1.829" />
+      <inertia ixx="0.00318486" ixy="1.248e-05" ixz="-2.39579e-07" iyy="0.00257781" iyz="-3.95097e-06" izz="0.00266816" />
     </inertial>
     <visual>
-      <origin rpy="-3.14159 0 1.5708" xyz="0.00253653 -0.0570203 3.27638e-05" />
+      <origin xyz="0.03 -0.062 0" rpy="-1.5708 0 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/hip.stl" />
       </geometry>
       <material name="hip_2_material">
-        <color rgba="0.0627451 0.266667 0.490196 1" />
+        <color rgba="0.498039 0.498039 0.498039 1" />
       </material>
     </visual>
     <collision>
-      <origin rpy="-3.14159 0 1.5708" xyz="0.00253653 -0.0570203 3.27638e-05" />
+      <origin xyz="0.03 -0.062 0" rpy="-1.5708 0 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/hip.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="-1.57079 0 -1.5708" xyz="-0.043 -0.078 0" />
+      <origin xyz="-0.043 -0.062 0" rpy="1.5708 0 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x8_p20_120_unified.stl" />
       </geometry>
@@ -877,12 +942,12 @@
   </link>
   <link name="urdf_r_upper_femur_assemby">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.0457092 -0.000405162 -0.147963" />
+      <origin xyz="-0.0457109 -0.000406025 -0.147969" rpy="0 0 0" />
       <mass value="1.912" />
-      <inertia ixx="0.00513139" ixy="-1.24596e-06" ixz="-0.000930579" iyy="0.00557422" iyz="5.18318e-05" izz="0.00336736" />
+      <inertia ixx="0.00512969" ixy="-1.22901e-06" ixz="-0.000930002" iyy="0.00557257" iyz="5.18759e-05" izz="0.00336728" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="-0.0257733 -0.00151464 -0.111761" />
+      <origin xyz="-0.0257799 -0.00151624 -0.111785" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/r_upper_femur.stl" />
       </geometry>
@@ -891,13 +956,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="-0.0257733 -0.00151464 -0.111761" />
+      <origin xyz="-0.0257799 -0.00151624 -0.111785" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/r_upper_femur.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="3.14159 0 -1.5708" xyz="-0.053 4.55477e-07 -0.124" />
+      <origin xyz="-0.053 -1.478e-09 -0.124" rpy="3.14159 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x8_p20_120_unified.stl" />
       </geometry>
@@ -908,12 +973,12 @@
   </link>
   <link name="urdf_lower_femur_assembly_2">
     <inertial>
-      <origin rpy="0 0 0" xyz="1.0389e-08 0.00357383 -0.103307" />
+      <origin xyz="9.05521e-10 0.00357383 -0.101307" rpy="0 0 0" />
       <mass value="1.817" />
-      <inertia ixx="0.00383469" ixy="-2.5e-11" ixz="2.1291e-08" iyy="0.00421827" iyz="0.00019709" izz="0.00258541" />
+      <inertia ixx="0.00383469" ixy="-1.04286e-09" ixz="2.0768e-08" iyy="0.00421827" iyz="0.00019709" izz="0.00258541" />
     </inertial>
     <visual>
-      <origin rpy="0 0 1.5708" xyz="-5.752e-09 -0.00389134 -0.070766" />
+      <origin xyz="4.57402e-09 -0.00389134 -0.068766" rpy="0 0 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/lower_femur.stl" />
       </geometry>
@@ -922,13 +987,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 1.5708" xyz="-5.752e-09 -0.00389134 -0.070766" />
+      <origin xyz="4.57402e-09 -0.00389134 -0.068766" rpy="0 0 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/lower_femur.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="0 -1.57079 1.5708" xyz="0 0.043 -0.113" />
+      <origin xyz="-1.14104e-07 0.043 -0.111" rpy="0 -1.57079 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x8_p20_120_unified.stl" />
       </geometry>
@@ -939,12 +1004,12 @@
   </link>
   <link name="urdf_r_tibia_assembly">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.00463902 0.0449175 -0.190727" />
-      <mass value="2.4" />
-      <inertia ixx="0.0785959" ixy="-0.000322085" ixz="0.00175009" iyy="0.0762312" iyz="0.0088755" izz="0.0153456" />
+      <origin xyz="0.0144959 0.0488304 -0.199574" rpy="0 0 0" />
+      <mass value="2.215" />
+      <inertia ixx="0.0205486" ixy="-0.000222584" ixz="0.00144134" iyy="0.0209705" iyz="0.00195651" izz="0.00479841" />
     </inertial>
     <visual>
-      <origin rpy="-3.14159 -0.0523563 -1.5708" xyz="0.0537498 0.055 -0.16" />
+      <origin xyz="0.05375 0.055 -0.16" rpy="3.14159 0.0174563 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_spacer_x4.stl" />
       </geometry>
@@ -953,7 +1018,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 0.0698163 -1.5708" xyz="0.0844997 0.0363483 -0.326658" />
+      <origin xyz="0.0845 0.0268696 -0.324206" rpy="0 -0.0349063 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/m6_threaded_bar_225mm.stl" />
       </geometry>
@@ -962,7 +1027,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 -0.0698163 1.5708" xyz="0.0537498 0.055 -0.235" />
+      <origin xyz="0.05375 0.055 -0.235" rpy="0 0.0349063 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_spacer_x4.stl" />
       </geometry>
@@ -971,7 +1036,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="0.000678616 0.0431372 -0.186264" />
+      <origin xyz="0.000678806 0.0431372 -0.186264" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_r_tibia_assembly.stl" />
       </geometry>
@@ -980,13 +1045,13 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="0.000678616 0.0431372 -0.186264" />
+      <origin xyz="0.000678806 0.0431372 -0.186264" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_r_tibia_assembly.stl" />
       </geometry>
     </collision>
     <visual>
-      <origin rpy="-1.5708 0 -1.5708" xyz="-0.0180002 0.055 -0.16" />
+      <origin xyz="-0.018 0.055 -0.16" rpy="-1.5708 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x4_p36_36_unified.stl" />
       </geometry>
@@ -995,7 +1060,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="0 -0.0523563 -1.5708" xyz="0.0844997 0.0732859 -0.288767" />
+      <origin xyz="0.0845 0.0822237 -0.287178" rpy="0 0.0174563 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/m6_threaded_bar_300mm.stl" />
       </geometry>
@@ -1004,7 +1069,7 @@
       </material>
     </visual>
     <visual>
-      <origin rpy="1.5708 0 1.5708" xyz="-0.0180002 0.055 -0.235" />
+      <origin xyz="-0.018 0.055 -0.235" rpy="1.57079 0 1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/stator_x4_p36_36_unified.stl" />
       </geometry>
@@ -1015,12 +1080,12 @@
   </link>
   <link name="urdf_ankle_assembly_2">
     <inertial>
-      <origin rpy="0 0 0" xyz="-1.27886e-08 -0.004 -0.0125426" />
+      <origin xyz="0 -0.004 -0.0125426" rpy="0 0 0" />
       <mass value="0.0818219" />
-      <inertia ixx="1.69449e-05" ixy="1.82098e-26" ixz="-4.4909e-12" iyy="2.15245e-05" iyz="8.34767e-27" izz="1.25404e-05" />
+      <inertia ixx="1.69449e-05" ixy="-2.22156e-26" ixz="4.29315e-17" iyy="2.15245e-05" iyz="3.73894e-27" izz="1.25404e-05" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="-1.27886e-08 -0.004 -0.0125426" />
+      <origin xyz="0 -0.004 -0.0125426" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_ankle_assembly.stl" />
       </geometry>
@@ -1029,7 +1094,7 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="-1.27886e-08 -0.004 -0.0125426" />
+      <origin xyz="0 -0.004 -0.0125426" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_ankle_assembly.stl" />
       </geometry>
@@ -1037,12 +1102,12 @@
   </link>
   <link name="urdf_foot_assembly_2">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0427639 1.55004e-07 -0.0209668" />
-      <mass value="0.504" />
-      <inertia ixx="0.000361698" ixy="3.1409e-11" ixz="-5.90887e-06" iyy="0.00202397" iyz="-1.98822e-09" izz="0.00229243" />
+      <origin xyz="0.0436027 8.11114e-08 -0.0200314" rpy="0 0 0" />
+      <mass value="0.309" />
+      <inertia ixx="0.000232433" ixy="-1.58776e-11" ixz="-9.83566e-06" iyy="0.00121361" iyz="-6.57666e-10" izz="0.00137693" />
     </inertial>
     <visual>
-      <origin rpy="0 0 -1.5708" xyz="0.0427639 1.53975e-07 -0.0209668" />
+      <origin xyz="0.0436027 7.24764e-08 -0.0200314" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/visual/urdf_foot_assembly.stl" />
       </geometry>
@@ -1051,955 +1116,83 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 -1.5708" xyz="0.0427639 1.53975e-07 -0.0209668" />
+      <origin xyz="0.0436027 7.24764e-08 -0.0200314" rpy="0 0 -1.5708" />
       <geometry>
         <mesh filename="package://full_robot_description/meshes/collision/urdf_foot_assembly.stl" />
       </geometry>
     </collision>
   </link>
-  <joint name="right_hip_pitch_joint_X8" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0333787 -0.072699 -0.467748" />
-    <parent link="urdf_base" />
-    <child link="urdf_hip_assembly_2" />
-    <axis xyz="0 1 0" />
-    <limit effort="72" lower="-2.53" upper="1.57" velocity="13.3" />
-    <dynamics damping="0.321" friction="3.21" />
-  </joint>
-  <joint name="right_hip_roll_joint_X8" type="revolute">
-    <origin rpy="0 0 0" xyz="0.055 -0.073 0" />
-    <parent link="urdf_hip_assembly_2" />
-    <child link="urdf_r_upper_femur_assemby" />
+  <joint name="right_ankle_roll_joint_X4" type="revolute">
+    <origin xyz="0 0.059 -0.395" rpy="0 0 0" />
+    <parent link="urdf_r_tibia_assembly" />
+    <child link="urdf_ankle_assembly_2" />
     <axis xyz="1 0 0" />
-    <limit effort="72" lower="-3.14" upper="0.35" velocity="13.3" />
-    <dynamics damping="0.321" friction="3.21" />
+    <limit effort="10" velocity="10" lower="-0.785398" upper="0.785398" />
   </joint>
-  <joint name="right_hip_yaw_joint_X8" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.053 7.97086e-07 -0.217" />
-    <parent link="urdf_r_upper_femur_assemby" />
-    <child link="urdf_lower_femur_assembly_2" />
-    <axis xyz="0 0 1" />
-    <limit effort="72" lower="-1.57" upper="1.57" velocity="13.3" />
-    <dynamics damping="0.321" friction="3.21" />
+  <joint name="right_ankle_pitch_joint_X4" type="revolute">
+    <origin xyz="-0.012 -0.004 -0.028" rpy="0 0 0" />
+    <parent link="urdf_ankle_assembly_2" />
+    <child link="urdf_foot_assembly_2" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="10" lower="-0.785398" upper="0.785398" />
   </joint>
   <joint name="right_knee_joint_X8" type="revolute">
-    <origin rpy="0 0 0" xyz="0 -0.055 -0.113" />
+    <origin xyz="1.45947e-07 -0.055 -0.111" rpy="0 0 0" />
     <parent link="urdf_lower_femur_assembly_2" />
     <child link="urdf_r_tibia_assembly" />
     <axis xyz="0 1 0" />
-    <limit effort="72" lower="-0.17" upper="1.57" velocity="13.3" />
-    <dynamics damping="0.321" friction="3.21" />
+    <limit effort="10" velocity="10" lower="-1.52716" upper="1.52716" />
   </joint>
-  <joint name="right_ankle_pitch_joint_X4" type="revolute">
-    <origin rpy="0 0 0" xyz="-4.02748e-07 0.051 -0.395" />
-    <parent link="urdf_r_tibia_assembly" />
-    <child link="urdf_ankle_assembly_2" />
-    <axis xyz="0 1 0" />
-    <limit effort="96.6" lower="-0.79" upper="0.79" velocity="8.69" />
-    <dynamics damping="0.114" friction="1.14" />
+  <joint name="right_hip_yaw_joint_X8" type="revolute">
+    <origin xyz="-0.053 0 -0.217" rpy="0 0 0" />
+    <parent link="urdf_r_upper_femur_assemby" />
+    <child link="urdf_lower_femur_assembly_2" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-1.5708" upper="1.5708" />
   </joint>
-  <joint name="right_ankle_roll_joint_X4" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.012 -0.004 -0.028" />
-    <parent link="urdf_ankle_assembly_2" />
-    <child link="urdf_foot_assembly_2" />
+  <joint name="right_hip_roll_joint_X8" type="revolute">
+    <origin xyz="0.053 -0.062 0" rpy="0 0 0" />
+    <parent link="urdf_hip_assembly_2" />
+    <child link="urdf_r_upper_femur_assemby" />
     <axis xyz="1 0 0" />
-    <limit effort="28.98" lower="-0.79" upper="0.79" velocity="8.69" />
-    <dynamics damping="0.114" friction="1.14" />
+    <limit effort="10" velocity="10" lower="-3.22886" upper="0.383972" />
   </joint>
-  
-  
-  
-  <joint name="left_hand_base_joint" type="fixed">
-    <origin rpy="1.424576 -0.201364 2.205507" xyz="-0.034 0.015 -0.06" />
-    <parent link="urdf_l_wrist_assembly" />
-    <child link="left_hand_base_link" />
+  <joint name="right_hip_pitch_joint_X8" type="revolute">
+    <origin xyz="0.070373 -0.0887054 -0.431099" rpy="0 0 0" />
+    <parent link="urdf_base" />
+    <child link="urdf_hip_assembly_2" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="10" lower="-2.61799" upper="2.61799" />
   </joint>
-  <link name="left_hand_base_link">
-    <inertial>
-      <origin rpy="0 0 0" xyz="-0.0025264 -0.066047 -0.0019598" />
-      <mass value="0.14143" />
-      <inertia ixx="0.00012281" ixy="2.1711E-06" ixz="1.7709E-06" iyy="8.3832E-05" iyz="-1.6551E-06" izz="7.6663E-05" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_base_link.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="1.57079 0 0" xyz="0 -0.0136 0" />
-      <geometry>
-        <cylinder length="0.0278" radius="0.028" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0032 -0.038 0" />
-      <geometry>
-        <box size="0.0391 0.0202 0.0574" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0032 -0.0682 0" />
-      <geometry>
-        <box size="0.0391 0.04 0.0814" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 -0.1081 0" />
-      <geometry>
-        <box size="0.0322 0.04 0.0814" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0016 -0.1340 -0.0309" />
-      <geometry>
-        <box size="0.0125 0.0111 0.0089" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0016 -0.1340 -0.0118" />
-      <geometry>
-        <box size="0.0125 0.0111 0.0089" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0016 -0.1340 0.0070" />
-      <geometry>
-        <box size="0.0125 0.0111 0.0089" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0016 -0.1340 0.0262" />
-      <geometry>
-        <box size="0.0125 0.0111 0.0089" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <link name="left_thumb_proximal_base">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0048817 0.0009382 -0.00722" />
-      <mass value="0.0018869" />
-      <inertia ixx="5.816E-08" ixy="-1.4539E-08" ixz="-4.491E-09" iyy="7.9161E-08" iyz="-1.8727E-09" izz="6.7433E-08" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_thumb_proximal_base.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.005 0.001 -0.007" />
-      <geometry>
-        <box size="0.015 0.012 0.014" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_thumb_proximal_yaw_joint" type="fixed">
-    <origin rpy="1.5708 -1.5708 0" xyz="-0.01696 -0.0691 0.02045" />
-    <parent link="left_hand_base_link" />
-    <child link="left_thumb_proximal_base" />
-    </joint>
-  <link name="left_thumb_proximal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.021932 -0.012785 -0.0080386" />
-      <mass value="0.0066075" />
-      <inertia ixx="1.5686E-06" ixy="7.8296E-07" ixz="8.9143E-10" iyy="1.7353E-06" iyz="1.0191E-09" izz="2.786E-06" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_thumb_proximal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.022 -0.013 -0.008" />
-      <geometry>
-        <box size="0.050 0.030 0.016" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_thumb_proximal_pitch_joint" type="fixed">
-    <origin rpy="-1.5708 0 0.16939" xyz="0.0099867 0.0098242 -0.0089" />
-    <parent link="left_thumb_proximal_base" />
-    <child link="left_thumb_proximal" />
-    </joint>
-  <link name="left_thumb_intermediate">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0095544 0.0016282 -0.0071997" />
-      <mass value="0.0037847" />
-      <inertia ixx="3.6981E-07" ixy="9.8581E-08" ixz="-4.7469E-12" iyy="3.2394E-07" iyz="-1.0939E-12" izz="4.6531E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_thumb_intermediate.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.010 -0.002 -0.007" />
-      <geometry>
-        <box size="0.025 0.014 0.014" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_thumb_intermediate_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.04407 -0.034553 -0.0008" />
-    <parent link="left_thumb_proximal" />
-    <child link="left_thumb_intermediate" />
-    </joint>
-  <link name="left_thumb_distal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0092888 -0.0049529 -0.0060033" />
-      <mass value="0.0033441" />
-      <inertia ixx="1.3632E-07" ixy="5.6788E-08" ixz="-9.2764E-11" iyy="1.4052E-07" iyz="1.2283E-10" izz="2.0026E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_thumb_distal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.010 -0.007 -0.006" />
-      <geometry>
-        <box size="0.024 0.016 0.012" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_thumb_distal_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.020248 -0.010156 -0.0012" />
-    <parent link="left_thumb_intermediate" />
-    <child link="left_thumb_distal" />
-    </joint>
-  
-  <link name="left_index_proximal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0012259 -0.011942 -0.0060001" />
-      <mass value="0.0042403" />
-      <inertia ixx="6.6232E-07" ixy="1.5775E-08" ixz="1.8515E-12" iyy="2.1146E-07" iyz="5.0828E-12" izz="6.9398E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_index_proximal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 -0.014 -0.006" />
-      <geometry>
-        <box size="0.014 0.032 0.012" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_index_proximal_joint" type="fixed">
-    <origin rpy="-0.034907 0 0" xyz="0.00028533 -0.13653 0.032268" />
-    <parent link="left_hand_base_link" />
-    <child link="left_index_proximal" />
-    </joint>
-  <link name="left_index_intermediate">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0019697 -0.019589 -0.005" />
-      <mass value="0.0045683" />
-      <inertia ixx="7.6111E-07" ixy="-8.7637E-08" ixz="-3.7751E-13" iyy="9.6076E-08" iyz="-9.9444E-13" izz="7.8179E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_index_intermediate.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 -0.020 -0.005" />
-      <geometry>
-        <box size="0.014 0.042 0.010" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_index_intermediate_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0026138 -0.032026 -0.001" />
-    <parent link="left_index_proximal" />
-    <child link="left_index_intermediate" />
-    </joint>
-  
-  <link name="left_middle_proximal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.001297 -0.011934 -0.0060001" />
-      <mass value="0.0042403" />
-      <inertia ixx="6.6211E-07" ixy="1.8461E-08" ixz="1.8002E-12" iyy="2.1167E-07" iyz="6.6808E-12" izz="6.9397E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_index_proximal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 -0.014 -0.006" />
-      <geometry>
-        <box size="0.014 0.032 0.012" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_middle_proximal_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.00028533 -0.1371 0.01295" />
-    <parent link="left_hand_base_link" />
-    <child link="left_middle_proximal" />
-    </joint>
-  <link name="left_middle_intermediate">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.001921 -0.020796 -0.005" />
-      <mass value="0.0050396" />
-      <inertia ixx="9.5822E-07" ixy="-1.1425E-07" ixz="-2.4791E-12" iyy="1.0646E-07" iyz="-5.9173E-12" izz="9.8384E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_middle_intermediate.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 -0.022 -0.005" />
-      <geometry>
-        <box size="0.014 0.046 0.010" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_middle_intermediate_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0024229 -0.032041 -0.001" />
-    <parent link="left_middle_proximal" />
-    <child link="left_middle_intermediate" />
-    </joint>
-  
-  <link name="left_ring_proximal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.001297 -0.011934 -0.0060002" />
-      <mass value="0.0042403" />
-      <inertia ixx="6.6211E-07" ixy="1.8461E-08" ixz="1.5793E-12" iyy="2.1167E-07" iyz="6.6868E-12" izz="6.9397E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_index_proximal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 -0.014 -0.006" />
-      <geometry>
-        <box size="0.014 0.032 0.012" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_ring_proximal_joint" type="fixed">
-    <origin rpy="0.05236 0 0" xyz="0.00028533 -0.13691 -0.0062872" />
-    <parent link="left_hand_base_link" />
-    <child link="left_ring_proximal" />
-    </joint>
-  <link name="left_ring_intermediate">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0021753 -0.019567 -0.005" />
-      <mass value="0.0045683" />
-      <inertia ixx="7.6286E-07" ixy="-8.0635E-08" ixz="-6.1562E-13" iyy="9.431E-08" iyz="-5.8619E-13" izz="7.8177E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_index_intermediate.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 -0.020 -0.005" />
-      <geometry>
-        <box size="0.014 0.042 0.010" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_ring_intermediate_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0024229 -0.032041 -0.001" />
-    <parent link="left_ring_proximal" />
-    <child link="left_ring_intermediate" />
-    </joint>
-  
-  <link name="left_pinky_proximal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.001297 -0.011934 -0.0060001" />
-      <mass value="0.0042403" />
-      <inertia ixx="6.6211E-07" ixy="1.8461E-08" ixz="1.6907E-12" iyy="2.1167E-07" iyz="6.9334E-12" izz="6.9397E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_index_proximal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 -0.014 -0.006" />
-      <geometry>
-        <box size="0.014 0.032 0.012" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_pinky_proximal_joint" type="fixed">
-    <origin rpy="0.10472 0 0" xyz="0.00028533 -0.13571 -0.025488" />
-    <parent link="left_hand_base_link" />
-    <child link="left_pinky_proximal" />
-    </joint>
-  <link name="left_pinky_intermediate">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0024748 -0.016203 -0.0050031" />
-      <mass value="0.0035996" />
-      <inertia ixx="4.3913E-07" ixy="-4.1418E-08" ixz="3.7168E-11" iyy="7.0247E-08" iyz="-5.8613E-11" izz="4.4867E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/left_pinky_intermediate.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.002 -0.016 -0.005" />
-      <geometry>
-        <box size="0.014 0.034 0.010" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint name="left_pinky_intermediate_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0024229 -0.032041 -0.001" />
-    <parent link="left_pinky_proximal" />
-    <child link="left_pinky_intermediate" />
-    </joint>
-  
-  <link name="left_thumb_tip" />
-  <joint name="left_thumb_tip_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.0202 -0.0140 -0.006" />
-    <parent link="left_thumb_distal" />
-    <child link="left_thumb_tip" />
-  </joint>
-  <link name="left_index_tip" />
-  <joint name="left_index_tip_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0008 -0.045 -0.005" />
-    <parent link="left_index_intermediate" />
-    <child link="left_index_tip" />
-  </joint>
-  <link name="left_middle_tip" />
-  <joint name="left_middle_tip_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.001 -0.048 -0.005" />
-    <parent link="left_middle_intermediate" />
-    <child link="left_middle_tip" />
-  </joint>
-  <link name="left_ring_tip" />
-  <joint name="left_ring_tip_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0008 -0.045 -0.005" />
-    <parent link="left_ring_intermediate" />
-    <child link="left_ring_tip" />
-  </joint>
-  <link name="left_pinky_tip" />
-  <joint name="left_pinky_tip_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0008 -0.037 -0.005" />
-    <parent link="left_pinky_intermediate" />
-    <child link="left_pinky_tip" />
-  </joint>
-  <joint name="right_hand_base_joint" type="fixed">
-    <origin rpy="1.717027 -0.201373 -2.205496" xyz="-0.029 -0.011 -0.06" />
-    <parent link="urdf_r_wrist_assembly" />
-    <child link="right_hand_base_link" />
-  </joint>
-  <link name="right_hand_base_link">
-    <inertial>
-      <origin rpy="0 0 0" xyz="-0.0025264 -0.066047 0.0019598" />
-      <mass value="0.14143" />
-      <inertia ixx="0.00012281" ixy="2.1711E-06" ixz="1.7709E-06" iyy="8.3832E-05" iyz="-1.6551E-06" izz="7.6663E-05" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_base_link.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="1.57079 0 0" xyz="0 -0.0136 0" />
-      <geometry>
-        <cylinder length="0.0278" radius="0.028" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0032 -0.038 0" />
-      <geometry>
-        <box size="0.0391 0.0202 0.0574" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0032 -0.0682 0" />
-      <geometry>
-        <box size="0.0391 0.04 0.0814" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 -0.1081 0" />
-      <geometry>
-        <box size="0.0322 0.04 0.0814" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0016 -0.1340 0.0309" />
-      <geometry>
-        <box size="0.0125 0.0111 0.0089" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0016 -0.1340 0.0118" />
-      <geometry>
-        <box size="0.0125 0.0111 0.0089" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0016 -0.1340 -0.0070" />
-      <geometry>
-        <box size="0.0125 0.0111 0.0089" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0016 -0.1340 -0.0262" />
-      <geometry>
-        <box size="0.0125 0.0111 0.0089" />
-      </geometry>
-    </collision>
-  </link>
-  <link name="right_thumb_proximal_base">
-    <inertial>
-      <origin rpy="0 0 0" xyz="-0.0048064 0.0009382 -0.00757" />
-      <mass value="0.0018869" />
-      <inertia ixx="5.816E-08" ixy="1.4539E-08" ixz="4.491E-09" iyy="7.9161E-08" iyz="-1.8727E-09" izz="6.7433E-08" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_thumb_proximal_base.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.005 0.001 -0.007" />
-      <geometry>
-        <box size="0.015 0.012 0.014" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_thumb_proximal_yaw_joint" type="fixed">
-    <origin rpy="1.5708 -1.5708 0" xyz="-0.01696 -0.0691 -0.02045" />
-    <parent link="right_hand_base_link" />
-    <child link="right_thumb_proximal_base" />
-    </joint>
-  <link name="right_thumb_proximal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.021932 0.012785 -0.0080386" />
-      <mass value="0.0066075" />
-      <inertia ixx="1.5686E-06" ixy="-7.8296E-07" ixz="8.9143E-10" iyy="1.7353E-06" iyz="-1.0191E-09" izz="2.786E-06" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_thumb_proximal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.022 0.013 -0.008" />
-      <geometry>
-        <box size="0.050 0.030 0.016" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_thumb_proximal_pitch_joint" type="fixed">
-    <origin rpy="1.5708 0 2.8587" xyz="-0.0088099 0.010892 -0.00925" />
-    <parent link="right_thumb_proximal_base" />
-    <child link="right_thumb_proximal" />
-    </joint>
-  <link name="right_thumb_intermediate">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0095544 -0.0016282 -0.0071997" />
-      <mass value="0.0037847" />
-      <inertia ixx="3.6981E-07" ixy="-9.8581E-08" ixz="-4.7469E-12" iyy="3.2394E-07" iyz="1.0939E-12" izz="4.6531E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_thumb_intermediate.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.010 0.002 -0.007" />
-      <geometry>
-        <box size="0.025 0.014 0.014" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_thumb_intermediate_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.04407 0.034553 -0.0008" />
-    <parent link="right_thumb_proximal" />
-    <child link="right_thumb_intermediate" />
-    </joint>
-  <link name="right_thumb_distal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0092888 0.0049529 -0.0060033" />
-      <mass value="0.0033441" />
-      <inertia ixx="1.3632E-07" ixy="-5.6788E-08" ixz="-9.2764E-11" iyy="1.4052E-07" iyz="-1.2283E-10" izz="2.0026E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_thumb_distal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.010 0.007 -0.006" />
-      <geometry>
-        <box size="0.024 0.016 0.012" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_thumb_distal_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.020248 0.010156 -0.0012" />
-    <parent link="right_thumb_intermediate" />
-    <child link="right_thumb_distal" />
-    </joint>
-  <link name="right_index_proximal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0012259 0.011942 -0.0060001" />
-      <mass value="0.0042403" />
-      <inertia ixx="6.6232E-07" ixy="-1.5775E-08" ixz="1.8515E-12" iyy="2.1146E-07" iyz="-5.0828E-12" izz="6.9398E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_index_proximal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 0.014 -0.006" />
-      <geometry>
-        <box size="0.014 0.032 0.012" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_index_proximal_joint" type="fixed">
-    <origin rpy="-3.1067 0 0" xyz="0.00028533 -0.13653 -0.032268" />
-    <parent link="right_hand_base_link" />
-    <child link="right_index_proximal" />
-    </joint>
-  <link name="right_index_intermediate">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0019697 0.019589 -0.005" />
-      <mass value="0.0045683" />
-      <inertia ixx="7.6111E-07" ixy="8.7637E-08" ixz="-3.7751E-13" iyy="9.6076E-08" iyz="9.9444E-13" izz="7.8179E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_index_intermediate.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 0.020 -0.005" />
-      <geometry>
-        <box size="0.014 0.042 0.010" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_index_intermediate_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0026138 0.032026 -0.001" />
-    <parent link="right_index_proximal" />
-    <child link="right_index_intermediate" />
-    </joint>
-  <link name="right_middle_proximal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.001297 0.011934 -0.0060001" />
-      <mass value="0.0042403" />
-      <inertia ixx="6.6211E-07" ixy="-1.8461E-08" ixz="1.8002E-12" iyy="2.1167E-07" iyz="-6.6808E-12" izz="6.9397E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_index_proximal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 0.014 -0.006" />
-      <geometry>
-        <box size="0.014 0.032 0.012" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_middle_proximal_joint" type="fixed">
-    <origin rpy="-3.1416 0 0" xyz="0.00028533 -0.1371 -0.01295" />
-    <parent link="right_hand_base_link" />
-    <child link="right_middle_proximal" />
-    </joint>
-  <link name="right_middle_intermediate">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.001921 0.020796 -0.005" />
-      <mass value="0.0050396" />
-      <inertia ixx="9.5822E-07" ixy="1.1425E-07" ixz="-2.4791E-12" iyy="1.0646E-07" iyz="5.9173E-12" izz="9.8384E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_middle_intermediate.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 0.022 -0.005" />
-      <geometry>
-        <box size="0.014 0.046 0.010" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_middle_intermediate_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0024229 0.032041 -0.001" />
-    <parent link="right_middle_proximal" />
-    <child link="right_middle_intermediate" />
-    </joint>
-  <link name="right_ring_proximal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.001297 0.011934 -0.0060002" />
-      <mass value="0.0042403" />
-      <inertia ixx="6.6211E-07" ixy="-1.8461E-08" ixz="1.5793E-12" iyy="2.1167E-07" iyz="-6.6868E-12" izz="6.9397E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_index_proximal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 0.014 -0.006" />
-      <geometry>
-        <box size="0.014 0.032 0.012" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_ring_proximal_joint" type="fixed">
-    <origin rpy="3.0892 0 0" xyz="0.00028533 -0.13691 0.0062872" />
-    <parent link="right_hand_base_link" />
-    <child link="right_ring_proximal" />
-    </joint>
-  <link name="right_ring_intermediate">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0021753 0.019567 -0.005" />
-      <mass value="0.0045683" />
-      <inertia ixx="7.6286E-07" ixy="8.0635E-08" ixz="-6.1562E-13" iyy="9.431E-08" iyz="5.8619E-13" izz="7.8177E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_index_intermediate.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 0.020 -0.005" />
-      <geometry>
-        <box size="0.014 0.042 0.010" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_ring_intermediate_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0024229 0.032041 -0.001" />
-    <parent link="right_ring_proximal" />
-    <child link="right_ring_intermediate" />
-    </joint>
-  <link name="right_pinky_proximal">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.001297 0.011934 -0.0060001" />
-      <mass value="0.0042403" />
-      <inertia ixx="6.6211E-07" ixy="-1.8461E-08" ixz="1.6907E-12" iyy="2.1167E-07" iyz="-6.9334E-12" izz="6.9397E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_index_proximal.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.001 0.014 -0.006" />
-      <geometry>
-        <box size="0.014 0.032 0.012" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_pinky_proximal_joint" type="fixed">
-    <origin rpy="3.0369 0 0" xyz="0.00028533 -0.13571 0.025488" />
-    <parent link="right_hand_base_link" />
-    <child link="right_pinky_proximal" />
-    </joint>
-  <link name="right_pinky_intermediate">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0024748 0.016203 -0.0050031" />
-      <mass value="0.0035996" />
-      <inertia ixx="4.3913E-07" ixy="4.1418E-08" ixz="3.7168E-11" iyy="7.0247E-08" iyz="5.8613E-11" izz="4.4867E-07" />
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://hand_description/meshes/inspire_hand/visual/right_pinky_intermediate.glb" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.002 0.016 -0.005" />
-      <geometry>
-        <box size="0.014 0.034 0.010" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_pinky_intermediate_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0024229 0.032041 -0.001" />
-    <parent link="right_pinky_proximal" />
-    <child link="right_pinky_intermediate" />
-    </joint>
-  <link name="right_thumb_tip" />
-  <joint name="right_thumb_tip_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.0202 0.0140 -0.006" />
-    <parent link="right_thumb_distal" />
-    <child link="right_thumb_tip" />
-  </joint>
-  <link name="right_index_tip" />
-  <joint name="right_index_tip_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0008 0.045 -0.005" />
-    <parent link="right_index_intermediate" />
-    <child link="right_index_tip" />
-  </joint>
-  <link name="right_middle_tip" />
-  <joint name="right_middle_tip_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.001 0.048 -0.005" />
-    <parent link="right_middle_intermediate" />
-    <child link="right_middle_tip" />
-  </joint>
-  <link name="right_ring_tip" />
-  <joint name="right_ring_tip_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0008 0.045 -0.005" />
-    <parent link="right_ring_intermediate" />
-    <child link="right_ring_tip" />
-  </joint>
-  <link name="right_pinky_tip" />
-  <joint name="right_pinky_tip_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0008 0.037 -0.005" />
-    <parent link="right_pinky_intermediate" />
-    <child link="right_pinky_tip" />
-  </joint>
-  
+
+  <!-- Pelvis IMU — attached to urdf_base -->
   <link name="pelvis_imu_link">
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <sphere radius="0.002" />
-      </geometry>
-      <material name="pelvis_imu_red">
-        <color rgba="1.0 0.0 0.0 1.0" />
-      </material>
+      <geometry><sphere radius="0.002" /></geometry>
     </visual>
   </link>
   <joint name="pelvis_imu_joint" type="fixed">
-    <parent link="urdf_simplified_torso" />
+    <parent link="urdf_base" />
     <child link="pelvis_imu_link" />
-    <origin rpy="0 1.5707963267948966 3.141592653589793" xyz="0.0735 0.0 -0.17" />
+    <origin rpy="0 1.5707963267948966 3.141592653589793" xyz="0.1069 -0.0007 -0.4707" />
   </joint>
-  
   <link name="pelvis_imu_sensor">
     <inertial>
       <mass value="0.0042339" />
       <origin rpy="0 0 0" xyz="0.0 0.0 -0.00374258" />
       <inertia ixx="0.00000019023" ixy="0.0" ixz="-0.00000002" iyy="0.00000024665" iyz="0.0" izz="0.00000027669" />
     </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://imu_description/meshes/low_res_bno055_imu.stl" />
-      </geometry>
-      <material name="pelvis_imu_dark_grey">
-        <color rgba="0.2 0.2 0.2 1.0" />
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://imu_description/meshes/low_res_bno055_imu.stl" />
-      </geometry>
-    </collision>
   </link>
-  
   <joint name="pelvis_imu_sensor_joint" type="fixed">
     <parent link="pelvis_imu_link" />
     <child link="pelvis_imu_sensor" />
     <origin rpy="0 0 0" xyz="0 0 0.003" />
   </joint>
-  
-  <gazebo reference="pelvis_imu_sensor">
-    <sensor name="pelvis_imu" type="imu">
-      <always_on>true</always_on>
-      <update_rate>100</update_rate>
-      <topic>/pelvis_imu/data</topic>
-      <imu>
-        <angular_velocity>
-          <x>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.0002</stddev>
-            </noise>
-          </x>
-          <y>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.0002</stddev>
-            </noise>
-          </y>
-          <z>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.0002</stddev>
-            </noise>
-          </z>
-        </angular_velocity>
-        <linear_acceleration>
-          <x>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.017</stddev>
-            </noise>
-          </x>
-          <y>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.017</stddev>
-            </noise>
-          </y>
-          <z>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.017</stddev>
-            </noise>
-          </z>
-        </linear_acceleration>
-      </imu>
-    </sensor>
-  </gazebo>
-  
+
+  <!-- Torso IMU — attached to urdf_simplified_torso -->
   <link name="torso_imu_link">
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <sphere radius="0.002" />
-      </geometry>
-      <material name="torso_imu_red">
-        <color rgba="1.0 0.0 0.0 1.0" />
-      </material>
+      <geometry><sphere radius="0.002" /></geometry>
     </visual>
   </link>
   <joint name="torso_imu_joint" type="fixed">
@@ -2007,425 +1200,16 @@
     <child link="torso_imu_link" />
     <origin rpy="0 1.5707963267948966 0" xyz="0.0635 0.0 0.35" />
   </joint>
-  
   <link name="torso_imu_sensor">
     <inertial>
       <mass value="0.0042339" />
       <origin rpy="0 0 0" xyz="0.0 0.0 -0.00374258" />
       <inertia ixx="0.00000019023" ixy="0.0" ixz="-0.00000002" iyy="0.00000024665" iyz="0.0" izz="0.00000027669" />
     </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://imu_description/meshes/low_res_bno055_imu.stl" />
-      </geometry>
-      <material name="torso_imu_dark_grey">
-        <color rgba="0.2 0.2 0.2 1.0" />
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://imu_description/meshes/low_res_bno055_imu.stl" />
-      </geometry>
-    </collision>
   </link>
-  
   <joint name="torso_imu_sensor_joint" type="fixed">
     <parent link="torso_imu_link" />
     <child link="torso_imu_sensor" />
     <origin rpy="0 0 0" xyz="0 0 0.003" />
   </joint>
-  
-  <gazebo reference="torso_imu_sensor">
-    <sensor name="torso_imu" type="imu">
-      <always_on>true</always_on>
-      <update_rate>100</update_rate>
-      <topic>/torso_imu/data</topic>
-      <imu>
-        <angular_velocity>
-          <x>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.0002</stddev>
-            </noise>
-          </x>
-          <y>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.0002</stddev>
-            </noise>
-          </y>
-          <z>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.0002</stddev>
-            </noise>
-          </z>
-        </angular_velocity>
-        <linear_acceleration>
-          <x>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.017</stddev>
-            </noise>
-          </x>
-          <y>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.017</stddev>
-            </noise>
-          </y>
-          <z>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>0.017</stddev>
-            </noise>
-          </z>
-        </linear_acceleration>
-      </imu>
-    </sensor>
-  </gazebo>
-  
-  
-  <ros2_control name="harambe_ros2_control" type="system">
-    <hardware>
-      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
-    </hardware>
-    
-    <joint name="waist_yaw_joint_X8">
-      <command_interface name="position">
-        <param name="min">-1.57</param>
-        <param name="max">1.57</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    
-    <joint name="left_shoulder_pitch_joint_X6">
-      <command_interface name="position">
-        <param name="min">-3.02</param>
-        <param name="max">1.69</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="left_shoulder_roll_joint_X6">
-      <command_interface name="position">
-        <param name="min">-0.21</param>
-        <param name="max">2.93</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="left_shoulder_yaw_joint_X4">
-      <command_interface name="position">
-        <param name="min">-1.75</param>
-        <param name="max">2.97</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="left_elbow_pitch_joint_X6">
-      <command_interface name="position">
-        <param name="min">-1.31</param>
-        <param name="max">1.83</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="left_wrist_yaw_joint_X4">
-      <command_interface name="position">
-        <param name="min">-2.36</param>
-        <param name="max">2.36</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="left_wrist_roll_joint_X4">
-      <command_interface name="position">
-        <param name="min">-1.57</param>
-        <param name="max">1.57</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    
-    <joint name="right_shoulder_pitch_joint_X6">
-      <command_interface name="position">
-        <param name="min">-3.02</param>
-        <param name="max">1.69</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="right_shoulder_roll_joint_X6">
-      <command_interface name="position">
-        <param name="min">-2.93</param>
-        <param name="max">0.21</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="right_shoulder_yaw_joint_X4">
-      <command_interface name="position">
-        <param name="min">-2.97</param>
-        <param name="max">1.75</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="right_elbow_pitch_joint_X6">
-      <command_interface name="position">
-        <param name="min">-1.31</param>
-        <param name="max">1.83</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="right_wrist_yaw_joint_X4">
-      <command_interface name="position">
-        <param name="min">-2.36</param>
-        <param name="max">2.36</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="right_wrist_roll_joint_X4">
-      <command_interface name="position">
-        <param name="min">-1.57</param>
-        <param name="max">1.57</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    
-    <joint name="left_thumb_proximal_yaw_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">1.31</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    <joint name="left_thumb_proximal_pitch_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">0.61</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    <joint name="left_index_proximal_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">1.47</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    <joint name="left_middle_proximal_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">1.47</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    <joint name="left_ring_proximal_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">1.47</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    <joint name="left_pinky_proximal_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">1.47</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    
-    <joint name="right_thumb_proximal_yaw_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">1.31</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    <joint name="right_thumb_proximal_pitch_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">0.61</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    <joint name="right_index_proximal_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">1.47</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    <joint name="right_middle_proximal_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">1.47</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    <joint name="right_ring_proximal_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">1.47</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    <joint name="right_pinky_proximal_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">1.47</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-    </joint>
-    
-    <joint name="left_hip_pitch_joint_X8">
-      <command_interface name="position">
-        <param name="min">-2.53</param>
-        <param name="max">1.57</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="left_hip_roll_joint_X8">
-      <command_interface name="position">
-        <param name="min">-0.35</param>
-        <param name="max">3.14</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="left_hip_yaw_joint_X8">
-      <command_interface name="position">
-        <param name="min">-1.57</param>
-        <param name="max">1.57</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="left_knee_joint_X8">
-      <command_interface name="position">
-        <param name="min">-0.17</param>
-        <param name="max">1.57</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="left_ankle_roll_joint_X4">
-      <command_interface name="position">
-        <param name="min">-0.79</param>
-        <param name="max">0.79</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="left_ankle_pitch_joint_X4">
-      <command_interface name="position">
-        <param name="min">-0.79</param>
-        <param name="max">0.79</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    
-    <joint name="right_hip_pitch_joint_X8">
-      <command_interface name="position">
-        <param name="min">-2.53</param>
-        <param name="max">1.57</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="right_hip_roll_joint_X8">
-      <command_interface name="position">
-        <param name="min">-3.14</param>
-        <param name="max">0.35</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="right_hip_yaw_joint_X8">
-      <command_interface name="position">
-        <param name="min">-1.57</param>
-        <param name="max">1.57</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="right_knee_joint_X8">
-      <command_interface name="position">
-        <param name="min">-0.17</param>
-        <param name="max">1.57</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="right_ankle_roll_joint_X4">
-      <command_interface name="position">
-        <param name="min">-0.79</param>
-        <param name="max">0.79</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    <joint name="right_ankle_pitch_joint_X4">
-      <command_interface name="position">
-        <param name="min">-0.79</param>
-        <param name="max">0.79</param>
-      </command_interface>
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-  </ros2_control>
-  
-  <gazebo>
-    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-      <parameters>$(find full_robot_gazebo)/config/controllers_position.yaml</parameters>
-      <update_rate>100</update_rate>
-    </plugin>
-  </gazebo>
 </robot>
