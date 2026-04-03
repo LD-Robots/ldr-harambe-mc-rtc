@@ -72,6 +72,10 @@
                     <inertial pos="-0.0219307 0.0106852 -0.0421315" quat="0.925273 0.115302 0.358624 0.0443253" mass="0.098" diaginertia="0.000131244 0.000123151 6.4169e-05" />
                     <joint name="left_wrist_roll_joint_X4" pos="0 0 0" axis="1 0 0" range="-1.57 1.57" armature="0.0389" limited="true" />
                     <geom pos="-0.0219314 0.0106852 -0.0421315" quat="0.701664 0.0875548 0.0875544 -0.701667" type="mesh" rgba="0.8 0.74902 0.913725 1" mesh="l_wrist" />
+                    <body name="left_hand" pos="-0.034 0.015 -0.06">
+                      <inertial pos="-0.003 -0.066 -0.002" mass="0.576" diaginertia="0.00012281 8.3832e-05 7.6663e-05" />
+                      <geom type="box" size="0.04 0.025 0.07" rgba="0.5 0.5 0.5 0.3" contype="0" conaffinity="0" />
+                    </body>
                   </body>
                 </body>
               </body>
@@ -102,6 +106,10 @@
                     <inertial pos="-0.0219123 -0.0106789 -0.0421059" quat="0.925172 -0.115292 0.358884 -0.0443569" mass="0.15" diaginertia="0.000200963 0.000188543 9.83151e-05" />
                     <joint name="right_wrist_roll_joint_X4" pos="0 0 0" axis="1 0 0" range="-1.57 1.57" armature="0.0389" limited="true" />
                     <geom pos="-0.0219316 -0.0106852 -0.0421314" quat="0.701664 -0.0875537 -0.0875534 -0.701667" type="mesh" rgba="0.8 0.74902 0.913725 1" mesh="r_wrist" />
+                    <body name="right_hand" pos="-0.029 -0.011 -0.06">
+                      <inertial pos="-0.003 -0.066 0.002" mass="0.576" diaginertia="0.00012281 8.3832e-05 7.6663e-05" />
+                      <geom type="box" size="0.04 0.025 0.07" rgba="0.5 0.5 0.5 0.3" contype="0" conaffinity="0" />
+                    </body>
                   </body>
                 </body>
               </body>
