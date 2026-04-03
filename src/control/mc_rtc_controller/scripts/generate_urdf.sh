@@ -211,7 +211,7 @@ worldbody = mj_root.find('worldbody')
 # Create root body for urdf_base, positioned at standing height
 root_body = ET.Element('body')
 root_body.set('name', 'urdf_base')
-root_body.set('pos', '0 0 1.21')
+root_body.set('pos', '0 0 1.208')
 
 # Add inertial
 inertial = ET.SubElement(root_body, 'inertial')

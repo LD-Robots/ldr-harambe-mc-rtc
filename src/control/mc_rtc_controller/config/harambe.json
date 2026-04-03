@@ -35,7 +35,7 @@
     "right_ankle_roll_joint_X4": [0.0]
   },
 
-  "default_attitude": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.21],
+  "default_attitude": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.208],
 
   "init_pos": {
     "left_shoulder_pitch_joint_X6": 0.0,
@@ -134,13 +134,13 @@
     },
     {
       "name": "PelvisIMU",
-      "parentBody": "urdf_simplified_torso",
-      "X_b_s": { "translation": [0.0705, 0.0, -0.17], "rotation": [0.0, -0.7071, 0.0, 0.7071] }
+      "parentBody": "urdf_base",
+      "X_b_s": { "translation": [0.1069, -0.0007, -0.4707], "rotation": [1.0, 0.0, 0.0, 0.0] }
     },
     {
       "name": "TorsoIMU",
       "parentBody": "urdf_simplified_torso",
-      "X_b_s": { "translation": [0.0665, 0.0, 0.35], "rotation": [0.7071, 0.0, 0.7071, 0.0] }
+      "X_b_s": { "translation": [0.0635, 0.0, 0.35], "rotation": [1.0, 0.0, 0.0, 0.0] }
     }
   ],
 

@@ -1122,18 +1122,18 @@
       </geometry>
     </collision>
   </link>
-  <joint name="right_ankle_roll_joint_X4" type="revolute">
+  <joint name="right_ankle_pitch_joint_X4" type="revolute">
     <origin xyz="0 0.059 -0.395" rpy="0 0 0" />
     <parent link="urdf_r_tibia_assembly" />
     <child link="urdf_ankle_assembly_2" />
-    <axis xyz="1 0 0" />
+    <axis xyz="0 1 0" />
     <limit effort="10" velocity="10" lower="-0.785398" upper="0.785398" />
   </joint>
-  <joint name="right_ankle_pitch_joint_X4" type="revolute">
+  <joint name="right_ankle_roll_joint_X4" type="revolute">
     <origin xyz="-0.012 -0.004 -0.028" rpy="0 0 0" />
     <parent link="urdf_ankle_assembly_2" />
     <child link="urdf_foot_assembly_2" />
-    <axis xyz="0 1 0" />
+    <axis xyz="1 0 0" />
     <limit effort="10" velocity="10" lower="-0.785398" upper="0.785398" />
   </joint>
   <joint name="right_knee_joint_X8" type="revolute">
@@ -1174,7 +1174,7 @@
   <joint name="pelvis_imu_joint" type="fixed">
     <parent link="urdf_base" />
     <child link="pelvis_imu_link" />
-    <origin rpy="0 1.5707963267948966 3.141592653589793" xyz="0.1069 -0.0007 -0.4707" />
+    <origin rpy="3.141592653589793 -1.5707963267948966 0" xyz="0.1069 -0.0007 -0.4707" />
   </joint>
   <link name="pelvis_imu_sensor">
     <inertial>
