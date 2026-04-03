@@ -45,32 +45,32 @@
       <geom pos="0.070373 -0.000705351 -0.431099" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="jockstrap" />
       <body name="urdf_simplified_torso" pos="0.070373 -0.000705351 -0.281099">
         <inertial pos="0.00222476 -4.19092e-05 0.328335" quat="0.999963 0.000219461 0.00854465 -2.8064e-05" mass="5.90423" diaginertia="0.318425 0.295566 0.0738807" />
-        <joint name="waist_yaw_joint_X8" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" armature="0.0577" limited="true" />
+        <joint name="waist_yaw_joint_X8" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" armature="0.0577" limited="true" frictionloss="3.21" />
         <geom pos="0 0 0.26095" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.647059 0.647059 0.647059 1" mesh="urdf_simplified_torso" />
         <geom pos="4.11536e-05 -0.000384166 0.6725" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.737255 0.937255 0.917647 1" mesh="head" />
         <body name="urdf_l_shoulder_assembly" pos="0 0.1695 0.423977">
           <inertial pos="-0.00409836 0.0631966 -0.000544507" quat="0.697622 0.713265 -0.064823 0.0193637" mass="1.246" diaginertia="0.00206597 0.0017112 0.00152169" />
-          <joint name="left_shoulder_pitch_joint_X6" pos="0 0 0" axis="0 1 0" range="-3.02 1.69" armature="0.0254" limited="true" />
+          <joint name="left_shoulder_pitch_joint_X6" pos="0 0 0" axis="0 1 0" range="-3.02 1.69" armature="0.0254" limited="true" frictionloss="1.6" />
           <geom pos="-0.00129022 0.0502746 -0.000165439" quat="0.705787 0.0431688 -0.043169 -0.705789" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="l_shoulder" />
           <body name="urdf_l_upper_arm_assembly" pos="0.0456571 0.07 0.00560611" quat="0.998135 0 -0.06105 0">
             <inertial pos="-0.0354438 0.0213187 -0.103332" quat="0.973759 0.0936631 0.204078 0.0370539" mass="0.802" diaginertia="0.00211885 0.0020649 0.000832058" />
-            <joint name="left_shoulder_roll_joint_X6" pos="0 0 0" axis="1 0 0" range="-0.21 2.93" armature="0.0254" limited="true" />
+            <joint name="left_shoulder_roll_joint_X6" pos="0 0 0" axis="1 0 0" range="-0.21 2.93" armature="0.0254" limited="true" frictionloss="1.6" />
             <geom pos="-0.0268697 0.0182152 -0.0914675" quat="0.918818 0.0965753 0.0400017 -0.380587" type="mesh" rgba="0.917647 0.917647 0.917647 1" mesh="urdf_l_upper_arm_simplified" />
             <body name="urdf_l_elbow_assembly" pos="-0.046 0.034306 -0.161394" quat="0.99444 0.104525 0.00133297 -0.0126919">
               <inertial pos="-0.004748 -0.00662541 -0.0710681" quat="0.887189 -0.0778871 0.0709293 0.449221" mass="1.109" diaginertia="0.00153557 0.00140886 0.00112294" />
-              <joint name="left_shoulder_yaw_joint_X4" pos="0 0 0" axis="0 0 1" range="-1.75 2.97" armature="0.0389" limited="true" />
+              <joint name="left_shoulder_yaw_joint_X4" pos="0 0 0" axis="0 0 1" range="-1.75 2.97" armature="0.0389" limited="true" frictionloss="1.14" />
               <geom pos="-0.00676793 -0.0102107 -0.075" quat="0.334487 0.622994 0.334483 -0.622991" type="mesh" rgba="0.231373 0.380392 0.705882 1" mesh="urdf_l_elbow_simplified" />
               <body name="urdf_l_upper_forearm_assembly" pos="0.0193369 0.0291733 -0.075" quat="0.957432 -0.00275413 -0.00914002 -0.2885">
                 <inertial pos="0.0267132 -0.0286559 -0.0999185" quat="0.973929 -0.195152 -0.115628 0.00283204" mass="0.707" diaginertia="0.00168233 0.00161132 0.000570063" />
-                <joint name="left_elbow_pitch_joint_X6" pos="0 0 0" axis="0 1 0" range="-1.31 1.83" armature="0.0254" limited="true" />
+                <joint name="left_elbow_pitch_joint_X6" pos="0 0 0" axis="0 1 0" range="-1.31 1.83" armature="0.0254" limited="true" frictionloss="1.6" />
                 <geom pos="0.0285991 -0.035 -0.115512" quat="0.701905 0.0855982 -0.0855985 -0.701908" type="mesh" rgba="0.498039 0.498039 0.498039 1" mesh="urdf_l_upper_forearm_simplified" />
                 <body name="urdf_l_lower_forearm_assembly" pos="0.0391735 -0.035 -0.158223" quat="0.945344 -0.0369251 -0.115285 0.302772">
                   <inertial pos="-0.00311766 0.00307025 -0.0515634" quat="0.995785 -0.00558183 0.0757942 -0.0513418" mass="0.618" diaginertia="0.000632875 0.000617128 0.000444421" />
-                  <joint name="left_wrist_yaw_joint_X4" pos="0 0 0" axis="0 0 1" range="-2.36 2.36" armature="0.0389" limited="true" />
+                  <joint name="left_wrist_yaw_joint_X4" pos="0 0 0" axis="0 0 1" range="-2.36 2.36" armature="0.0389" limited="true" frictionloss="1.14" />
                   <geom pos="-0.00732538 0.00522865 -0.0615" quat="0.62868 -0.628682 -0.323668 0.323666" type="mesh" rgba="0.980392 0.713725 0.00392157 1" mesh="urdf_l_lower_forearm_simplified" />
                   <body name="urdf_l_wrist_assembly" pos="0.0219762 -0.0156859 -0.0615" quat="0.945019 -0.117921 0.0377673 -0.302668">
                     <inertial pos="-0.0219307 0.0106852 -0.0421315" quat="0.925273 0.115302 0.358624 0.0443253" mass="0.098" diaginertia="0.000131244 0.000123151 6.4169e-05" />
-                    <joint name="left_wrist_roll_joint_X4" pos="0 0 0" axis="1 0 0" range="-1.57 1.57" armature="0.0389" limited="true" />
+                    <joint name="left_wrist_roll_joint_X4" pos="0 0 0" axis="1 0 0" range="-1.57 1.57" armature="0.0389" limited="true" frictionloss="1.14" />
                     <geom pos="-0.0219314 0.0106852 -0.0421315" quat="0.701664 0.0875548 0.0875544 -0.701667" type="mesh" rgba="0.8 0.74902 0.913725 1" mesh="l_wrist" />
                     <body name="left_hand" pos="-0.034 0.015 -0.06">
                       <inertial pos="-0.003 -0.066 -0.002" mass="0.576" diaginertia="0.00012281 8.3832e-05 7.6663e-05" />
@@ -84,27 +84,27 @@
         </body>
         <body name="urdf_r_shoulder_assembly" pos="0 -0.1695 0.423977">
           <inertial pos="-0.0047018 -0.0660727 -0.000602826" quat="0.713437 0.697755 -0.0247327 0.0594393" mass="1.02" diaginertia="0.00132898 0.00114326 0.00104898" />
-          <joint name="right_shoulder_pitch_joint_X6" pos="0 0 0" axis="0 1 0" range="-3.02 1.69" armature="0.0254" limited="true" />
+          <joint name="right_shoulder_pitch_joint_X6" pos="0 0 0" axis="0 1 0" range="-3.02 1.69" armature="0.0254" limited="true" frictionloss="1.6" />
           <geom pos="-0.00128021 -0.0501448 -0.000164156" quat="0.705787 0.0431688 -0.043169 -0.705789" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="r_shoulder" />
           <body name="urdf_r_upper_arm_assembly" pos="0.0456571 -0.07 0.00560611" quat="0.998135 0 -0.06105 0">
             <inertial pos="-0.0347331 -0.0216398 -0.101809" quat="0.973584 -0.102324 0.203001 -0.0213304" mass="0.802" diaginertia="0.00209028 0.00204755 0.000811563" />
-            <joint name="right_shoulder_roll_joint_X6" pos="0 0 0" axis="1 0 0" range="-2.93 0.21" armature="0.0254" limited="true" />
+            <joint name="right_shoulder_roll_joint_X6" pos="0 0 0" axis="1 0 0" range="-2.93 0.21" armature="0.0254" limited="true" frictionloss="1.6" />
             <geom pos="-0.025543 -0.0188222 -0.0885532" quat="0.703232 -0.0739117 -0.0739114 -0.703235" type="mesh" rgba="0.231373 0.380392 0.705882 1" mesh="r_upper_arm" />
             <body name="urdf_r_elbow_assembly" pos="-0.046 -0.0353444 -0.166285" quat="0.994441 -0.104518 0.00133208 0.0126917">
               <inertial pos="-0.00464628 0.00706688 -0.0612736" quat="0.471332 0.0675356 -0.0316928 0.878795" mass="1.109" diaginertia="0.00152147 0.00139045 0.00110905" />
-              <joint name="right_shoulder_yaw_joint_X4" pos="0 0 0" axis="0 0 1" range="-2.97 1.75" armature="0.0389" limited="true" />
+              <joint name="right_shoulder_yaw_joint_X4" pos="0 0 0" axis="0 0 1" range="-2.97 1.75" armature="0.0389" limited="true" frictionloss="1.14" />
               <geom pos="0.000192865 -0.000269971 -0.0512953" quat="0.881046 0 0 -0.473031" type="mesh" rgba="0.796078 0.905882 0.745098 1" mesh="r_elbow" />
               <body name="urdf_r_upper_forearm_assembly" pos="0.0220994 -0.033341 -0.065" quat="0.957433 0.00275256 -0.00913491 0.288497">
                 <inertial pos="0.0266786 0.0327896 -0.0982602" quat="0.974066 0.190904 -0.121057 -0.0098466" mass="0.707" diaginertia="0.00166967 0.00158973 0.000563185" />
-                <joint name="right_elbow_pitch_joint_X6" pos="0 0 0" axis="0 1 0" range="-1.31 1.83" armature="0.0254" limited="true" />
+                <joint name="right_elbow_pitch_joint_X6" pos="0 0 0" axis="0 1 0" range="-1.31 1.83" armature="0.0254" limited="true" frictionloss="1.6" />
                 <geom pos="0.0247724 0.0254856 -0.0806199" quat="0.701905 0.0856045 -0.0856048 -0.701907" type="mesh" rgba="0.890196 0.698039 0.639216 1" mesh="r_upper_forearm" />
                 <body name="urdf_r_lower_forearm_assembly" pos="0.0403774 0.04 -0.163076" quat="0.945344 0.036924 -0.115291 -0.302768">
                   <inertial pos="-0.00325453 -0.0023229 -0.046852" quat="0.94751 -0.0307144 0.0959044 0.303454" mass="0.618" diaginertia="0.000625145 0.000618602 0.000429937" />
-                  <joint name="right_wrist_yaw_joint_X4" pos="0 0 0" axis="0 0 1" range="-2.36 2.36" armature="0.0389" limited="true" />
+                  <joint name="right_wrist_yaw_joint_X4" pos="0 0 0" axis="0 0 1" range="-2.36 2.36" armature="0.0389" limited="true" frictionloss="1.14" />
                   <geom pos="0.00167509 0.00119554 -0.0333447" quat="0.889087 0 0 -0.457739" type="mesh" rgba="0.941176 0.87451 0.678431 1" mesh="r_lower_forearm" />
                   <body name="urdf_r_wrist_assembly" pos="0.0219763 0.0156857 -0.0565" quat="0.945021 0.117919 0.037766 0.302662">
                     <inertial pos="-0.0219123 -0.0106789 -0.0421059" quat="0.925172 -0.115292 0.358884 -0.0443569" mass="0.15" diaginertia="0.000200963 0.000188543 9.83151e-05" />
-                    <joint name="right_wrist_roll_joint_X4" pos="0 0 0" axis="1 0 0" range="-1.57 1.57" armature="0.0389" limited="true" />
+                    <joint name="right_wrist_roll_joint_X4" pos="0 0 0" axis="1 0 0" range="-1.57 1.57" armature="0.0389" limited="true" frictionloss="1.14" />
                     <geom pos="-0.0219316 -0.0106852 -0.0421314" quat="0.701664 -0.0875537 -0.0875534 -0.701667" type="mesh" rgba="0.8 0.74902 0.913725 1" mesh="r_wrist" />
                     <body name="right_hand" pos="-0.029 -0.011 -0.06">
                       <inertial pos="-0.003 -0.066 0.002" mass="0.576" diaginertia="0.00012281 8.3832e-05 7.6663e-05" />
@@ -121,29 +121,29 @@
       </body>
       <body name="urdf_hip_assembly" pos="0.070373 0.0872946 -0.431099">
         <inertial pos="-0.00387043 0.0602754 -3.33254e-05" quat="0.691551 0.722254 -0.00763629 -0.00688218" mass="1.829" diaginertia="0.00318512 0.00266833 0.00257738" />
-        <joint name="left_hip_pitch_joint_X8" pos="0 0 0" axis="0 1 0" range="-2.53 1.57" armature="0.0577" limited="true" />
+        <joint name="left_hip_pitch_joint_X8" pos="0 0 0" axis="0 1 0" range="-2.53 1.57" armature="0.0577" limited="true" frictionloss="3.21" />
         <geom pos="0.03 0.062 0" quat="0.500001 0.499997 -0.499999 -0.500002" type="mesh" rgba="0.498039 0.498039 0.498039 1" mesh="hip" />
         <body name="urdf_l_upper_femur_assembly" pos="0.053 0.062 0">
           <inertial pos="-0.0460989 0.000881037 -0.148514" quat="0.889589 0.0881699 0.186932 0.407326" mass="1.93" diaginertia="0.00570662 0.00565813 0.00304666" />
-          <joint name="left_hip_roll_joint_X8" pos="0 0 0" axis="1 0 0" range="-0.35 3.14" armature="0.0577" limited="true" />
+          <joint name="left_hip_roll_joint_X8" pos="0 0 0" axis="1 0 0" range="-0.35 3.14" armature="0.0577" limited="true" frictionloss="1.6" />
           <geom pos="0.571524 0.417098 -0.118" quat="0.676659 0.205263 -0.676658 0.205267" type="mesh" rgba="0.972549 0.529412 0.00392157 1" mesh="stopper_leg_28_75" />
           <geom pos="-0.0257799 0.00151622 -0.111785" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.141176 0.694118 0.65098 1" mesh="l_upper_femur" />
           <body name="urdf_lower_femur_assembly" pos="-0.053 0 -0.217">
             <inertial pos="2.11243e-05 -0.00408754 -0.100571" quat="0.708597 -0.0226464 0.0242359 0.704833" mass="1.832" diaginertia="0.00436357 0.00401519 0.00265494" />
-            <joint name="left_hip_yaw_joint_X8" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" armature="0.0577" limited="true" />
+            <joint name="left_hip_yaw_joint_X8" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" armature="0.0577" limited="true" frictionloss="1.6" />
             <geom pos="0.751 0.000165033 -0.1" quat="-3.60488e-07 -0.707107 -4.83421e-06 0.707107" type="mesh" rgba="0.768627 0.886275 0.952941 1" mesh="stopper_leg_22_5" />
             <geom pos="-4.57402e-09 0.00389134 -0.068766" quat="0.707109 0 0 -0.707105" type="mesh" rgba="0.380392 0.0470588 0.435294 1" mesh="lower_femur" />
             <body name="urdf_l_tibia_assembly" pos="-1.45947e-07 0.055 -0.111">
               <inertial pos="0.01449 -0.0488281 -0.199552" quat="0.73608 -0.0741885 0.00672793 0.672783" mass="2.216" diaginertia="0.0212146 0.0206814 0.00443599" />
-              <joint name="left_knee_joint_X8" pos="0 0 0" axis="0 1 0" range="-0.17 1.57" armature="0.0577" limited="true" />
+              <joint name="left_knee_joint_X8" pos="0 0 0" axis="0 1 0" range="-0.17 1.57" armature="0.0577" limited="true" frictionloss="1.14" />
               <geom pos="0.000678721 -0.0431371 -0.186264" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="urdf_l_tibia_assembly" />
               <body name="urdf_ankle_assembly" pos="0 -0.051 -0.395">
                 <inertial pos="0 -0.004 -0.0125426" quat="0.707107 0 0 0.707107" mass="0.0818219" diaginertia="2.15245e-05 1.69449e-05 1.25404e-05" />
-                <joint name="left_ankle_pitch_joint_X4" pos="0 0 0" axis="0 1 0" range="-0.79 0.79" armature="0.0389" limited="true" />
+                <joint name="left_ankle_pitch_joint_X4" pos="0 0 0" axis="0 1 0" range="-0.79 0.79" armature="0.0389" limited="true" frictionloss="1.14" />
                 <geom pos="0 -0.004 -0.0125426" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="urdf_ankle_assembly" />
                 <body name="urdf_foot_assembly" pos="-0.012 -0.004 -0.028">
                   <inertial pos="0.0436027 8.11114e-08 -0.0200314" quat="-1.42871e-06 0.704062 -1.41649e-06 0.710138" mass="0.309" diaginertia="0.00137701 0.00121361 0.000232348" />
-                  <joint name="left_ankle_roll_joint_X4" pos="0 0 0" axis="1 0 0" range="-0.79 0.79" armature="0.0389" limited="true" />
+                  <joint name="left_ankle_roll_joint_X4" pos="0 0 0" axis="1 0 0" range="-0.79 0.79" armature="0.0389" limited="true" frictionloss="1.14" />
                   <geom pos="0.0436027 7.24764e-08 -0.0200314" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="urdf_foot_assembly" friction="2.0 0.5 0.1" condim="4" />
                   <site name="LeftFoot_site" pos="0.043 0 -0.033" size="0.005" />
                 </body>
@@ -154,27 +154,27 @@
       </body>
       <body name="urdf_hip_assembly_2" pos="0.070373 -0.0887054 -0.431099">
         <inertial pos="-0.00387043 -0.0602754 3.33254e-05" quat="0.691551 0.722254 0.00763629 0.00688218" mass="1.829" diaginertia="0.00318512 0.00266833 0.00257738" />
-        <joint name="right_hip_pitch_joint_X8" pos="0 0 0" axis="0 1 0" range="-2.53 1.57" armature="0.0577" limited="true" />
+        <joint name="right_hip_pitch_joint_X8" pos="0 0 0" axis="0 1 0" range="-2.53 1.57" armature="0.0577" limited="true" frictionloss="3.21" />
         <geom pos="0.03 -0.062 0" quat="0.499998 -0.5 -0.500002 0.5" type="mesh" rgba="0.498039 0.498039 0.498039 1" mesh="hip" />
         <body name="urdf_r_upper_femur_assemby" pos="0.053 -0.062 0">
           <inertial pos="-0.0457109 -0.000406025 -0.147969" quat="0.54686 0.172399 0.104893 0.812539" mass="1.912" diaginertia="0.0055823 0.00552079 0.00296645" />
-          <joint name="right_hip_roll_joint_X8" pos="0 0 0" axis="1 0 0" range="-3.14 0.35" armature="0.0577" limited="true" />
+          <joint name="right_hip_roll_joint_X8" pos="0 0 0" axis="1 0 0" range="-3.14 0.35" armature="0.0577" limited="true" frictionloss="1.6" />
           <geom pos="-0.0257799 -0.00151624 -0.111785" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.941176 0.87451 0.678431 1" mesh="r_upper_femur" />
           <body name="urdf_lower_femur_assembly_2" pos="-0.053 0 -0.217">
             <inertial pos="9.05521e-10 0.00357383 -0.101307" quat="0.705869 0.0418434 -0.0418548 0.705866" mass="1.817" diaginertia="0.00424172 0.00383469 0.00256196" />
-            <joint name="right_hip_yaw_joint_X8" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" armature="0.0577" limited="true" />
+            <joint name="right_hip_yaw_joint_X8" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" armature="0.0577" limited="true" frictionloss="1.6" />
             <geom pos="4.57402e-09 -0.00389134 -0.068766" quat="0.707105 0 0 0.707108" type="mesh" rgba="0.380392 0.0470588 0.435294 1" mesh="lower_femur" />
             <body name="urdf_r_tibia_assembly" pos="1.45947e-07 -0.055 -0.111">
               <inertial pos="0.0144959 0.0488304 -0.199574" quat="0.672973 0.0066678 -0.0742171 0.735904" mass="2.215" diaginertia="0.0212086 0.0206757 0.00443325" />
-              <joint name="right_knee_joint_X8" pos="0 0 0" axis="0 1 0" range="-0.17 1.57" armature="0.0577" limited="true" />
+              <joint name="right_knee_joint_X8" pos="0 0 0" axis="0 1 0" range="-0.17 1.57" armature="0.0577" limited="true" frictionloss="1.14" />
               <geom pos="0.000678806 0.0431372 -0.186264" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="urdf_r_tibia_assembly" />
               <body name="urdf_ankle_assembly_2" pos="0 0.059 -0.395">
                 <inertial pos="0 -0.004 -0.0125426" quat="0.707107 0 0 0.707107" mass="0.0818219" diaginertia="2.15245e-05 1.69449e-05 1.25404e-05" />
-                <joint name="right_ankle_pitch_joint_X4" pos="0 0 0" axis="0 1 0" range="-0.79 0.79" armature="0.0389" limited="true" />
+                <joint name="right_ankle_pitch_joint_X4" pos="0 0 0" axis="0 1 0" range="-0.79 0.79" armature="0.0389" limited="true" frictionloss="1.14" />
                 <geom pos="0 -0.004 -0.0125426" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="urdf_ankle_assembly" />
                 <body name="urdf_foot_assembly_2" pos="-0.012 -0.004 -0.028">
                   <inertial pos="0.0436027 8.11114e-08 -0.0200314" quat="-1.42871e-06 0.704062 -1.41649e-06 0.710138" mass="0.309" diaginertia="0.00137701 0.00121361 0.000232348" />
-                  <joint name="right_ankle_roll_joint_X4" pos="0 0 0" axis="1 0 0" range="-0.79 0.79" armature="0.0389" limited="true" />
+                  <joint name="right_ankle_roll_joint_X4" pos="0 0 0" axis="1 0 0" range="-0.79 0.79" armature="0.0389" limited="true" frictionloss="1.14" />
                   <geom pos="0.0436027 7.24764e-08 -0.0200314" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="urdf_foot_assembly" friction="2.0 0.5 0.1" condim="4" />
                   <site name="RightFoot_site" pos="0.043 0 -0.033" size="0.005" />
                 </body>
