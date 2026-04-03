@@ -35,7 +35,7 @@
   </asset>
   <worldbody>
     <body name="urdf_base" pos="0 0 1.2085">
-      <inertial pos="0 0 0" mass="5.0" diaginertia="0.03 0.02 0.02" />
+      <inertial pos="0.071983 -0.000707749 -0.396794" mass="5.734" diaginertia="0.029089 0.0240807 0.0160144" />
       <freejoint name="root" />
       <geom pos="0.070373 -0.000705351 -1.1821" quat="0.707105 0 0 -0.707108" type="mesh" rgba="0.980392 0.713725 0.00392157 1" mesh="b_base" />
       <geom pos="0.070373 -0.000705351 0.319901" quat="9.38184e-07 -0.707105 0.707108 -9.38187e-07" type="mesh" rgba="0.654902 0.823529 0.576471 1" mesh="plate_base_right" />
