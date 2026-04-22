@@ -7,9 +7,12 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(control_msgs REQUIRED)
+find_package(trajectory_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
 
 # mc_rtc headers via pkg-config
@@ -71,6 +74,29 @@ target_link_libraries(mc_rtc_bridge
   mc_rtc_bridge_lib
 )
 
+# Real-robot bridge (FollowJointTrajectory actions per group)
+add_executable(mc_rtc_bridge_real src/mc_rtc_bridge_real.cpp)
+
+target_include_directories(mc_rtc_bridge_real PRIVATE
+  ${mc_rtc_INCLUDE_DIRS}
+  /usr/local/include/tvm/3rd-party
+)
+
+target_link_libraries(mc_rtc_bridge_real
+  ${MC_RTC_LIBS}
+  Eigen3::Eigen
+)
+
+ament_target_dependencies(mc_rtc_bridge_real
+  rclcpp
+  rclcpp_action
+  sensor_msgs
+  std_msgs
+  geometry_msgs
+  control_msgs
+  trajectory_msgs
+)
+
 install(TARGETS mc_rtc_bridge_lib
   EXPORT mc_rtc_bridge_libExport
   ARCHIVE DESTINATION lib
@@ -78,7 +104,7 @@ install(TARGETS mc_rtc_bridge_lib
   RUNTIME DESTINATION bin
 )
 
-install(TARGETS mc_rtc_bridge
+install(TARGETS mc_rtc_bridge mc_rtc_bridge_real
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -92,6 +118,6 @@ install(DIRECTORY config launch
 
 ament_export_include_directories(include)
 ament_export_libraries(mc_rtc_bridge_lib)
-ament_export_dependencies(rclcpp sensor_msgs std_msgs geometry_msgs)
+ament_export_dependencies(rclcpp rclcpp_action sensor_msgs std_msgs geometry_msgs control_msgs trajectory_msgs)
 
 ament_package()
